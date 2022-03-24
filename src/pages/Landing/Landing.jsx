@@ -20,7 +20,7 @@ const Landing = (props) => {
     try {
       await authService.login(formData)
       props.handleSignupOrLogin()
-      navigate('/')
+      navigate('/home')
     } catch (err) {
       props.updateMessage(err.message)
     }
@@ -65,9 +65,7 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <Link to='/home'>
-          <button className='button'>Sign In</button>
-        </Link>
+        <button className='button'>Sign In</button>
       </div>
       <div>
         <Link to='/signup'>
