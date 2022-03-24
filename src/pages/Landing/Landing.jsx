@@ -11,7 +11,7 @@ const Landing = (props) => {
   const navigate = useNavigate()
 
   const handleChange = e => {
-    props.updateMessage('')
+    // props.updateMessage('')
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -47,7 +47,7 @@ const Landing = (props) => {
           placeholder='Email'
         />
       </div>
-      <div id='hl' className='inputContainer'>
+      <div className='inputContainer'>
         <label htmlFor="password" className='label'></label>
         <input
           type="password"
@@ -60,7 +60,9 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <button className='button'>Log In</button>
+        <Link to='/home'>
+          <button className='button'>Log In</button>
+        </Link>
       </div>
       <div>
         <button className='button' >Sign Up</button>
