@@ -29,12 +29,12 @@ const Landing = (props) => {
     <>
       <main className='container'>
         <img src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='500' width='500'/>
-      </main>
         <div className='pTag' >
           <p>
             Please Sign in with Email and password or Sign up below!
           </p>
         </div>
+      </main>
         <form
         autoComplete="off"
         onSubmit={handleSubmit}
@@ -65,11 +65,13 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <button className='button' >Sign Up</button>
-      </div>
-      <div>
         <Link to='/home'>
           <button className='button'>Sign In</button>
+        </Link>
+      </div>
+      <div>
+        <Link to='/signup'>
+          <button className='button' >Sign Up</button>
         </Link>
       </div>
     </form>
