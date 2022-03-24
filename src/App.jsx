@@ -9,6 +9,8 @@ import Home from './pages/Home/Home'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
+import Restrooms from './pages/RestroomList/RestroomList'
+import Parkings from './pages/ParkingList/ParkingList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -54,6 +56,14 @@ const App = () => {
         <Route
           path="/restaurants"
           element={<Restaurants />}
+        />
+        <Route
+          path="/parkinglots"
+          element={<Parkings />}
+        />
+        <Route
+          path="/restrooms"
+          element={<Restrooms />}
         />
       </Routes>
     </>
