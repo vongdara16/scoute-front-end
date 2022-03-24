@@ -44,7 +44,7 @@ const SignupForm = props => {
       className='container'
     >
       <div className='inputContainer'>
-        <label htmlFor="name" className='label'>Name</label>
+        <label htmlFor="name" className='label'></label>
         <input
           type="text"
           autoComplete="off"
@@ -52,33 +52,35 @@ const SignupForm = props => {
           value={name}
           name="name"
           onChange={handleChange}
+          placeholder='Name'
         />
       </div>
       <div className='inputContainer'>
-        <label htmlFor="email" className='label'>Email</label>
+        <label htmlFor="email" className='label'></label>
         <input
           type="text"
           autoComplete="off"
-          id="email"
+          id="signup-email"
           value={email}
           name="email"
           onChange={handleChange}
+          placeholder='Email'
         />
       </div>
       <div className='inputContainer'>
-        <label htmlFor="password" className='label'>Password</label>
+        <label htmlFor="password" className='label'></label>
         <input
           type="password"
           autoComplete="off"
-          id="password"
+          id="signup-password"
           value={password}
           name="password"
           onChange={handleChange}
+          placeholder='Password'
         />
       </div>
       <div className='inputContainer'>
         <label htmlFor="confirm" className='label'>
-          Confirm Password
         </label>
         <input
           type="password"
@@ -87,9 +89,10 @@ const SignupForm = props => {
           value={passwordConf}
           name="passwordConf"
           onChange={handleChange}
+          placeholder='Confirm Password'
         />
       </div>
-      <div className='inputContainer'>
+      <div>
         <button disabled={isFormInvalid()} className='button'>
           Sign Up
         </button>
