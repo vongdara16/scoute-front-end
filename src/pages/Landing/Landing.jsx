@@ -27,8 +27,8 @@ const Landing = (props) => {
   }
   return (
     <>
-      <main id='image-container'>
-        <img src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='600' width='600'/>
+      <main className='container'>
+        <img src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='500' width='500'/>
         <div className='pTag' >
           <p>
             Please Sign in with Email and password or Sign up below!
