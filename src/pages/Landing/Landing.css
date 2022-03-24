@@ -20,6 +20,8 @@
   margin-bottom: 1rem;
   display: flex;
   width: 350px;
+  padding: 16px;
+  font-size: 16px;
 }
 
 #hl {
@@ -45,4 +47,21 @@ body {
 #email, #password {
   width: 350px;
   height: 25px;
+  position: relative;
+  top: -75px;
+  border-radius: 7px;
+  border: 1px solid #292934;
+}
+
+#email {
+  top: -100px;
+}
+
+.pTag{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+  top: -175px;
+
 }

@@ -30,6 +30,11 @@ const Landing = (props) => {
       <main className='container'>
         <img src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='500' width='500'/>
       </main>
+        <div className='pTag' >
+          <p>
+            Please Sign in with Email and password or Sign up below!
+          </p>
+        </div>
         <form
         autoComplete="off"
         onSubmit={handleSubmit}
@@ -47,7 +52,7 @@ const Landing = (props) => {
           placeholder='Email'
         />
       </div>
-      <div className='inputContainer'>
+      <div id='hl' className='inputContainer'>
         <label htmlFor="password" className='label'></label>
         <input
           type="password"
@@ -60,12 +65,12 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <Link to='/home'>
-          <button className='button'>Log In</button>
-        </Link>
+        <button className='button' >Sign Up</button>
       </div>
       <div>
-        <button className='button' >Sign Up</button>
+        <Link to='/home'>
+          <button className='button'>Sign In</button>
+        </Link>
       </div>
     </form>
     </>
