@@ -35,7 +35,7 @@ const Landing = (props) => {
           </p>
         </div>
       </main>
-        <form
+      <form
         autoComplete="off"
         onSubmit={handleSubmit}
         className='container'
@@ -69,9 +69,7 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <Link to='/home'>
-          <button id='sign-in' className='btn btn-secondary btn-lg'>Sign In</button>
-        </Link>
+        <button id='sign-in' className='btn btn-secondary btn-lg'>Sign In</button>
       </div>
       <div>
         <Link to='/signup'>
