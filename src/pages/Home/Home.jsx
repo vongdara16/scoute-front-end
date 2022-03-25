@@ -5,7 +5,6 @@ const Home = (props) => {
 
   return (  
     <>
-      <h1>Homies Page</h1>
       <div className="card" id="home-card">
         <Link to="/restrooms">
           <img 
