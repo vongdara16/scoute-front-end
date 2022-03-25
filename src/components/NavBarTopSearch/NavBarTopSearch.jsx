@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const NavBar = ({ user, handleLogout }) => {
+const NavBarTopSearch = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
@@ -24,4 +24,4 @@ const NavBar = ({ user, handleLogout }) => {
   )
 }
 
-export default NavBar
+export default NavBarTopSearch
