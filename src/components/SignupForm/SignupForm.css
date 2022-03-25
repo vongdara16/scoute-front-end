@@ -1,3 +1,7 @@
 .input-group {
   margin: 15%;
 }
+
+#sign-up-btn:valid {
+  background-color: forestgreen;
+}
