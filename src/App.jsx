@@ -31,11 +31,11 @@ const App = () => {
       <Routes>
         <Route 
           path='/home'
-          element={<Home />}
+          element={user ? <Home /> : <Navigate to="/" />}
         />
         <Route 
           path="/" 
-          element={<Landing user={user} handleSignupOrLogin={handleSignupOrLogin} />} 
+          element={<Landing handleSignupOrLogin={handleSignupOrLogin} />} 
         />
         <Route
           path="/signup"
@@ -55,15 +55,15 @@ const App = () => {
         />
         <Route
           path="/restaurants"
-          element={<Restaurants />}
+          element={user ? <Restaurants /> : <Navigate to="/" />}
         />
         <Route
           path="/parkinglots"
-          element={<Parkings />}
+          element={user ? <Parkings /> : <Navigate to="/" />}
         />
         <Route
           path="/restrooms"
-          element={<Restrooms />}
+          element={user ? <Restrooms /> : <Navigate to="/" />}
         />
       </Routes>
     </>
