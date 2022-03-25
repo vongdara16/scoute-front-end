@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
+import './Home.css'
 
 const Home = (props) => {
 
@@ -7,7 +8,7 @@ const Home = (props) => {
     <>
       <NavBarTop user={props.user} />
       <h1>Homies Page</h1>
-      <div className="card">
+      <div className="card" id="home-card">
         <Link to="/restrooms">
           <img 
             src="https://picsum.photos/id/398/640/480" 
