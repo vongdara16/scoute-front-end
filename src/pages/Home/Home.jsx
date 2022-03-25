@@ -1,8 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 const Home = (props) => {
+  const navigate = useNavigate()
+
+  const handleClick = e => {
+    console.log('testing click card')
+    console.log(e.target.parentElement.title)
+  }
+
   return (  
     <>
       <h1>Homies Page</h1>
-      <div className="card">
+      <div className="card" onClick={handleClick} title='restroom' >
         <img 
           src="https://picsum.photos/id/398/640/480" 
           className="card-img-top" 
@@ -10,7 +19,7 @@ const Home = (props) => {
           // style={{ width: '18rem' }}
         
         />
-        <div className="card-body">
+        <div className="card-body" title='restroom'>
           <h5 className="card-title">Find a Restroom</h5>
           {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="" className="btn btn-primary">Go somewhere</a> */}
