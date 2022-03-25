@@ -3,7 +3,13 @@ const Home = (props) => {
     <>
       <h1>Homies Page</h1>
       <div className="card">
-        <img src="..." className="card-img-top" alt="..." />
+        <img 
+          src="https://picsum.photos/id/398/640/480" 
+          className="card-img-top" 
+          alt="..." 
+          // style={{ width: '18rem' }}
+        
+        />
         <div className="card-body">
           <h5 className="card-title">Find a Restroom</h5>
           {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -11,7 +17,13 @@ const Home = (props) => {
         </div>
       </div>
       <div className="card">
-        <img src="..." className="card-img-top" alt="..." />
+        <img 
+          src="https://picsum.photos/id/676/640/480" 
+          className="card-img-top" 
+          alt="..." 
+          // style={{ width: '18rem' }}
+        
+        />
         <div className="card-body">
           <h5 className="card-title">Find a Restaurant</h5>
           {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -19,7 +31,12 @@ const Home = (props) => {
         </div>
       </div>
       <div className="card">
-        <img src="..." className="card-img-top" alt="..." />
+        <img 
+          src="https://picsum.photos/id/648/640/480" 
+          className="card-img-top" 
+          alt="..." 
+          // style={{ width: '18rem' }} 
+        />
         <div className="card-body">
           <h5 className="card-title">Find Parking</h5>
           {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
