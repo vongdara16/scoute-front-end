@@ -30,9 +30,8 @@ const Landing = (props) => {
       <main className='container'>
         <img id='img-landing' src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='500' width='500'/>
         <div className='pTag' >
-          <p>
-            Please Sign in with Email and password or Sign up below!
-          </p>
+          <h1 className='sign-in-header'>Sign in below</h1>
+          <soft className='text-muted muted-landing'>Or if you dont have an account sign up!</soft>
         </div>
       </main>
       <form
@@ -41,7 +40,9 @@ const Landing = (props) => {
         className='container'
       >
       <div className='inputContainer input-group mb-3'>
-        <label htmlFor="email" className='label landing-label input-group-text' id='inputGroup-sizing-default' ></label>
+        <label htmlFor="email" className='label landing-label input-group-text' id='inputGroup-sizing-default' >
+        <i className='material-icons'>email</i>
+        </label>
         <input
           className='form-control landing-form'
           aria-label='Sizing example input'
@@ -55,7 +56,9 @@ const Landing = (props) => {
         />
       </div>
       <div className='inputContainer input-group mb-3'>
-        <label htmlFor="password" className='label landing-label input-group-text' id='inputGroup-sizing-default'></label>
+        <label htmlFor="password" className='label landing-label input-group-text' id='inputGroup-sizing-default'>
+        <i className='material-icons'>key</i>
+        </label>
         <input
           className='form-control landing-form'
           aria-label='Sizing example input'

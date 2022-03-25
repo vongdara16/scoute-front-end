@@ -1,0 +1,36 @@
+#home-card {
+  width: 85%;
+  height: fit-content;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+div.card-body {
+  background-color: #EEEEEE;
+}
+
+img.card-img-top {
+  border-radius: 20px;
+  background-color: #EEEEEE;
+  height: 50vw;
+  object-fit: cover;
+}
+
+.card {
+  background-color: #EEEEEE;
+  border: #EEEEEE;
+} 
+
+body {
+  background-color: #EEEEEE;
+}
+
+#link {
+  color: #1c658c;
+}
+
+a:link {
+  text-decoration: none;
+}
+

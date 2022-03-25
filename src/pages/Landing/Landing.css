@@ -35,5 +35,11 @@ img#img-landing {
 
 .landing-form, .landing-label {
   position: relative;
-  top: -125px;
+  top: -155px;
+}
+
+.sign-in-header, .muted-landing {
+  position: relative;
+  top: -60px;
+  text-align: center;
 }
