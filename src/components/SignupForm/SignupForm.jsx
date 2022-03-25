@@ -36,6 +36,10 @@ const SignupForm = props => {
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
   }
+  const handleChangePhoto = evt => {
+		setFormData({...formData, photo: evt.target.files[0]})
+	}
+
 
   return (
     <form
@@ -43,21 +47,37 @@ const SignupForm = props => {
       onSubmit={handleSubmit}
       className='container'
     >
-      <div className='inputContainer'>
-        <label htmlFor="name" className='label'></label>
+      <div className="form-group mb-4">
+				<label htmlFor="photo-upload" className="form-label">
+						Profile Photo
+				</label>
+					<input
+						type="file"
+						className="form-control"
+						id="photo-upload"
+						name="photo"
+						onChange={handleChangePhoto}
+					/>
+				</div>
+      <div className='input-group mb-3'>
+        <label htmlFor="name" className='input-group-text' id='inputGroup-sizing-default' ></label>
         <input
+          className="form-control"
+          aria-label="Sizing example input"
           type="text"
           autoComplete="off"
           id="name"
           value={name}
           name="name"
           onChange={handleChange}
-          placeholder='Name'
+          placeholder='Full Name'
         />
       </div>
-      <div className='inputContainer'>
-        <label htmlFor="email" className='label'></label>
+      <div className='input-group mb-3'>
+        <label htmlFor="email" className='input-group-text' id='inputGroup-sizing-default' ></label>
         <input
+          className='form-control'
+          aria-label='Sizing example input'
           type="text"
           autoComplete="off"
           id="signup-email"
@@ -67,9 +87,11 @@ const SignupForm = props => {
           placeholder='Email'
         />
       </div>
-      <div className='inputContainer'>
-        <label htmlFor="password" className='label'></label>
+      <div className='input-group mb-3'>
+        <label htmlFor="password" className='input-group-text' id='inputGroup-sizing-default'></label>
         <input
+          className='form-control'
+          aria-label='Sizing example input'
           type="password"
           autoComplete="off"
           id="signup-password"
@@ -79,10 +101,12 @@ const SignupForm = props => {
           placeholder='Password'
         />
       </div>
-      <div className='inputContainer'>
-        <label htmlFor="confirm" className='label'>
+      <div className='input-group mb-3'>
+        <label htmlFor="confirm" className='input-group-text' id='inputGroup-sizing-default'>
         </label>
         <input
+          className='form-control'
+          aria-label='Sizing example input'
           type="password"
           autoComplete="off"
           id="confirm"
@@ -93,11 +117,11 @@ const SignupForm = props => {
         />
       </div>
       <div>
-        <button disabled={isFormInvalid()} className='button'>
+        <button disabled={isFormInvalid()} className='btn btn-secondary btn-fluid'>
           Sign Up
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button className='btn btn-danger btn-fluid' >Cancel</button>
         </Link>
       </div>
     </form>

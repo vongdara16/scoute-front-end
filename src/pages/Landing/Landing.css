@@ -2,3 +2,38 @@
   width: 350px;
   margin: 10px;
 }
+#sign-in {
+  position: relative;
+  top: -80px;
+  background-color:#1c658c;
+}
+
+#sign-up {
+  position: relative;
+  top: -80px;
+  color: #1c658c;
+}
+
+#sign-up:hover, #sign-in:hover {
+  transform: scale(1.1);
+}
+
+#sign-up:hover {
+  background-color: #1c658c;
+  color: white;
+}
+
+.pTag {
+  position: relative;
+  top: -100px;
+}
+
+img {
+  position: relative;
+  top: -70px;
+}
+
+.landing-form, .landing-label {
+  position: relative;
+  top: -125px;
+}
