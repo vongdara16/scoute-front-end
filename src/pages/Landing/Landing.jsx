@@ -69,7 +69,9 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <button id='sign-in' className='btn btn-secondary btn-lg'>Sign In</button>
+        <Link to='/home'>
+          <button id='sign-in' className='btn btn-secondary btn-lg'>Sign In</button>
+        </Link>
       </div>
       <div>
         <Link to='/signup'>

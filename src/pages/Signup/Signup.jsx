@@ -11,6 +11,7 @@ const Signup = props => {
 
   return (
     <main className='container'>
+      <img id='signup-img' src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='200' width='200'/>
       <h1>Sign Up</h1>
       <p>{message}</p>
       <SignupForm {...props} updateMessage={updateMessage} />
