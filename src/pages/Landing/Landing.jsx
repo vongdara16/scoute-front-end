@@ -30,7 +30,7 @@ const Landing = (props) => {
       <main className='container'>
         <img src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='500' width='500'/>
         <div className='pTag' >
-          <p>
+          <p id='intro'>
             Please Sign in with Email and password or Sign up below!
           </p>
         </div>
@@ -40,9 +40,11 @@ const Landing = (props) => {
         onSubmit={handleSubmit}
         className='container'
       >
-      <div className='inputContainer'>
-        <label htmlFor="email" className='label'></label>
+      <div className='inputContainer input-group mb-3'>
+        <label htmlFor="email" className='label input-group-text' id='inputGroup-sizing-default' ></label>
         <input
+          className='form-control'
+          aria-label='Sizing example input'
           type="text"
           autoComplete="off"
           id="email"
@@ -52,9 +54,11 @@ const Landing = (props) => {
           placeholder='Email'
         />
       </div>
-      <div id='hl' className='inputContainer'>
-        <label htmlFor="password" className='label'></label>
+      <div className='inputContainer input-group mb-3'>
+        <label htmlFor="password" className='label input-group-text' id='inputGroup-sizing-default'></label>
         <input
+          className='form-control'
+          aria-label='Sizing example input'
           type="password"
           autoComplete="off"
           id="password"
@@ -65,11 +69,11 @@ const Landing = (props) => {
         />
       </div>
       <div>
-        <button className='button'>Sign In</button>
+        <button className='btn btn-primary btn-lg'>Sign In</button>
       </div>
       <div>
         <Link to='/signup'>
-          <button className='button' >Sign Up</button>
+          <button className='btn btn-secondary btn-lg'>Sign Up</button>
         </Link>
       </div>
     </form>
