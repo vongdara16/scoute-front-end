@@ -1,2 +1,5 @@
-
+.sign-up-header, small {
+  position: relative;
+  top: -40px;
+}
 

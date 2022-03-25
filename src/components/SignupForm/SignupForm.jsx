@@ -47,9 +47,8 @@ const SignupForm = props => {
       onSubmit={handleSubmit}
       className='container'
     >
-      <div className="form-group mb-2">
+      <div className="form-group mb-1">
 				<label htmlFor="photo-upload" className="form-label" id='inputGroup-sizing-default'>
-						Profile Photo
 				</label>
 					<input
 						type="file"
@@ -59,8 +58,10 @@ const SignupForm = props => {
 						onChange={handleChangePhoto}
 					/>
 				</div>
-      <div className='input-group mb-2'>
-        <label htmlFor="name" className='input-group-text' id='inputGroup-sizing-default' ></label>
+      <div className='input-group mb-1'>
+        <label htmlFor="name" className='input-group-text' id='inputGroup-sizing-default' >
+          <i className='material-icons'>create</i>
+        </label>
         <input
           className="form-control"
           aria-label="Sizing example input"
@@ -73,8 +74,10 @@ const SignupForm = props => {
           placeholder='Full Name'
         />
       </div>
-      <div className='input-group mb-2'>
-        <label htmlFor="email" className='input-group-text' id='inputGroup-sizing-default' ></label>
+      <div className='input-group mb-1'>
+        <label htmlFor="email" className='input-group-text' id='inputGroup-sizing-default' >
+        <i className='material-icons'>email</i>
+        </label>
         <input
           className='form-control'
           aria-label='Sizing example input'
@@ -87,8 +90,10 @@ const SignupForm = props => {
           placeholder='Email'
         />
       </div>
-      <div className='input-group mb-2'>
-        <label htmlFor="password" className='input-group-text' id='inputGroup-sizing-default'></label>
+      <div className='input-group mb-1'>
+        <label htmlFor="password" className='input-group-text' id='inputGroup-sizing-default'>
+        <i className='material-icons'>key</i>
+        </label>
         <input
           className='form-control'
           aria-label='Sizing example input'
@@ -101,8 +106,9 @@ const SignupForm = props => {
           placeholder='Password'
         />
       </div>
-      <div className='input-group mb-2'>
+      <div className='input-group mb-1'>
         <label htmlFor="confirm" className='input-group-text' id='inputGroup-sizing-default'>
+        <i className='material-icons'>key</i>
         </label>
         <input
           className='form-control'
@@ -117,7 +123,7 @@ const SignupForm = props => {
         />
       </div>
       <div>
-        <button disabled={isFormInvalid()} className='btn btn-secondary btn-fluid'>
+        <button disabled={isFormInvalid()} className='btn btn-secondary btn-fluid' id='sign-up-btn' >
           Sign Up
         </button>
         <Link to="/">

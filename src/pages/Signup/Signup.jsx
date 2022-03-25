@@ -12,7 +12,9 @@ const Signup = props => {
   return (
     <main className='container'>
       <img id='signup-img' src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='200' width='200'/>
-      <h1>Sign Up</h1>
+      <h1 className='sign-up-header' >Sign Up
+      </h1>
+      <small className='text-muted'>Create an account with Scoute</small>
       <p>{message}</p>
       <SignupForm {...props} updateMessage={updateMessage} />
     </main>
