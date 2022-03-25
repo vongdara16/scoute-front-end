@@ -5,3 +5,8 @@
 #sign-up-btn:valid {
   background-color: forestgreen;
 }
+
+#sign-up-buttons{
+  text-align: center;
+  display: block;
+}

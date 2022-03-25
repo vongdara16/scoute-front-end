@@ -122,7 +122,7 @@ const SignupForm = props => {
           placeholder='Confirm Password'
         />
       </div>
-      <div>
+      <div id='sign-up-buttons'>
         <button disabled={isFormInvalid()} className='btn btn-secondary btn-fluid' id='sign-up-btn' >
           Sign Up
         </button>
