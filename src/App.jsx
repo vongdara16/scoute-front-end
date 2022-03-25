@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/NavBarTop/NavBarTop'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
@@ -31,7 +31,7 @@ const App = () => {
       <Routes>
         <Route 
           path='/home'
-          element={user ? <Home /> : <Navigate to="/" />}
+          element={user ? <Home user={user} /> : <Navigate to="/" />}
         />
         <Route 
           path="/" 

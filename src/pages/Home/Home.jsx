@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import NavBarTop from "../../components/NavBarTop/NavBarTop";
 
 const Home = (props) => {
 
   return (  
     <>
+      <NavBarTop user={props.user} />
       <h1>Homies Page</h1>
       <div className="card">
         <Link to="/restrooms">
