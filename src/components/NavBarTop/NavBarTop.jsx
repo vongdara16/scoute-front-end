@@ -10,7 +10,7 @@ const NavBarTop = ({ user, handleLogout }) => {
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
           {/* <li><Link to='' className="dropdown-item">{user.name}</Link></li> */}
-          <li><button className="dropdown-item" type="button">Edit Profile</button></li>
+          <li><Link to='' className="dropdown-item">Edit Profile</Link></li>
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
       </div>
