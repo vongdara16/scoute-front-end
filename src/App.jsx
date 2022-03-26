@@ -19,6 +19,7 @@ const App = () => {
   const [restrooms, setRestrooms] = useState([])
   const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
+  const [message, setMessage] = useState([''])
 
   const navigate = useNavigate()
 
@@ -26,6 +27,10 @@ const App = () => {
     authService.logout()
     setUser(null)
     navigate('/')
+  }
+
+  const updateMessage = msg => {
+    setMessage(msg)
   }
 
   const handleSignupOrLogin = () => {
@@ -41,7 +46,7 @@ const App = () => {
         />
         <Route 
           path="/" 
-          element={<Landing handleSignupOrLogin={handleSignupOrLogin} />} 
+          element={<Landing updateMessage={updateMessage} handleSignupOrLogin={handleSignupOrLogin} />} 
         />
         <Route
           path="/signup"

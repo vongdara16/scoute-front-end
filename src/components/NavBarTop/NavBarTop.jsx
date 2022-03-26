@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 const NavBarTop = ({ user, handleLogout }) => {
   return (
     <>
-      <nav className='navbar'>
+      <nav id='top-nav-no-search' className='navbar'>
       <div className="dropdown">
         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-          <i className='material-icons'>person</i>
+          <i id='top-icon' className='material-icons'>person</i>
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
           {/* <li><Link to='' className="dropdown-item">{user.name}</Link></li> */}

@@ -34,3 +34,7 @@ a:link {
   text-decoration: none;
 }
 
+i#top-icon.material-icons{
+  color: #1c658c;
+  left: 20px;
+}
