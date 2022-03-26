@@ -36,5 +36,19 @@ a:link {
 
 i#top-icon.material-icons{
   color: #1c658c;
-  left: 20px;
+  font-size: 30px;
+}
+
+nav#top-nav-no-search.navbar {
+  border-bottom: 1px solid black;
+  height: 60px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+button#dropdownMenu2.btn.btn-secondary.dropdown-toggle {
+  background-color: #EEEEEE;
+  border: none;
+  margin: 0 auto;
+  width: max-content;
 }
