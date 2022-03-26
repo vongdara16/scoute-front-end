@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import restaurantService from '../../services/restaurantService'
+import * as restaurantService from '../../services/restaurantService'
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 
 const Restaurants = (props) => {
@@ -14,10 +14,12 @@ const Restaurants = (props) => {
     <>
       <h1>Restaurants</h1>
       <div>
-        {restaurants.map(restaurant => (
-          <RestaurantCard />
-        
-          ))}
+        {restaurants.map((restaurant, idx) => {
+          if(idx < 5) {
+            <RestaurantCard />
+          }
+
+        })}
       </div>
 
     </>

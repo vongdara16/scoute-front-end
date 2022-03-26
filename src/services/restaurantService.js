@@ -1,9 +1,9 @@
 import * as tokenService from './tokenService'
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/restaurants`
 
 
 function create(restaurant) {
-  return fetch(`${BASE_URL}/restaurants`, {
+  return fetch(`${BASE_URL}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
@@ -14,7 +14,7 @@ function create(restaurant) {
 }
 
 function getAll() {
-  return fetch(`${BASE_URL}/restaurants`, {
+  return fetch(`${BASE_URL}`, {
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
@@ -23,7 +23,7 @@ function getAll() {
 }
 
 function deleteOne(id) {
-  return fetch(`${BASE_URL}/restaurants/${id}`, {
+  return fetch(`${BASE_URL}/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
