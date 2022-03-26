@@ -31,7 +31,7 @@ const Landing = (props) => {
         <img id='img-landing' src="https://i.imgur.com/8nvqijy.png" alt='landing page logo' height='500' width='500'/>
         <div className='pTag' >
           <h1 className='sign-in-header'>Sign in below</h1>
-          <soft className='text-muted muted-landing'>Or if you dont have an account sign up!</soft>
+          <small className='text-muted muted-landing'>Or if you dont have an account sign up!</small>
         </div>
       </main>
       <form
