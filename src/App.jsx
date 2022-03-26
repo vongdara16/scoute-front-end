@@ -15,7 +15,6 @@ import Parkings from './pages/ParkingList/ParkingList'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [parkinglots, setParkinglots] = useState([])
-  const [restaurants, setRestaurants] = useState([])
   const [restrooms, setRestrooms] = useState([])
   const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
