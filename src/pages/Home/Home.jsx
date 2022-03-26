@@ -11,7 +11,8 @@ const Home = (props) => {
         <Link to="/restrooms">
           <img 
             src="https://picsum.photos/id/398/640/480" 
-            className="card-img-top" 
+            className="card-img-top"
+            id="restroom-picture"
             alt="..." 
           />
           <div className="card-body" title='restrooms'>
