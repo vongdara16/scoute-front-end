@@ -1,0 +1,9 @@
+.bot-nav-icon {
+  color: #1c658c;
+  font-size: 30px;
+}
+
+nav.navbar.fixed-bottom.navbar-light.bg-light {
+  background-color: #EEEEEE !important;
+  border-top: 1px solid gray;
+}

@@ -1,25 +1,28 @@
 import { Link } from 'react-router-dom'
+import './NavBarBot.css'
 
-const NavBarBot = ({ user, handleLogout }) => {
+const NavBarBot = (props) => {
   return (
     <>
-      {user ?
-        <nav>
-          <ul>
-            <li>Welcome, {user.name}</li>
-            <li><Link to="/profiles">Profiles</Link></li>
-            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-            <li><Link to="/changePassword">Change Password</Link></li>
-          </ul>
-        </nav>
-      :
-        <nav>
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
-        </nav>
-      }
+      <nav className="navbar fixed-bottom navbar-light bg-light">
+        <div className="container-fluid">
+          <Link to='/home'>
+            <i className='material-icons bot-nav-icon'>home</i>
+          </Link>
+          <Link to='/restrooms'>
+            <i className='material-icons bot-nav-icon'>wc</i>
+          </Link>
+          <Link to=''>
+            <i className='material-icons bot-nav-icon dropup-toggle'>add_circle</i>
+          </Link>
+          <Link to='/parkinglots'>
+            <i className='material-icons bot-nav-icon'>local_parking</i>
+          </Link>
+          <Link to='/restaurants'>
+            <i className='material-icons bot-nav-icon'>restaurant</i>
+          </Link>
+        </div>
+      </nav>
     </>
   )
 }
