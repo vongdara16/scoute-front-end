@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as restaurantService from '../../services/restaurantService'
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
+import NavBarBot from '../../components/NavBarBot/NavBarBot';
+import NavBarTopSearch from '../../components/NavBarTopSearch/NavBarTopSearch';
 
 const Restaurants = (props) => {
   const [restaurants, setRestaurants] = useState(['test1', 'test2', 'test3'])
@@ -14,6 +16,7 @@ const Restaurants = (props) => {
 
   return ( 
     <>
+      <NavBarTopSearch />
       <h1>Restaurants</h1>
       <div>
         {restaurants.map((restaurant, idx) => 
@@ -26,6 +29,7 @@ const Restaurants = (props) => {
           
 
         )}
+        <NavBarBot />
       </div>
     </>
   );
