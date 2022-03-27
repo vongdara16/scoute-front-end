@@ -52,3 +52,7 @@ button#dropdownMenu2.btn.btn-secondary.dropdown-toggle {
   margin: 0 auto;
   width: max-content;
 }
+
+button#dropdownMenu2.btn.btn-secondary.dropdown-toggle::after {
+  color: #EEEEEE;
+}
