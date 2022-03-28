@@ -23,6 +23,7 @@ const Restaurants = (props) => {
           // <h2>test</h2>
           <RestaurantCard 
             key={idx}
+            restaurant={restaurant}
           />
           // console.log(idx)
           // console.log(restaurant)
