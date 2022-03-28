@@ -20,7 +20,12 @@ const NavBarTopSearch = ({ user, handleLogout }) => {
         </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <form className="d-flex">
-            <input className="form-control me-2" type="search" placeholder="Enter Zipcode" aria-label="Search"></input>
+            <input 
+              className="form-control me-2" 
+              type="search" 
+              placeholder="Enter Location" 
+              aria-label="Search"
+            />
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
