@@ -52,7 +52,7 @@ const Restaurants = (props) => {
     <>
       <NavBarTopSearch />
       <h1>Restaurants</h1>
-      <div>
+      <div id='return-card'>
         {restaurants.map((restaurant, idx) => 
           // <h2>test</h2>
           <RestaurantCard 
@@ -63,9 +63,9 @@ const Restaurants = (props) => {
           // console.log(restaurant)
           
 
-        )}
-        <NavBarBot />
+          )}
       </div>
+      <NavBarBot />
     </>
   );
 }
