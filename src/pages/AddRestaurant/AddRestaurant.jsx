@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import NavBarTop from '../../components/NavBarTop/NavBarTop';
+import NavBarBot from '../../components/NavBarBot/NavBarBot';
 
 const AddRestaurant = (props) => {
+  const location = useLocation()
+  console.log(location.state)
   return (  
     <>
+      <NavBarTop />
       <h1>add a restaurant!</h1>
       <form
       autoComplete="off"
@@ -59,20 +64,22 @@ const AddRestaurant = (props) => {
         <input
           className='form-control'
           aria-label='Sizing example input'
-          type="number"
+          type="tel"
+          // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+          maxLength={10}
           autoComplete="off"
           // id=""
           // value={password}
           name="phoneNumber"
           // onChange={handleChange}
-          placeholder='###-###-####'
+          placeholder='Phone Number'
         />
       </div>
       <div className='input-group mb-1'>
         <label htmlFor="price" className='input-group-text' id='inputGroup-sizing-default'>
         <i className='material-icons'>attach_money</i>
         </label>
-        <input
+        <select
           className='form-control'
           aria-label='Sizing example input'
           type="password"
@@ -82,13 +89,19 @@ const AddRestaurant = (props) => {
           name="price"
           // onChange={handleChange}
           placeholder='Price Rating in $'
-        />
+        >
+          <option value="">-- Select A Price -- </option>
+          <option value="1">$</option>
+          <option value="2">$$</option>
+          <option value="3">$$$</option>
+          <option value="4">$$$$</option>
+        </select>
       </div>
       <div className='input-group mb-1'>
         <label htmlFor="rating" className='input-group-text' id='inputGroup-sizing-default'>
         <i className='material-icons'>star_half</i>
         </label>
-        <input
+        <select
           className='form-control'
           aria-label='Sizing example input'
           type="password"
@@ -98,7 +111,14 @@ const AddRestaurant = (props) => {
           name="rating"
           // onChange={handleChange}
           placeholder='Restaurant Rating'
-        />
+        >
+          <option value=""> -- Select A Rating -- </option>
+          <option value="1">☆</option>
+          <option value="2">☆☆</option>
+          <option value="3">☆☆☆</option>
+          <option value="4">☆☆☆☆</option>
+          <option value="5">☆☆☆☆☆</option>
+        </select>
       </div>
       <div id='sign-up-buttons'>
         <button 
@@ -112,6 +132,7 @@ const AddRestaurant = (props) => {
         </Link>
       </div>
     </form>
+    <NavBarBot page='restaurants'/>
     </>
   );
 }
