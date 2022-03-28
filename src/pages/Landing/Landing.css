@@ -1,6 +1,7 @@
 .btn {
   width: 350px;
   margin: 10px;
+  font-family: 'Signika Negative', sans-serif;
 }
 #sign-in {
   position: relative;
@@ -36,10 +37,12 @@ img#img-landing {
 .landing-form, .landing-label {
   position: relative;
   top: -155px;
+  font-family: 'Signika Negative', sans-serif;
 }
 
 .sign-in-header, .muted-landing {
   position: relative;
   top: -60px;
   text-align: center;
+  font-family: 'Signika Negative', sans-serif;
 }

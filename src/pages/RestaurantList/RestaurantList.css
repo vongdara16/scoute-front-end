@@ -1,6 +1,29 @@
-#return-card{
+#return-card {
   overflow-y: scroll;
   overflow-x: hidden;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+#restaurant-header {
+  text-align: center;
+  color: #1c658c;
+}
+
+#all-cards {
+  padding-top: 20px;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+#no-rest {
+  height: 100vh;
+  font-size: larger;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+#small-text {
+  position: relative;
+  top: -10px;
+  margin: 0 auto;
+  font-family: 'Signika Negative', sans-serif;
 }

@@ -3,6 +3,7 @@ import * as restaurantService from '../../services/restaurantService'
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 import NavBarBot from '../../components/NavBarBot/NavBarBot';
 import NavBarTopSearch from '../../components/NavBarTopSearch/NavBarTopSearch';
+import './RestaurantList.css'
 
 const Restaurants = (props) => {
   
@@ -43,19 +44,22 @@ const Restaurants = (props) => {
         isFormInvalid={isFormInvalid} 
         search={search}
       />
-      <h1>Restaurants</h1>
+      <h1 id='restaurant-header' >Restaurants</h1>
       <div>
-        {!restaurants.length ? 
-          <h2>No restaurants</h2>
+        {!restaurants.length ?
+        <div id='no-rest'> 
+          <h2>No Restaurants, Please enter your location in the search bar above.</h2>
+          <small id='small-text'>Or allow access to your location</small>
+        </div>
         :
-          <h2>
+          <h2 id='all-cards'>
             {restaurants.map((restaurant, idx) => 
               <RestaurantCard key={idx} restaurant={restaurant} />
             )}
           </h2>
         }
       </div>
-      <NavBarBot />
+      <NavBarBot page='restaurants'/>
     </>
   );
 }
