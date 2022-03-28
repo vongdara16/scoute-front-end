@@ -12,15 +12,18 @@
 
 #all-cards {
   padding-top: 20px;
+  font-family: 'Signika Negative', sans-serif;
 }
 
 #no-rest {
   height: 100vh;
   font-size: larger;
+  font-family: 'Signika Negative', sans-serif;
 }
 
 #small-text {
   position: relative;
   top: -10px;
   margin: 0 auto;
+  font-family: 'Signika Negative', sans-serif;
 }

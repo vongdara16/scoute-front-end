@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
+import './RestaurantDetails.css'
 
 const RestaurantDetails = (props) => {
   const location = useLocation()
@@ -11,20 +12,24 @@ const RestaurantDetails = (props) => {
   return (  
     <>
       <NavBarTop />
-      <h1>dis da restaurant detailz page</h1>
-      <h1>{restaurantData.name}</h1>
-      <img src={restaurantData.image_url} alt="restaurant-img" style={{width : '40%'}}/>
-      <div>
-        <span>Price: {restaurantData.price} | </span>
-        <span>Distance: {restaurantData.distance} yeets away</span>
+      <h1 id="details-name" >{restaurantData.name}</h1>
+      <img src={restaurantData.image_url} alt="restaurant-img" style={{width : '100%'}}/>
+      <div id="details-price-distance" >
+        <span id="details-price" >{restaurantData.price} </span>
+        <span id='distance' >{(restaurantData.distance/1609.34).toFixed(2)} mi</span>
       </div>
       <br /> {/* this break can be deleted later */}
-      <div>
-        <p>Location: {restaurantData.location.address1}</p>
-        <p>Phone: {restaurantData.phone}</p>
+      <div id="details-location-phone" >
+        <p>
+          <i className="material-icons" >place</i>
+          {restaurantData.location.address1}</p>
+        <p>
+          <i className="material-icons" >phone</i>
+          {restaurantData.display_phone}</p>
       </div>
+      <hr id="solid" />
       <div>
-        <h3>Reviews will be generated here!</h3>
+        <h3 style={{height : '100vh'}} >Reviews will be generated here!</h3>
       </div>
       {/* {console.log(theRestaurant)} */}
       <NavBarBot />
