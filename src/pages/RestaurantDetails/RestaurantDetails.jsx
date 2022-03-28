@@ -6,7 +6,6 @@ import './RestaurantDetails.css'
 
 const RestaurantDetails = (props) => {
   const location = useLocation()
-  // const theRestaurant = location.state.restaurant
   const [restaurantData, setRestaurantData] = useState(location.state.restaurant)
 
   return (  
@@ -31,10 +30,9 @@ const RestaurantDetails = (props) => {
       <div>
         <h3 style={{height : '100vh'}} >Reviews will be generated here!</h3>
       </div>
-      {/* {console.log(theRestaurant)} */}
       <NavBarBot />
     </>
   );
 }
- 
+
 export default RestaurantDetails;

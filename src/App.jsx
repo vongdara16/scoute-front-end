@@ -114,7 +114,7 @@ const App = () => {
           }
         />
         <Route
-          path="/restaurants/idplaceholder"
+          path="/restaurants/:id"
           element={user ? <RestaurantDetails /> : <Navigate to="/" />}
         />
         <Route 

@@ -5,7 +5,7 @@ const RestaurantCard = ({restaurant}) => {
   return (  
     <>
       <div className="card" id="home-card">
-        <Link to="/restaurants/idplaceholder" key={restaurant.id} state={{restaurant}}>
+        <Link to={restaurant.id} key={restaurant.id} state={{restaurant}}>
           <img 
             src={restaurant.image_url} 
             className="card-img-top"
@@ -48,5 +48,5 @@ const RestaurantCard = ({restaurant}) => {
     </>
   );
 }
- 
+
 export default RestaurantCard;
