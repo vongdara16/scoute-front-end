@@ -1,6 +1,26 @@
-#return-card{
+#return-card {
   overflow-y: scroll;
   overflow-x: hidden;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+#restaurant-header {
+  text-align: center;
+  color: #1c658c;
+}
+
+#all-cards {
+  padding-top: 20px;
+}
+
+#no-rest {
+  height: 100vh;
+  font-size: larger;
+}
+
+#small-text {
+  position: relative;
+  top: -10px;
+  margin: 0 auto;
 }
