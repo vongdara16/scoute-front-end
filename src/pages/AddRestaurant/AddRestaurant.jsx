@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import NavBarTop from '../../components/NavBarTop/NavBarTop';
+import NavBarBot from '../../components/NavBarBot/NavBarBot';
 
 const AddRestaurant = (props) => {
   return (  
     <>
+      <NavBarTop />
       <h1>add a restaurant!</h1>
       <form
       autoComplete="off"
@@ -125,6 +128,7 @@ const AddRestaurant = (props) => {
         </Link>
       </div>
     </form>
+    <NavBarBot />
     </>
   );
 }
