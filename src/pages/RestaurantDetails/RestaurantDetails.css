@@ -1,0 +1,24 @@
+div#details-price-distance {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#details-price {
+  color: green;
+  font-size: 25px;
+}
+
+#details-location-phone {
+  text-align: center;
+  font-size: 20px;
+}
+
+hr.solid {
+  border-top: 2px solid black;
+}
+
+#details-name {
+  text-align: center;
+  color: #1c658c;
+}
