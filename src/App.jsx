@@ -9,6 +9,7 @@ import Home from './pages/Home/Home'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
+import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import Restrooms from './pages/RestroomList/RestroomList'
 import Parkings from './pages/ParkingList/ParkingList'
 
@@ -67,6 +68,11 @@ const App = () => {
           path="/restaurants"
           element={user ? <Restaurants /> : <Navigate to="/" />}
         />
+        <Route
+          path="/restaurants/idplaceholder"
+          element={user ? <RestaurantDetails /> : <Navigate to="/" />}
+        />
+        {/* ^^ thinking about above. it might be an issue to get the id here for the specific restaurant that was clicked. so a possibility is change it to /restaurant. then for the page we pass it the correct info. refer to starships for an example */}
         <Route
           path="/parkinglots"
           element={user ? <Parkings /> : <Navigate to="/" />}
