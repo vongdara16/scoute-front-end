@@ -72,7 +72,7 @@ const AddRestaurant = (props) => {
         <label htmlFor="price" className='input-group-text' id='inputGroup-sizing-default'>
         <i className='material-icons'>attach_money</i>
         </label>
-        <input
+        <select
           className='form-control'
           aria-label='Sizing example input'
           type="password"
@@ -82,13 +82,19 @@ const AddRestaurant = (props) => {
           name="price"
           // onChange={handleChange}
           placeholder='Price Rating in $'
-        />
+        >
+          <option value="">-- Select A Price -- </option>
+          <option value="1">$</option>
+          <option value="2">$$</option>
+          <option value="3">$$$</option>
+          <option value="4">$$$$</option>
+        </select>
       </div>
       <div className='input-group mb-1'>
         <label htmlFor="rating" className='input-group-text' id='inputGroup-sizing-default'>
         <i className='material-icons'>star_half</i>
         </label>
-        <input
+        <select
           className='form-control'
           aria-label='Sizing example input'
           type="password"
@@ -98,7 +104,14 @@ const AddRestaurant = (props) => {
           name="rating"
           // onChange={handleChange}
           placeholder='Restaurant Rating'
-        />
+        >
+          <option value=""> -- Select A Rating -- </option>
+          <option value="1">☆</option>
+          <option value="2">☆☆</option>
+          <option value="3">☆☆☆</option>
+          <option value="4">☆☆☆☆</option>
+          <option value="5">☆☆☆☆☆</option>
+        </select>
       </div>
       <div id='sign-up-buttons'>
         <button 
