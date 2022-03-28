@@ -1,6 +1,6 @@
 import axios from 'axios'
 import * as tokenService from './tokenService'
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/restaurants`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/restaurants/`
 
 
 function create(restaurant) {

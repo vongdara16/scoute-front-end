@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './NavBarTopSearch.css'
 
-const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFormInvalid, input }) => {
+const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFormInvalid, search }) => {
   return (
     <>
       <nav id='top-nav-no-search' className='navbar'>
@@ -26,14 +26,14 @@ const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFor
               aria-label="Search"
               placeholder="Enter Location" 
               id='search'
-              value={input}
+              value={search}
               name='search'
               onChange={handleChange}
             />
             <button 
               className="btn btn-outline-success" 
               type="submit"
-              disabled={isFormInvalid()}
+              // disabled={isFormInvalid()}
             >
               Search
             </button>

@@ -10,7 +10,7 @@ const Restaurants = (props) => {
     search: ''
   })
 
-  const [restaurants, setRestaurants] = useState([])
+  const [restaurants, setRestaurants] = useState({})
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -29,10 +29,10 @@ const Restaurants = (props) => {
     }
   }
   
-  const { input } = searchData
+  const { search } = searchData
   
   const isFormInvalid = () => {
-    return!(input)
+    return!(search)
   }
 
   // useEffect(() => {
@@ -47,7 +47,7 @@ const Restaurants = (props) => {
         handleChange={handleChange} 
         handleSubmit={handleSubmit} 
         isFormInvalid={isFormInvalid} 
-        input={input}
+        search={search}
       />
       <h1>Restaurants</h1>
       <div>
