@@ -21,7 +21,11 @@ const RestaurantCard = ({restaurant}) => {
               {restaurant.name}
             </h5>
             <div id='price-rating-distance' >
+              {restaurant.price ?
               <span id='price-sign' >{restaurant.price}</span>
+              :
+              <div>no price listed</div>
+              }
               <span id='rating' >{restaurant.rating}</span>
               <span id='distance' >{(restaurant.distance/1609.34).toFixed(2)} mi</span>
             </div>
