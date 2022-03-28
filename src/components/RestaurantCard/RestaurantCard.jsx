@@ -7,7 +7,7 @@ const RestaurantCard = ({restaurant}) => {
       <div className="card" id="home-card">
         <Link to={restaurant.id} key={restaurant.id} state={{restaurant}}>
           <img 
-            src="https://picsum.photos/id/75/640/480" 
+            src="https://picsum.photos/id/75/640/480"
             className="card-img-top"
             id="restaurant-picture"
             alt="..." 
@@ -26,10 +26,6 @@ const RestaurantCard = ({restaurant}) => {
         </Link>
       </div>
     </>
-    // <div>
-    //   <h4>This is a restaurant card</h4>
-    //   {console.log(props.restaurant)}
-    // </div>
   );
 }
 

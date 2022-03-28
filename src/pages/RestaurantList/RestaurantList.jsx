@@ -5,7 +5,7 @@ import NavBarBot from '../../components/NavBarBot/NavBarBot';
 import NavBarTopSearch from '../../components/NavBarTopSearch/NavBarTopSearch';
 
 const Restaurants = (props) => {
-  //below is temporary
+  
   const [searchData, setSearchData] = useState({
     search: ''
   })
@@ -35,11 +35,6 @@ const Restaurants = (props) => {
     return!(search)
   }
 
-  // useEffect(() => {
-  //   restaurantService.getAll()
-  //   .then(allRestaurants => setRestaurants(allRestaurants))
-  // }, [])
-
   return ( 
     <>
       <NavBarTopSearch 
@@ -51,7 +46,7 @@ const Restaurants = (props) => {
       <h1>Restaurants</h1>
       <div>
         {!restaurants.length ? 
-          <h2>No rest</h2>
+          <h2>No restaurants</h2>
         :
           <h2>
             {restaurants.map((restaurant, idx) => 
