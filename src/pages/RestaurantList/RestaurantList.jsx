@@ -6,64 +6,60 @@ import NavBarTopSearch from '../../components/NavBarTopSearch/NavBarTopSearch';
 
 const Restaurants = (props) => {
   //below is temporary
-  const testRestaurant = {
-    "rating": 4,
-    "price": "$",
-    "phone": "+14152520800",
-    "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-    "alias": "four-barrel-coffee-san-francisco",
-    "is_closed": false,
-    "categories": [
-      {
-        "alias": "coffee",
-        "title": "Coffee & Tea"
-      }
-    ],
-    "review_count": 1738,
-    "name": "Four Barrel Coffee",
-    "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-    "coordinates": {
-      "latitude": 37.7670169511878,
-      "longitude": -122.42184275
-    },
-    "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-    "location": {
-      "city": "San Francisco",
-      "country": "US",
-      "address2": "",
-      "address3": "",
-      "state": "CA",
-      "address1": "375 Valencia St",
-      "zip_code": "94103"
-    },
-    "distance": 1604.23,
-    "transactions": ["pickup", "delivery"]
-  }
-  const [restaurants, setRestaurants] = useState([testRestaurant, 'test2', 'test3'])
-  //^^ the use state in this is temporary so i can see the cards
+  const [searchData, setSearchData] = useState({
+    search: ''
+  })
 
-  useEffect(() => {
-    restaurantService.getAll()
-    // .then(allRestaurants => setRestaurants(allRestaurants))
-    //^^ above is commented out to not overwrite the state
-  }, [])
+  const [restaurants, setRestaurants] = useState({})
+
+  const handleChange = e => {
+    setSearchData({ ...searchData, [e.target.name]: e.target.value })
+  }
+  
+  const handleSubmit = async evt => {
+    evt.preventDefault()
+    try {
+      await restaurantService.getAll(searchData.search)
+      .then(search => {
+        setRestaurants(search)
+      })
+    } 
+    catch (err) {
+      console.log(err);
+    }
+  }
+  
+  const { search } = searchData
+  
+  const isFormInvalid = () => {
+    return!(search)
+  }
+
+  // useEffect(() => {
+  //   restaurantService.getAll()
+  //   // .then(allRestaurants => setRestaurants(allRestaurants))
+  //   //^^ above is commented out to not overwrite the state
+  // }, [])
 
   return ( 
     <>
-      <NavBarTopSearch />
+      <NavBarTopSearch 
+        handleChange={handleChange} 
+        handleSubmit={handleSubmit} 
+        isFormInvalid={isFormInvalid} 
+        search={search}
+      />
       <h1>Restaurants</h1>
-      <div id='return-card'>
-        {restaurants.map((restaurant, idx) => 
-          // <h2>test</h2>
-          <RestaurantCard 
-            key={idx}
-            restaurant={restaurant}
-          />
-          // console.log(idx)
-          // console.log(restaurant)
-          
-
-          )}
+      <div>
+        {!restaurants.length ? 
+          <h2>No rest</h2>
+        :
+          <h2>
+            {restaurants.map((restaurant1, idx) => 
+              <RestaurantCard key={idx} restaurant={restaurant1} />
+            )}
+          </h2>
+        }
       </div>
       <NavBarBot />
     </>

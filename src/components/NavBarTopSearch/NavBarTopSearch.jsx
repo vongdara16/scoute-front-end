@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './NavBarTopSearch.css'
 
-const NavBarTopSearch = ({ user, handleLogout }) => {
+const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFormInvalid, search }) => {
   return (
     <>
       <nav id='top-nav-no-search' className='navbar'>
@@ -19,9 +19,24 @@ const NavBarTopSearch = ({ user, handleLogout }) => {
       <i className='material-icons top-search-icon '>search</i>
         </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex">
-            <input className="form-control me-2" type="search" placeholder="Enter Zipcode" aria-label="Search"></input>
-            <button className="btn btn-outline-success" type="submit">Search</button>
+          <form className="d-flex" onSubmit={handleSubmit}>
+            <input 
+              className="form-control me-2" 
+              type="search" 
+              aria-label="Search"
+              placeholder="Enter Location" 
+              id='search'
+              value={search}
+              name='search'
+              onChange={handleChange}
+            />
+            <button 
+              className="btn btn-outline-success" 
+              type="submit"
+              // disabled={isFormInvalid()}
+            >
+              Search
+            </button>
           </form>
         </div>
         {/* <ul>
