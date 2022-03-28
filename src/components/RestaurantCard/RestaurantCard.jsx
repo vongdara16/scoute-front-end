@@ -7,19 +7,19 @@ const RestaurantCard = ({restaurant}) => {
       <div className="card" id="home-card">
         <Link to="/restaurants/idplaceholder" key={restaurant.id} state={{restaurant}}>
           <img 
-            src="https://picsum.photos/id/75/640/480" 
+            src={restaurant.image_url} 
             className="card-img-top"
             id="restaurant-picture"
             alt="..." 
           />
           <div className="card-body" title='restrooms'>
             <h5 id="link" className="card-title">{restaurant.name}</h5>
-            <span>{restaurant.distance} yeets away</span>
+            <span>{(restaurant.distance/1609.34).toFixed(2)} mi</span>
             <div>
               <span>{restaurant.price} </span>
               <span>
                 <i id='' className='material-icons'>phone</i>
-                {restaurant.phone}
+                {restaurant.display_phone}
               </span>
             </div>
           </div>
