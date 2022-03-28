@@ -24,7 +24,7 @@ const RestaurantCard = ({restaurant}) => {
               {restaurant.price ?
               <span id='price-sign' >{restaurant.price}</span>
               :
-              <div>no price listed</div>
+              <i  id='no-price' className='material-icons' >money_off</i>
               }
               <span id='rating' >{restaurant.rating}</span>
               <span id='distance' >{(restaurant.distance/1609.34).toFixed(2)} mi</span>
@@ -37,9 +37,10 @@ const RestaurantCard = ({restaurant}) => {
                   <a href='tel:{restaurant.display_phone}'>{restaurant.display_phone}</a>
                 </div>
                 :
-                  <div>no phone</div>
+                  <div></div>
                 }
               </span>
+              <hr id="solid" />
             </div>
           </div>
         </Link>
