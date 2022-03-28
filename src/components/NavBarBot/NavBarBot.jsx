@@ -4,7 +4,7 @@ import './NavBarBot.css'
 const NavBarBot = (props) => {
   return (
     <>
-      <nav className="navbar fixed-bottom navbar-light bg-light">
+      <nav id='nav-bar-bottom' className="navbar fixed-bottom navbar-light bg-light">
         <div className="container-fluid">
           <Link to='/home'>
             <i className='material-icons bot-nav-icon'>home</i>
