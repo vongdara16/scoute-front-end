@@ -14,13 +14,16 @@ function create(restaurant) {
   .then(res => res.json())
 }
 
-function getAll() {
-  return fetch(`${BASE_URL}`, {
+async function getAll(search) {
+  const finalURL = BASE_URL+search
+  const result = await axios({
+    url: finalURL,
+    method: 'GET',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-  .then(res => res.json())
+  return result.data.restaurants
 }
 
 function deleteOne(id) {
