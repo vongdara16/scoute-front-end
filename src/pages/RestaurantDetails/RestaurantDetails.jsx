@@ -11,20 +11,19 @@ const RestaurantDetails = (props) => {
   return (  
     <>
       <NavBarTop />
-      <h1>dis da restaurant detailz page</h1>
       <h1>{restaurantData.name}</h1>
-      <img src={restaurantData.image_url} alt="restaurant-img" style={{width : '40%'}}/>
+      <img src={restaurantData.image_url} alt="restaurant-img" style={{width : '100%'}}/>
       <div>
         <span>Price: {restaurantData.price} | </span>
-        <span>Distance: {restaurantData.distance} yeets away</span>
+        <span id='distance' >{(restaurantData.distance/1609.34).toFixed(2)} mi</span>
       </div>
       <br /> {/* this break can be deleted later */}
       <div>
-        <p>Location: {restaurantData.location.address1}</p>
-        <p>Phone: {restaurantData.phone}</p>
+        <p>Address: {restaurantData.location.address1}</p>
+        <p>Phone: {restaurantData.display_phone}</p>
       </div>
       <div>
-        <h3>Reviews will be generated here!</h3>
+        <h3 style={{height : '100vh'}} >Reviews will be generated here!</h3>
       </div>
       {/* {console.log(theRestaurant)} */}
       <NavBarBot />
