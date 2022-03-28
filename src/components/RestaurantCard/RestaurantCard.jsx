@@ -1,3 +1,5 @@
+import './RestaurantCard.css'
+
 const RestaurantCard = (props) => {
   return (  
     <>
@@ -13,7 +15,7 @@ const RestaurantCard = (props) => {
             <h5 id="link" className="card-title">{props.restaurant}</h5>
             <span>miles</span>
             <div>
-              <span>unisex </span><span>changing table </span><span>accessible</span>
+              <span>$$ </span><span>phone#</span>
             </div>
           </div>
         {/* </Link> */}
