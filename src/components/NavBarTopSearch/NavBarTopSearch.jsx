@@ -15,15 +15,15 @@ const NavBarTopSearch = ({ user, handleLogout }) => {
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
       </div>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i className='material-icons top-search-icon '>search</i>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <form className="d-flex">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+        </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <form className="d-flex">
+            <input className="form-control me-2" type="search" placeholder="Enter Zipcode" aria-label="Search"></input>
+            <button className="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
         {/* <ul>
           <li>Welcome, {user.name}</li>
           <li><Link to="/profiles">Profiles</Link></li>

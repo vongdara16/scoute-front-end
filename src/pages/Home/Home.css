@@ -53,6 +53,11 @@ button#dropdownMenu2.btn.btn-secondary.dropdown-toggle {
   width: max-content;
 }
 
+button#dropdownMenu2.btn.btn-secondary.dropdown-toggle:focus {
+  outline: 0 !important;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+}
+
 button#dropdownMenu2.btn.btn-secondary.dropdown-toggle::after {
   color: #EEEEEE;
 }
