@@ -7,6 +7,7 @@ const RestaurantDetails = (props) => {
   const location = useLocation()
   // const theRestaurant = location.state.restaurant
   const [restaurantData, setRestaurantData] = useState(location.state.restaurant)
+  const [reviews, setReviews] = useState([])
 
   return (  
     <>

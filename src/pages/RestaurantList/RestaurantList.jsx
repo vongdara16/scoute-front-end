@@ -37,8 +37,7 @@ const Restaurants = (props) => {
 
   // useEffect(() => {
   //   restaurantService.getAll()
-  //   // .then(allRestaurants => setRestaurants(allRestaurants))
-  //   //^^ above is commented out to not overwrite the state
+  //   .then(allRestaurants => setRestaurants(allRestaurants))
   // }, [])
 
   return ( 
@@ -55,8 +54,8 @@ const Restaurants = (props) => {
           <h2>No rest</h2>
         :
           <h2>
-            {restaurants.map((restaurant1, idx) => 
-              <RestaurantCard key={idx} restaurant={restaurant1} />
+            {restaurants.map((restaurant, idx) => 
+              <RestaurantCard key={idx} restaurant={restaurant} />
             )}
           </h2>
         }
