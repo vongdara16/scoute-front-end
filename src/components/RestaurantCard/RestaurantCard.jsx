@@ -1,10 +1,11 @@
 import './RestaurantCard.css'
+import { Link } from 'react-router-dom'
 
-const RestaurantCard = (props) => {
+const RestaurantCard = ({restaurant}) => {
   return (  
     <>
       <div className="card" id="home-card">
-        {/* <Link to="/restrooms"> */}
+        <Link to="/restaurants/idplaceholder">
           <img 
             src="https://picsum.photos/id/75/640/480" 
             className="card-img-top"
@@ -12,13 +13,17 @@ const RestaurantCard = (props) => {
             alt="..." 
           />
           <div className="card-body" title='restrooms'>
-            <h5 id="link" className="card-title">{props.restaurant}</h5>
-            <span>miles</span>
+            <h5 id="link" className="card-title">{restaurant.name}</h5>
+            <span>{restaurant.distance} yeets away</span>
             <div>
-              <span>$$ </span><span>phone#</span>
+              <span>{restaurant.price} </span>
+              <span>
+                <i id='' className='material-icons'>phone</i>
+                {restaurant.phone}
+              </span>
             </div>
           </div>
-        {/* </Link> */}
+        </Link>
       </div>
     </>
     // <div>
