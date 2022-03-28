@@ -10,7 +10,7 @@ const Restaurants = (props) => {
     search: ''
   })
 
-  const [restaurants, setRestaurants] = useState({})
+  const [restaurants, setRestaurants] = useState([])
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -19,9 +19,9 @@ const Restaurants = (props) => {
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
-      await restaurantService.getAll(searchData.input)
+      await restaurantService.getAll(searchData.search)
       .then(search => {
-        setSearchData(search)
+        setRestaurants(search)
       })
     } 
     catch (err) {
@@ -50,18 +50,16 @@ const Restaurants = (props) => {
         input={input}
       />
       <h1>Restaurants</h1>
-      <div id='return-card'>
-        {restaurants.map((restaurant, idx) => 
-          // <h2>test</h2>
-          <RestaurantCard 
-            key={idx}
-            restaurant={restaurant}
-          />
-          // console.log(idx)
-          // console.log(restaurant)
-          
-
-          )}
+      <div>
+        {!restaurants.length ? 
+          <h2>No rest</h2>
+        :
+          <h2>
+            {restaurants.map((restaurant1, idx) => 
+              <RestaurantCard key={idx} restaurant={restaurant1} />
+            )}
+          </h2>
+        }
       </div>
       <NavBarBot />
     </>
