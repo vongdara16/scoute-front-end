@@ -62,13 +62,15 @@ const AddRestaurant = (props) => {
         <input
           className='form-control'
           aria-label='Sizing example input'
-          type="number"
+          type="tel"
+          // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+          maxLength={10}
           autoComplete="off"
           // id=""
           // value={password}
           name="phoneNumber"
           // onChange={handleChange}
-          placeholder='###-###-####'
+          placeholder='Phone Number'
         />
       </div>
       <div className='input-group mb-1'>

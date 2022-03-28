@@ -15,7 +15,7 @@ const NavBarBot = ({page}) => {
             <i className='material-icons bot-nav-icon'>wc</i>
           </Link>
           <Link 
-            to={`/${page}/add`}
+            to={page ? `/${page}/add` : '/home'}
           >
             <i className='material-icons bot-nav-icon dropup-toggle'>add_circle</i>
           </Link>
