@@ -70,7 +70,7 @@ const App = () => {
           element={user ? <Restaurants /> : <Navigate to="/" />}
         />
         <Route
-          path="/restaurants/idplaceholder"
+          path="/restaurants/:id"
           element={user ? <RestaurantDetails /> : <Navigate to="/" />}
         />
         {/* ^^ thinking about above. it might be an issue to get the id here for the specific restaurant that was clicked. so a possibility is change it to /restaurant. then for the page we pass it the correct info. refer to starships for an example */}

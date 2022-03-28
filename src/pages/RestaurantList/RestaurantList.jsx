@@ -6,7 +6,7 @@ import NavBarTopSearch from '../../components/NavBarTopSearch/NavBarTopSearch';
 import './RestaurantList.css'
 
 const Restaurants = (props) => {
-  //below is temporary
+  
   const [searchData, setSearchData] = useState({
     search: ''
   })
@@ -36,12 +36,6 @@ const Restaurants = (props) => {
     return!(search)
   }
 
-  // useEffect(() => {
-  //   restaurantService.getAll()
-  //   // .then(allRestaurants => setRestaurants(allRestaurants))
-  //   //^^ above is commented out to not overwrite the state
-  // }, [])
-
   return ( 
     <>
       <NavBarTopSearch 
@@ -59,8 +53,8 @@ const Restaurants = (props) => {
         </div>
         :
           <h2 id='all-cards'>
-            {restaurants.map((restaurant1, idx) => 
-              <RestaurantCard key={idx} restaurant={restaurant1} />
+            {restaurants.map((restaurant, idx) => 
+              <RestaurantCard key={idx} restaurant={restaurant} />
             )}
           </h2>
         }
