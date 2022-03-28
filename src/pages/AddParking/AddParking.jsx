@@ -72,7 +72,24 @@ const AddParking = (props) => {
           name="city"
           value={formData.city}
           onChange={handleChange}
-          required/>
+          required
+          />
+        </div>
+        <div className="form-group mb-1">
+          <label 
+          htmlFor="state-input"
+          className="form-label">
+            State
+          </label>
+          <input 
+          type="text"
+          className="form-control"
+          id="state-input"
+          name="state"
+          value={formData.state}
+          onChange={handleChange}
+          required
+          />
         </div>
       </form>
     </>
