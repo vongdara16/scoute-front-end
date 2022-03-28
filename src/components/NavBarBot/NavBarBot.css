@@ -9,6 +9,6 @@ nav.navbar.fixed-bottom.navbar-light.bg-light {
 }
 
 #nav-bar-bottom {
-  position: fixed;
+  position: sticky;
   bottom: 0;
 }
