@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Home from './pages/Home/Home'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import * as restaurantService from './services/restaurantService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
@@ -21,8 +22,41 @@ const App = () => {
   const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
   const [message, setMessage] = useState([''])
-
+  const [restaurants, setRestaurants] = useState({})
+  const [searchData, setSearchData] = useState({
+    search: ''
+  })
+  
   const navigate = useNavigate()
+
+  const handleChange = e => {
+    setSearchData({ ...searchData, [e.target.name]: e.target.value })
+  }
+  
+  const handleSubmit = async evt => {
+    evt.preventDefault()
+    try {
+      await restaurantService.getAll(searchData.search)
+      .then(search => {
+        setRestaurants(search)
+      })
+    } 
+    catch (err) {
+      console.log(err);
+    }
+  }
+  
+  const { search } = searchData
+  
+  const isFormInvalid = () => {
+    return!(search)
+  }
+
+  const handleAddRestaurant = async newRestaurantData => {
+    const newRestaurant = await restaurantService.create(newRestaurantData)
+    setRestaurants([...restaurants, newRestaurant])
+    navigate('/restaurants')
+  }
 
   const handleLogout = () => {
     authService.logout()
@@ -67,16 +101,25 @@ const App = () => {
         />
         <Route
           path="/restaurants"
-          element={user ? <Restaurants /> : <Navigate to="/" />}
+          element={user ? 
+            <Restaurants 
+              handleChangeRestaurant={handleChange}
+              handleSubmitRestaurant={handleSubmit}
+              isFormInvalid={isFormInvalid}
+              search={search}
+              restaurants={restaurants}
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route
           path="/restaurants/idplaceholder"
           element={user ? <RestaurantDetails /> : <Navigate to="/" />}
         />
-        {/* ^^ thinking about above. it might be an issue to get the id here for the specific restaurant that was clicked. so a possibility is change it to /restaurant. then for the page we pass it the correct info. refer to starships for an example */}
         <Route 
           path="/restaurants/add"
-          element={user ? <AddRestaurant /> : <Navigate to="/" />}
+          element={user ? <AddRestaurant handleAddRestaurant={handleAddRestaurant} isFormInvalid={isFormInvalid}/> : <Navigate to="/" />}
         />
         <Route
           path="/parkinglots"

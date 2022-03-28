@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import NavBarTop from '../../components/NavBarTop/NavBarTop';
 import NavBarBot from '../../components/NavBarBot/NavBarBot';
 
 const AddRestaurant = (props) => {
+  const location = useLocation()
+  console.log(location.state)
   return (  
     <>
       <NavBarTop />
@@ -130,7 +132,7 @@ const AddRestaurant = (props) => {
         </Link>
       </div>
     </form>
-    <NavBarBot />
+    <NavBarBot page='restaurants'/>
     </>
   );
 }
