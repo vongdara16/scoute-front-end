@@ -47,6 +47,7 @@ const Restaurants = (props) => {
         handleChange={handleChange} 
         handleSubmit={handleSubmit} 
         isFormInvalid={isFormInvalid} 
+        input={input}
       />
       <h1>Restaurants</h1>
       <div id='return-card'>
