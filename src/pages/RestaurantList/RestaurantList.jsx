@@ -65,7 +65,7 @@ const Restaurants = (props) => {
           </h2>
         }
       </div>
-      <NavBarBot />
+      <NavBarBot page='restaurants'/>
     </>
   );
 }
