@@ -12,24 +12,35 @@ const RestaurantCard = ({restaurant}) => {
             id="restaurant-picture"
             alt="..." 
           />
-          <div className="card-body" title='restrooms'>
-            <h5 id="link" className="card-title">{restaurant.name}</h5>
-            <span>{(restaurant.distance/1609.34).toFixed(2)} mi</span>
+          <div 
+          className="card-body" 
+          title='restaurants'>
+            <h5 
+            id="link" 
+            className="card-title">
+              {restaurant.name}
+            </h5>
+            <div id='price-rating-distance' >
+              <span id='price-sign' >{restaurant.price}</span>
+              <span id='rating' >{restaurant.rating}</span>
+              <span id='distance' >{(restaurant.distance/1609.34).toFixed(2)} mi</span>
+            </div>
             <div>
-              <span>{restaurant.price} </span>
               <span>
-                <i id='' className='material-icons'>phone</i>
-                {restaurant.display_phone}
+                {!!restaurant.display_phone ?
+                <div>
+                  <i id='phone-icon' className='material-icons'>phone</i>
+                  <a href='tel:{restaurant.display_phone}'>{restaurant.display_phone}</a>
+                </div>
+                :
+                  <div>no phone</div>
+                }
               </span>
             </div>
           </div>
         </Link>
       </div>
     </>
-    // <div>
-    //   <h4>This is a restaurant card</h4>
-    //   {console.log(props.restaurant)}
-    // </div>
   );
 }
  

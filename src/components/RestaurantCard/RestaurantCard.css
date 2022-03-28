@@ -1,0 +1,21 @@
+#price-sign {
+  color: green;
+}
+
+#distance {
+  color: darkgray;
+}
+
+#phone-icon {
+  font-size: 30px;
+}
+
+#price-rating-distance {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#rating {
+  color: black;
+}
