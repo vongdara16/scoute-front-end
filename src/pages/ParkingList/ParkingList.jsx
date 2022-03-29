@@ -1,7 +1,7 @@
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import NavBarTopSearch from "../../components/NavBarTopSearch/NavBarTopSearch";
 import ParkingCard from "../../components/ParkingCard/ParkingCard";
-const Parkings = (props) => {
+const Parkinglots = (props) => {
   console.log(props.parkinglots)
   return (
     <>
@@ -12,13 +12,20 @@ const Parkings = (props) => {
         search={props.search}
       />
       <h2 id='all-cards'>
-            {props.parkinglots.map((parkinglot, idx) => 
-              <ParkingCard key={idx} parkinglots={parkinglot} />
-            )}
-          </h2>
+        {/* {props.parkinglots[0]} */}
+        {props.parkinglots.length ? 
+          <div>
+            {props.parkinglots[0].map((parkinglot, idx) => 
+                  <ParkingCard key={idx} parkinglots={parkinglot} />
+                )}
+          </div>
+        :
+          <div>empty</div>
+        }
+      </h2>
       <NavBarBot page='parkinglots'/>
     </>
   );
 }
 
-export default Parkings;
+export default Parkinglots;
