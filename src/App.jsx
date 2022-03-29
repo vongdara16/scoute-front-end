@@ -114,19 +114,39 @@ const App = () => {
       <Routes>
         <Route 
           path='/home'
-          element={user ? <Home user={user} handleLogout={handleLogout} /> : <Navigate to="/" />}
+          element={user ? 
+            <Home 
+              user={user} 
+              handleLogout={handleLogout} 
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route 
           path="/" 
-          element={<Landing updateMessage={updateMessage} handleSignupOrLogin={handleSignupOrLogin} />} 
+          element={
+            <Landing 
+              updateMessage={updateMessage} 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            />
+          } 
         />
         <Route
           path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={
+            <Signup 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            />
+          }
         />
         <Route
           path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          element={
+            <Login 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            />
+          }
         />
         <Route
           path="/profiles"
@@ -134,7 +154,13 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={user ? 
+            <ChangePassword 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            /> 
+            : 
+            <Navigate to="/login" />
+          }
         />
         <Route
           path="/restaurants"
@@ -145,6 +171,8 @@ const App = () => {
               isFormInvalid={isFormInvalid}
               search={search}
               restaurants={restaurants}
+              handleLogout={handleLogout}
+              user={user} 
             /> 
             : 
             <Navigate to="/" />
@@ -152,33 +180,66 @@ const App = () => {
         />
         <Route
           path="/restaurants/:id"
-          element={user ? <RestaurantDetails /> : <Navigate to="/" />}
+          element={user ? 
+            <RestaurantDetails 
+              handleLogout={handleLogout} 
+              user={user} 
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route 
           path="/restaurants/add"
-          element={user ? <AddRestaurant handleAddRestaurant={handleAddRestaurant} isFormInvalid={isFormInvalid}/> : <Navigate to="/" />}
+          element={user ? 
+            <AddRestaurant 
+              handleAddRestaurant={handleAddRestaurant} 
+              isFormInvalid={isFormInvalid}
+              handleLogout={handleLogout}
+              user={user} 
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route
           path="/parkinglots"
           element={user ? 
-          <Parkinglots
-          search={search}
-          handleChangeParking={handleChange}
-          handleSubmitParking={handleSubmitParking}
-          parkinglots={parkinglots} 
-          handleDeleteParking={handleDeleteParking} 
-          />
-          : 
-          <Navigate to="/" 
-          />}
+            <Parkinglots
+              search={search}
+              handleChangeParking={handleChange}
+              handleSubmitParking={handleSubmitParking}
+              parkinglots={parkinglots} 
+              handleDeleteParking={handleDeleteParking} 
+              handleLogout={handleLogout}
+              user={user} 
+            />
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route
           path="/parkinglots/add"
-          element={user ? <AddParking handleAddParking={handleAddParking}/> : <Navigate to='/' />}
+          element={user ? 
+            <AddParking 
+              handleAddParking={handleAddParking}
+              handleLogout={handleLogout}
+              user={user} 
+            /> 
+            : 
+            <Navigate to='/' />
+          }
         />
         <Route
           path="/restrooms"
-          element={user ? <Restrooms /> : <Navigate to="/" />}
+          element={user ? 
+            <Restrooms 
+              handleLogout={handleLogout}
+              user={user} 
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
       </Routes>
     </>
