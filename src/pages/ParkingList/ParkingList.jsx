@@ -9,5 +9,5 @@ const Parkings = (props) => {
     </>
     );
 }
- 
+
 export default Parkings;

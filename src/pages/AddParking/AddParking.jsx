@@ -26,6 +26,9 @@ const AddParking = (props) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
+  const handleToggle = evt => {
+    setFormData({...formData, [evt.target.name]: evt.target.checked})
+  }
 
   const handleSubmit = evt => {
     evt.preventDefault()
@@ -103,8 +106,10 @@ const AddParking = (props) => {
           className="form-check-input"
           role='switch'
           id="isSafe-input"
+          name="isSafe"
           value={formData.isSafe}
-          onChange={handleChange}
+          checked={formData.isSafe}
+          onChange={handleToggle}
           />
         </div>
         <div className="form-check form-switch">
@@ -113,13 +118,15 @@ const AddParking = (props) => {
           className="form-check-label">
             isFree?
           </label>
-          <input 
+          <input
+          name="isFree" 
           type="checkbox"
           className="form-check-input"
           role='switch'
           id="isFree-input"
           value={formData.isFree}
-          onChange={handleChange}
+          checked={formData.isFree}
+          onChange={handleToggle}
           />
         </div>
         <div className="form-check form-switch">
@@ -129,12 +136,14 @@ const AddParking = (props) => {
             isCovered?
           </label>
           <input 
+          name="isCovered"
           type="checkbox"
           className="form-check-input"
           role="switch"
           id="isCovered-input"
           value={formData.isCovered}
-          onChange={handleChange}
+          checked={formData.isCovered}
+          onChange={handleToggle}
           />
         </div>
         <label 
@@ -145,6 +154,7 @@ const AddParking = (props) => {
         <input
         type="range"
         className="form-range"
+        name="lightQuality"
         min={1}
         max={5}
         step={0.5}
@@ -160,6 +170,7 @@ const AddParking = (props) => {
         </label>
         <input
         type="range"
+        name="cleanliness"
         className="form-range"
         min={1}
         max={5}
