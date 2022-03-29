@@ -10,6 +10,8 @@ const Parkinglots = (props) => {
         handleSubmit={props.handleSubmitParking} 
         isFormInvalid={props.isFormInvalid} 
         search={props.search}
+        user={props.user} 
+        handleLogout={props.handleLogout}
       />
       <h2 id='all-cards'>
         {/* {props.parkinglots[0]} */}

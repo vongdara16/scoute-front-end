@@ -45,7 +45,10 @@ const AddRestaurant = (props) => {
 
   return (  
     <>
-      <NavBarTop />
+      <NavBarTop 
+        user={props.user} 
+        handleLogout={props.handleLogout}
+      />
       <h1>add a restaurant!</h1>
       <form
         autoComplete="off"
