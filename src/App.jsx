@@ -16,6 +16,7 @@ import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
+import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -94,8 +95,11 @@ const App = () => {
   }
 
   const handleDeleteParking = id => {
+    console.log('delete')
+    console.log(id)
     parkingService.deleteOne(id)
-    .then(deletedParking => setParkinglots(parkinglots.filter(parking => parking._id !== deletedParking._id)))
+    .then(deletedParkinglot => setParkinglots(parkinglots.filter(parkinglot => parkinglot._id !== deletedParkinglot._id)))
+    navigate('/parkinglots')
   }
 
   // const handleUpdateParking = updatedParkingData => {
@@ -210,7 +214,6 @@ const App = () => {
               handleChangeParking={handleChange}
               handleSubmitParking={handleSubmitParking}
               parkinglots={parkinglots} 
-              handleDeleteParking={handleDeleteParking} 
               handleLogout={handleLogout}
               user={user} 
             />
@@ -229,6 +232,12 @@ const App = () => {
             : 
             <Navigate to='/' />
           }
+        />
+        <Route
+        path="/parkinglots/:id"
+        element={user ? <ParkingDetails 
+          user={user}
+          handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
         />
         <Route
           path="/restrooms"
