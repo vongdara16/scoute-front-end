@@ -14,7 +14,7 @@ import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
-import Parkings from './pages/ParkingList/ParkingList'
+import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
 
 const App = () => {
@@ -45,6 +45,19 @@ const App = () => {
     } 
     catch (err) {
       console.log(err);
+    }
+  }
+
+  const handleSubmitParking = async evt => {
+    evt.preventDefault()
+    try {
+      await parkingService.getAll(searchData.search)
+      .then(search => {
+        setParkinglots([...parkinglots, search])
+      })
+    }
+    catch (err) {
+      console.log(err)
     }
   }
   
@@ -147,7 +160,17 @@ const App = () => {
         />
         <Route
           path="/parkinglots"
-          element={user ? <Parkings parkinglots={parkinglots} handleDeleteParking={handleDeleteParking} /> : <Navigate to="/" />}
+          element={user ? 
+          <Parkinglots
+          search={search}
+          handleChangeParking={handleChange}
+          handleSubmitParking={handleSubmitParking}
+          parkinglots={parkinglots} 
+          handleDeleteParking={handleDeleteParking} 
+          />
+          : 
+          <Navigate to="/" 
+          />}
         />
         <Route
           path="/parkinglots/add"

@@ -1,5 +1,5 @@
 import * as tokenService from './tokenService'
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/parkinglots`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/parkinglots/`
 
 function create(parking) {
   console.log('this is parking', parking)
@@ -13,13 +13,13 @@ function create(parking) {
   .then(res => res.json())
 }
 
-function getAll() {
-  return fetch(BASE_URL, {
+function getAll(search) {
+  return fetch(BASE_URL+search, {
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-  .then(res => res.json)
+  .then(res => res.json())
 }
 
 function deleteOne(id) {
