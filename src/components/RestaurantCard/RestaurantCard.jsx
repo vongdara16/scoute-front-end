@@ -2,6 +2,7 @@ import './RestaurantCard.css'
 import { Link } from 'react-router-dom'
 
 const RestaurantCard = ({restaurant}) => {
+  console.log(restaurant)
   return (  
     <>
       <div className="card" id="home-card">

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './NavBarBot.css'
 
 const NavBarBot = ({page}) => {
-  console.log(page)
+  // console.log(page)
 
   return (
     <>

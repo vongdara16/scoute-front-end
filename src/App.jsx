@@ -24,7 +24,7 @@ const App = () => {
   const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
   const [message, setMessage] = useState([''])
-  const [restaurants, setRestaurants] = useState({})
+  const [restaurants, setRestaurants] = useState([])
   const [searchData, setSearchData] = useState({
     search: ''
   })
@@ -55,9 +55,11 @@ const App = () => {
   }
 
   const handleAddRestaurant = async newRestaurantData => {
+    console.log('test add restaurant')
+    console.log(newRestaurantData)
     const newRestaurant = await restaurantService.create(newRestaurantData)
     setRestaurants([...restaurants, newRestaurant])
-    navigate('/restaurants')
+    // navigate('/restaurants')
   }
 
   const handleLogout = () => {
