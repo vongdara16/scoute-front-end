@@ -167,10 +167,10 @@ const AddRestaurant = (props) => {
           required
         >
           <option value="">-- Select A Price -- </option>
-          <option value="1">$</option>
-          <option value="2">$$</option>
-          <option value="3">$$$</option>
-          <option value="4">$$$$</option>
+          <option value="$">$</option>
+          <option value="$$">$$</option>
+          <option value="$$$">$$$</option>
+          <option value="$$$$">$$$$</option>
         </select>
       </div>
       <div className='input-group mb-1'>
