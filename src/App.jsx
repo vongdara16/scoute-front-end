@@ -21,15 +21,49 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [parkinglots, setParkinglots] = useState([])
   const [restrooms, setRestrooms] = useState([])
-  const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
   const [message, setMessage] = useState([''])
   const [restaurants, setRestaurants] = useState([])
   const [searchData, setSearchData] = useState({
     search: ''
   })
+  const [lat, setLat] = useState(null)
+  const [long, setLong] = useState(null)
+  const [posStatus, setPosStatus] = useState(null)
+
   
   const navigate = useNavigate()
+
+  // const getLocation = async evt => {
+  //   evt.preventDefault()
+  //   if (!navigator.geolocation) {
+  //     setPosStatus('P');
+  //   } 
+  //   else {
+  //     setPosStatus('Locating...');
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       setPosStatus(null);
+  //       setLat(position.coords.latitude);
+  //       setLong(position.coords.longitude);
+  //     }, () => {
+  //       setPosStatus('Unable to retrieve your location');
+  //     });
+  //   }
+  // }
+
+  const getLocation = async evt => {
+    evt.preventDefault()
+    try {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLat(position.coords.latitude)
+        setLong(position.coords.longitude)
+      })
+    }
+    catch(err) {
+      console.log(err);
+    }
+  }
+  
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -161,16 +195,16 @@ const App = () => {
         <Route
           path="/parkinglots"
           element={user ? 
-          <Parkinglots
-          search={search}
-          handleChangeParking={handleChange}
-          handleSubmitParking={handleSubmitParking}
-          parkinglots={parkinglots} 
-          handleDeleteParking={handleDeleteParking} 
-          />
-          : 
-          <Navigate to="/" 
-          />}
+            <Parkinglots
+              search={search}
+              handleChangeParking={handleChange}
+              handleSubmitParking={handleSubmitParking}
+              parkinglots={parkinglots} 
+              handleDeleteParking={handleDeleteParking} 
+            />
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route
           path="/parkinglots/add"
