@@ -9,8 +9,8 @@ const AddParking = (props) => {
     state: '',
     isSafe: false,
     isFree: false,
-    lightQuality: 1,
-    cleanliness: 1,
+    lightQuality: '',
+    cleanliness: '',
     isCovered: false
   })
 
@@ -26,6 +26,7 @@ const AddParking = (props) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
+
   const handleSubmit = evt => {
     evt.preventDefault()
     const parkingFormData = new FormData()
@@ -37,8 +38,7 @@ const AddParking = (props) => {
     parkingFormData.append('lightQuality', formData.lightQuality)
     parkingFormData.append('cleanliness', formData.cleanliness)
     parkingFormData.append('isCovered', formData.isCovered)
-    props.handleAddParking(formData)
-    console.log(formData)
+    props.handleAddParking(parkingFormData)
   }
   return (
     <>
@@ -145,7 +145,7 @@ const AddParking = (props) => {
         <input
         type="range"
         className="form-range"
-        min={0}
+        min={1}
         max={5}
         step={0.5}
         id="lighQuality-input"
@@ -161,7 +161,7 @@ const AddParking = (props) => {
         <input
         type="range"
         className="form-range"
-        min={0}
+        min={1}
         max={5}
         step={0.5}
         id="cleanliness-input"
