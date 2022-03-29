@@ -1,9 +1,10 @@
 import axios from 'axios'
 import * as tokenService from './tokenService'
-const RESTAURANT_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews/`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews/`
 
 async function getRestaurantReviews(restaurantId) {
-  const finalURL = RESTAURANT_URL+restaurantId
+  console.log('restaur Id service', restaurantId)
+  const finalURL = BASE_URL+restaurantId
   const result = await axios({
     url: finalURL,
     method: 'GET',
@@ -11,7 +12,8 @@ async function getRestaurantReviews(restaurantId) {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-  console.log(result);
+  return result.data.reviews
+  // console.log(result);
 }
 
 export {

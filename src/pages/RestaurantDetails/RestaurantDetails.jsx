@@ -1,13 +1,22 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { getRestaurantReviews } from "../../services/reviewService";
+// import { getRestaurantReviews } from "../../services/reviewService";
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
+import * as reviewService from '../../services/reviewService'
 import './RestaurantDetails.css'
 
 const RestaurantDetails = (props) => {
   const location = useLocation()
   const [restaurantData, setRestaurantData] = useState(location.state.restaurant)
+  const [reviewData, setReviewData] = useState([])
+
+  useEffect(() => {
+    console.log('r Id details', location.state.restaurant.id)
+    const restaurantId = location.state.restaurant.id
+    reviewService.getRestaurantReviews(restaurantId)
+    .then(review => setReviewData(review) )
+  }, [])
   
   // useEffect(() => {
   //   const rId = (location.state.restaurant.id)
@@ -41,7 +50,10 @@ const RestaurantDetails = (props) => {
       </div>
       <hr id="solid" />
       <div>
-        <h3 style={{height : '100vh'}} >Reviews will be generated here!</h3>
+        <h3>Reviews will be generated here!</h3>
+        {reviewData.map(review => 
+          <p key={review.id}>{review.text}</p>  
+        )}
       </div>
       <NavBarBot />
     </>
