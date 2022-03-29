@@ -16,6 +16,8 @@ const RestaurantDetails = (props) => {
   //   console.log(location.state.restaurant.id)
   // },[])
 
+  console.log(restaurantData)
+
   return (  
     <>
       <NavBarTop />
@@ -29,10 +31,13 @@ const RestaurantDetails = (props) => {
       <div id="details-location-phone" >
         <p>
           <i className="material-icons" >place</i>
-          {restaurantData.location.address1}</p>
+          {/* {restaurantData.location.address1 ? restaurantData.location.address1 : restaurantData.street} */}
+          {restaurantData.street ? restaurantData.street : restaurantData.location.address1}
+        </p>
         <p>
           <i className="material-icons" >phone</i>
-          {restaurantData.display_phone}</p>
+          {restaurantData.display_phone}
+        </p>
       </div>
       <hr id="solid" />
       <div>
