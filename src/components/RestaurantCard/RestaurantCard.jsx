@@ -8,10 +8,10 @@ const RestaurantCard = ({restaurant}) => {
       <div className="card" id="home-card">
         {/* <Link to={restaurant.id} key={restaurant.id} state={{restaurant}}> */}
           <img 
-            src={restaurant.image_url} 
+            src=
+              {restaurant.image_url ? (restaurant.image_url) : restaurant.photo ? (restaurant.photo) : 'https://picsum.photos/id/398/640/480' } 
+            alt="A happy puppy"
             className="card-img-top"
-            id="restaurant-picture"
-            alt="..." 
           />
           <div 
           className="card-body" 
