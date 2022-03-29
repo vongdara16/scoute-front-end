@@ -56,10 +56,10 @@ const App = () => {
 
   const handleAddRestaurant = async newRestaurantData => {
     console.log('test add restaurant')
-    console.log(newRestaurantData)
+    console.log('NEW RESTAURANT DATA', newRestaurantData)
     const newRestaurant = await restaurantService.create(newRestaurantData)
     setRestaurants([...restaurants, newRestaurant])
-    // navigate('/restaurants')
+    navigate('/restaurants')
   }
 
   const handleLogout = () => {
