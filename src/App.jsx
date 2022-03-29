@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Home from './pages/Home/Home'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import * as parkingService from './services/parkingService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
@@ -39,6 +40,14 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  const handleAddParking = async newParkingData => {
+    console.log(newParkingData)
+    const newParking = await parkingService.create(newParkingData)
+    setParkinglots([...parkinglots, newParking])
+    navigate('/parkinglots')
+  }
+
+    // const handleAddParking
   return (
     <>
       <Routes>
@@ -85,7 +94,7 @@ const App = () => {
         />
         <Route
           path="/parkinglots/add"
-          element={user ? <AddParking /> : <Navigate to='/' />}
+          element={user ? <AddParking handleAddParking={handleAddParking}/> : <Navigate to='/' />}
         />
         <Route
           path="/restrooms"
