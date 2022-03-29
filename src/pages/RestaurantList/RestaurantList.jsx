@@ -11,6 +11,8 @@ const Restaurants = (props) => {
         handleSubmit={props.handleSubmitRestaurant} 
         isFormInvalid={props.isFormInvalid} 
         search={props.search}
+        user={props.user} 
+        handleLogout={props.handleLogout}
       />
       <h1 id='restaurant-header' >Restaurants</h1>
       <div>

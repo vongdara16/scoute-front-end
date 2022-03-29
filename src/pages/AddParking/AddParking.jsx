@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react"
+import NavBarTop from "../../components/NavBarTop/NavBarTop"
+import NavBarBot from "../../components/NavBarBot/NavBarBot"
 
 const AddParking = (props) => {
   const formElement = useRef()
@@ -46,6 +48,10 @@ const AddParking = (props) => {
   }
   return (
     <>
+      <NavBarTop 
+        user={props.user} 
+        handleLogout={props.handleLogout}
+      />
       <div>add parking</div>
       <form 
         autoComplete="off" 
@@ -209,6 +215,7 @@ const AddParking = (props) => {
           </button>
         </div>
       </form>
+      <NavBarBot />
     </>
     );
 }
