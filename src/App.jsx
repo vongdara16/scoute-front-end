@@ -147,7 +147,7 @@ const App = () => {
         />
         <Route
           path="/parkinglots"
-          element={user ? <Parkings handleDeleteParking={handleDeleteParking} /> : <Navigate to="/" />}
+          element={user ? <Parkings parkinglots={parkinglots} handleDeleteParking={handleDeleteParking} /> : <Navigate to="/" />}
         />
         <Route
           path="/parkinglots/add"
