@@ -36,7 +36,7 @@ const RestaurantDetails = (props) => {
         </p>
         <p>
           <i className="material-icons" >phone</i>
-          {restaurantData.display_phone}
+          {restaurantData.display_phone ? restaurantData.display_phone : restaurantData.phoneNumber}
         </p>
       </div>
       <hr id="solid" />
