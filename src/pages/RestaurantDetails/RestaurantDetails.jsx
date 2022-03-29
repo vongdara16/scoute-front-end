@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { getRestaurantReviews } from "../../services/reviewService";
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import './RestaurantDetails.css'
@@ -7,6 +8,13 @@ import './RestaurantDetails.css'
 const RestaurantDetails = (props) => {
   const location = useLocation()
   const [restaurantData, setRestaurantData] = useState(location.state.restaurant)
+  
+  // useEffect(() => {
+  //   const rId = (location.state.restaurant.id)
+  //   getRestaurantReviews(rId)
+  //   .then(reviewData => setRestaurantData(reviewData))
+  //   console.log(location.state.restaurant.id)
+  // },[])
 
   return (  
     <>
