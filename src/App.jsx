@@ -131,7 +131,15 @@ const App = () => {
       <Routes>
         <Route 
           path='/home'
-          element={user ? <Home user={user} handleLogout={handleLogout} /> : <Navigate to="/" />}
+          element={user ? 
+            <Home 
+              user={user}  
+              handleLogout={handleLogout} 
+              getLocation={getLocation}
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route 
           path="/" 
