@@ -16,6 +16,7 @@ import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
+import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -175,6 +176,10 @@ const App = () => {
         <Route
           path="/parkinglots/add"
           element={user ? <AddParking handleAddParking={handleAddParking}/> : <Navigate to='/' />}
+        />
+        <Route
+        path="/parkinglots/:id"
+        element={user ? <ParkingDetails user={user} /> : <Navigate to="/" />}
         />
         <Route
           path="/restrooms"
