@@ -55,8 +55,6 @@ const App = () => {
   }
 
   const handleAddRestaurant = async newRestaurantData => {
-    console.log('test add restaurant')
-    console.log('NEW RESTAURANT DATA', newRestaurantData)
     const newRestaurant = await restaurantService.create(newRestaurantData)
     setRestaurants([...restaurants, newRestaurant])
     navigate('/restaurants')
@@ -77,7 +75,6 @@ const App = () => {
   }
 
   const handleAddParking = async newParkingData => {
-    console.log(newParkingData)
     const newParking = await parkingService.create(newParkingData)
     setParkinglots([...parkinglots, newParking])
     navigate('/parkinglots')

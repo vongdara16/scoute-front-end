@@ -36,12 +36,7 @@ const AddRestaurant = (props) => {
     restaurantFormData.append('phoneNumber', formData.phoneNumber)
     restaurantFormData.append('price', formData.price)
     restaurantFormData.append('rating', formData.rating)
-    props.handleAddRestaurant(restaurantFormData)
-    // console.log('restaurant Form Data',restaurantFormData)
-    for (let val of restaurantFormData.values()){
-      console.log(val)
-    }
-    console.log('form Data', formData)
+    props.handleAddRestaurant(restaurantFormData)   
   }
 
 	const handleChangePhoto = evt => {
