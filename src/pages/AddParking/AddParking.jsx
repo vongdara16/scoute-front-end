@@ -18,9 +18,9 @@ const AddParking = (props) => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
 
-  // const handleChangePhoto = evt => {
-	// 	setFormData({...formData, photo: evt.target.files[0]})
-	// }
+  const handleChangePhoto = evt => {
+		setFormData({...formData, photo: evt.target.files[0]})
+	}
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -33,6 +33,7 @@ const AddParking = (props) => {
   const handleSubmit = evt => {
     evt.preventDefault()
     const parkingFormData = new FormData()
+    parkingFormData.append('photo', formData.photo)
     parkingFormData.append('street', formData.street)
     parkingFormData.append('city', formData.city)
     parkingFormData.append('state', formData.state)
@@ -46,7 +47,26 @@ const AddParking = (props) => {
   return (
     <>
       <div>add parking</div>
-      <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+      <form 
+        autoComplete="off" 
+        ref={formElement} 
+        onSubmit={handleSubmit}
+      >
+      <div className="form-group mb-3">
+				<label        
+          htmlFor="photo-upload" 
+          className="form-label" 
+          id='inputGroup-sizing-default'
+        >
+				</label>
+					<input
+						type="file"
+						className="form-control"
+						id="photo-upload"
+						name="photo"
+						onChange={handleChangePhoto}
+					/>
+			</div>
         <div className="form-group mb-3" >
           <label 
           htmlFor="street-input" 
