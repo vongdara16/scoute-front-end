@@ -2,13 +2,14 @@ import './RestaurantCard.css'
 import { Link } from 'react-router-dom'
 
 const RestaurantCard = ({restaurant}) => {
+  const restaurantId = restaurant.id ? restaurant.id : restaurant._id
   return (  
     <>
       <div className="card" id="home-card">
-        <Link to={restaurant.id} key={restaurant.id} state={{restaurant}}>
+        <Link to={restaurantId} key={restaurantId} state={{restaurant}}>
           <img 
             src=
-              {restaurant.image_url ? (restaurant.image_url) : restaurant.photo ? (restaurant.photo) : 'https://picsum.photos/id/398/640/480' } 
+              {restaurant.image_url ? restaurant.image_url : restaurant.photo ? restaurant.photo : 'https://picsum.photos/id/398/640/480' } 
             alt="A happy puppy"
             className="card-img-top"
           />
