@@ -16,6 +16,7 @@ import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
+import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -109,8 +110,11 @@ const App = () => {
   }
 
   const handleDeleteParking = id => {
+    console.log('delete')
+    console.log(id)
     parkingService.deleteOne(id)
-    .then(deletedParking => setParkinglots(parkinglots.filter(parking => parking._id !== deletedParking._id)))
+    .then(deletedParkinglot => setParkinglots(parkinglots.filter(parkinglot => parkinglot._id !== deletedParkinglot._id)))
+    navigate('/parkinglots')
   }
 
   // const handleUpdateParking = updatedParkingData => {
@@ -131,7 +135,7 @@ const App = () => {
           path='/home'
           element={user ? 
             <Home 
-              user={user}  
+              user={user} 
               handleLogout={handleLogout} 
             /> 
             : 
@@ -140,15 +144,28 @@ const App = () => {
         />
         <Route 
           path="/" 
-          element={<Landing updateMessage={updateMessage} handleSignupOrLogin={handleSignupOrLogin} />} 
+          element={
+            <Landing 
+              updateMessage={updateMessage} 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            />
+          } 
         />
         <Route
           path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={
+            <Signup 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            />
+          }
         />
         <Route
           path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          element={
+            <Login 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            />
+          }
         />
         <Route
           path="/profiles"
@@ -156,7 +173,13 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={user ? 
+            <ChangePassword 
+              handleSignupOrLogin={handleSignupOrLogin} 
+            /> 
+            : 
+            <Navigate to="/login" />
+          }
         />
         <Route
           path="/restaurants"
@@ -167,6 +190,8 @@ const App = () => {
               isFormInvalid={isFormInvalid}
               search={search}
               restaurants={restaurants}
+              handleLogout={handleLogout}
+              user={user} 
             /> 
             : 
             <Navigate to="/" />
@@ -174,7 +199,14 @@ const App = () => {
         />
         <Route
           path="/restaurants/:id"
-          element={user ? <RestaurantDetails /> : <Navigate to="/" />}
+          element={user ? 
+            <RestaurantDetails 
+              handleLogout={handleLogout} 
+              user={user} 
+            /> 
+            : 
+            <Navigate to="/" />
+          }
         />
         <Route 
           path="/restaurants/add"
@@ -182,8 +214,10 @@ const App = () => {
             <AddRestaurant 
               handleAddRestaurant={handleAddRestaurant} 
               isFormInvalid={isFormInvalid}
+              handleLogout={handleLogout}
+              user={user} 
             /> 
-            :  
+            : 
             <Navigate to="/" />
           }
         />
@@ -195,7 +229,8 @@ const App = () => {
               handleChangeParking={handleChange}
               handleSubmitParking={handleSubmitParking}
               parkinglots={parkinglots} 
-              handleDeleteParking={handleDeleteParking} 
+              handleLogout={handleLogout}
+              user={user} 
             />
             : 
             <Navigate to="/" />
@@ -206,15 +241,25 @@ const App = () => {
           element={user ? 
             <AddParking 
               handleAddParking={handleAddParking}
+              handleLogout={handleLogout}
+              user={user} 
             /> 
             : 
             <Navigate to='/' />
           }
         />
         <Route
+        path="/parkinglots/:id"
+        element={user ? <ParkingDetails 
+          user={user}
+          handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
+        />
+        <Route
           path="/restrooms"
           element={user ? 
           <Restrooms
+            handleLogout={handleLogout}
+            user={user} 
             getLocation={getLocation}
             lat={lat}
             lng={lng} 
