@@ -24,13 +24,11 @@ const App = () => {
   const [reviews, setReviews] = useState([])
   const [message, setMessage] = useState([''])
   const [restaurants, setRestaurants] = useState([])
+  const [lat, setLat] = useState(null)
+  const [lng, setLng] = useState(null)
   const [searchData, setSearchData] = useState({
     search: ''
   })
-  const [lat, setLat] = useState(null)
-  const [long, setLong] = useState(null)
-  const [posStatus, setPosStatus] = useState(null)
-
   
   const navigate = useNavigate()
 
@@ -39,7 +37,7 @@ const App = () => {
     try {
       navigator.geolocation.getCurrentPosition((position) => {
         setLat(position.coords.latitude)
-        setLong(position.coords.longitude)
+        setLng(position.coords.longitude)
       })
     }
     catch(err) {
@@ -135,7 +133,6 @@ const App = () => {
             <Home 
               user={user}  
               handleLogout={handleLogout} 
-              getLocation={getLocation}
             /> 
             : 
             <Navigate to="/" />
@@ -181,7 +178,14 @@ const App = () => {
         />
         <Route 
           path="/restaurants/add"
-          element={user ? <AddRestaurant handleAddRestaurant={handleAddRestaurant} isFormInvalid={isFormInvalid}/> : <Navigate to="/" />}
+          element={user ? 
+            <AddRestaurant 
+              handleAddRestaurant={handleAddRestaurant} 
+              isFormInvalid={isFormInvalid}
+            /> 
+            :  
+            <Navigate to="/" />
+          }
         />
         <Route
           path="/parkinglots"
@@ -199,11 +203,25 @@ const App = () => {
         />
         <Route
           path="/parkinglots/add"
-          element={user ? <AddParking handleAddParking={handleAddParking}/> : <Navigate to='/' />}
+          element={user ? 
+            <AddParking 
+              handleAddParking={handleAddParking}
+            /> 
+            : 
+            <Navigate to='/' />
+          }
         />
         <Route
           path="/restrooms"
-          element={user ? <Restrooms /> : <Navigate to="/" />}
+          element={user ? 
+          <Restrooms
+            getLocation={getLocation}
+            lat={lat}
+            lng={lng} 
+          /> 
+          : 
+          <Navigate to="/" />
+        }
         />
       </Routes>
     </>
