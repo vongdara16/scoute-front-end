@@ -36,9 +36,12 @@ const AddRestaurant = (props) => {
     restaurantFormData.append('phoneNumber', formData.phoneNumber)
     restaurantFormData.append('price', formData.price)
     restaurantFormData.append('rating', formData.rating)
-    props.handleAddRestaurant(formData)
-    console.log(restaurantFormData)
-    console.log(formData)
+    props.handleAddRestaurant(restaurantFormData)
+    // console.log('restaurant Form Data',restaurantFormData)
+    for (let val of restaurantFormData.values()){
+      console.log(val)
+    }
+    console.log('form Data', formData)
   }
 
 	// const handleChangePhoto = evt => {
@@ -74,7 +77,7 @@ const AddRestaurant = (props) => {
           className="form-control"
           aria-label="Sizing example input"
           type="text"
-          autoComplete="off"
+          // autoComplete="off"
           id="restaurant-name"
           value={formData.name}
           name="name"
@@ -108,7 +111,7 @@ const AddRestaurant = (props) => {
           className='form-control'
           aria-label='Sizing example input'
           type="text"
-          autoComplete="off"
+          // autoComplete="off"
           id="restaurant-city"
           value={formData.city}
           name="city"
@@ -125,7 +128,7 @@ const AddRestaurant = (props) => {
           className='form-control'
           aria-label='Sizing example input'
           type="text"
-          autoComplete="off"
+          // autoComplete="off"
           id="restaurant-state"
           value={formData.state}
           name="state"
@@ -144,7 +147,7 @@ const AddRestaurant = (props) => {
           type="tel"
           // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
           maxLength={10}
-          autoComplete="off"
+          // autoComplete="off"
           id="restaurant-phoneNumber"
           value={formData.phoneNumber}
           name="phoneNumber"
@@ -161,7 +164,7 @@ const AddRestaurant = (props) => {
           className='form-control'
           aria-label='Sizing example input'
           type="password"
-          autoComplete="off"
+          // autoComplete="off"
           id="restaurant-price"
           value={formData.price}
           name="price"
@@ -184,7 +187,7 @@ const AddRestaurant = (props) => {
           className='form-control'
           aria-label='Sizing example input'
           type="password"
-          autoComplete="off"
+          // autoComplete="off"
           id="restaurant-rating"
           value={formData.rating}
           name="rating"

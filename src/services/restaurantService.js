@@ -4,6 +4,8 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/restaurants/`
 
 
 function create(restaurant) {
+  
+  console.log('service create restaurant', restaurant)
   return fetch(BASE_URL, {
     method: 'POST',
     headers: {
