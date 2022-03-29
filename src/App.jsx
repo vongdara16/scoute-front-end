@@ -34,23 +34,6 @@ const App = () => {
   
   const navigate = useNavigate()
 
-  // const getLocation = async evt => {
-  //   evt.preventDefault()
-  //   if (!navigator.geolocation) {
-  //     setPosStatus('P');
-  //   } 
-  //   else {
-  //     setPosStatus('Locating...');
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       setPosStatus(null);
-  //       setLat(position.coords.latitude);
-  //       setLong(position.coords.longitude);
-  //     }, () => {
-  //       setPosStatus('Unable to retrieve your location');
-  //     });
-  //   }
-  // }
-
   const getLocation = async evt => {
     evt.preventDefault()
     try {
