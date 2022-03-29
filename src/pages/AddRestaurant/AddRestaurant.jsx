@@ -28,7 +28,7 @@ const AddRestaurant = (props) => {
   const handleSubmit = evt => {
     evt.preventDefault()
 		const restaurantFormData = new FormData()
-		// restaurantFormData.append('photo', formData.photo)
+		restaurantFormData.append('photo', formData.photo)
     restaurantFormData.append('name', formData.name)
     restaurantFormData.append('street', formData.street)
     restaurantFormData.append('city', formData.city)
@@ -44,21 +44,21 @@ const AddRestaurant = (props) => {
     console.log('form Data', formData)
   }
 
-	// const handleChangePhoto = evt => {
-	// 	setFormData({...formData, photo: evt.target.files[0]})
-	// }
+	const handleChangePhoto = evt => {
+		setFormData({...formData, photo: evt.target.files[0]})
+	}
 
   return (  
     <>
       <NavBarTop />
       <h1>add a restaurant!</h1>
       <form
-      autoComplete="off"
-      onSubmit={handleSubmit}
-      className='container'
-      ref={formElement}
-    >
-      {/* <div className="form-group mb-1">
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        className='container'
+        ref={formElement}
+      >
+      <div className="form-group mb-1">
 				<label htmlFor="photo-upload" className="form-label" id='inputGroup-sizing-default'>
 				</label>
 					<input
@@ -68,7 +68,7 @@ const AddRestaurant = (props) => {
 						name="photo"
 						onChange={handleChangePhoto}
 					/>
-			</div> */}
+			</div>
       <div className='input-group mb-1'>
         <label htmlFor="restaurant-name" className='input-group-text' id='inputGroup-sizing-default' >
           <i className='material-icons'>create</i>
@@ -145,7 +145,6 @@ const AddRestaurant = (props) => {
           className='form-control'
           aria-label='Sizing example input'
           type="tel"
-          // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
           maxLength={10}
           // autoComplete="off"
           id="restaurant-phoneNumber"
