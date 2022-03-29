@@ -16,13 +16,13 @@ const RestaurantDetails = (props) => {
   //   console.log(location.state.restaurant.id)
   // },[])
 
-  console.log(restaurantData)
+  // console.log(restaurantData)
 
   return (  
     <>
       <NavBarTop />
       <h1 id="details-name" >{restaurantData.name}</h1>
-      <img src={restaurantData.image_url} alt="restaurant-img" style={{width : '100%'}}/>
+      <img src={restaurantData.image_url ? restaurantData.image_url : restaurantData.photo} alt="restaurant-img" style={{width : '100%'}}/>
       <div id="details-price-distance" >
         <span id="details-price" >{restaurantData.price} </span>
         <span id='distance' >{(restaurantData.distance/1609.34).toFixed(2)} mi</span>
