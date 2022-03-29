@@ -81,7 +81,22 @@ const App = () => {
     navigate('/parkinglots')
   }
 
-    // const handleAddParking
+  const handleDeleteParking = id => {
+    parkingService.deleteOne(id)
+    .then(deletedParking => setParkinglots(parkinglots.filter(parking => parking._id !== deletedParking._id)))
+  }
+
+  // const handleUpdateParking = updatedParkingData => {
+  //   parkingService.update(updatedParkingData)
+  //   .then(updatedParking => {
+  //     const newParkingArray = parkinglots.map(parking => parking._id === updatedParking._id ? updatedParking : parking)
+  //     setParkinglots(newParkingArray)
+  //     navigate('/parkinglots')
+  //   })
+  // }
+// ^ if we want to be able to edit the parking lots
+
+
   return (
     <>
       <Routes>
@@ -133,7 +148,7 @@ const App = () => {
         />
         <Route
           path="/parkinglots"
-          element={user ? <Parkings /> : <Navigate to="/" />}
+          element={user ? <Parkings handleDeleteParking={handleDeleteParking} /> : <Navigate to="/" />}
         />
         <Route
           path="/parkinglots/add"

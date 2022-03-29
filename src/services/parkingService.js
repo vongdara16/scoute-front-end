@@ -13,6 +13,39 @@ function create(parking) {
   .then(res => res.json())
 }
 
+function getAll() {
+  return fetch(BASE_URL, {
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  .then(res => res.json)
+}
+
+function deleteOne(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers:{
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+  })
+  .then(res => res.json())
+}
+
+function update(parking) {
+  return fetch(`${BASE_URL}/${parking.get('_id')}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: parking
+  })
+  .then(res => res.json())
+}
+
 export {
-  create
+  create,
+  getAll,
+  deleteOne,
+  update
 }
