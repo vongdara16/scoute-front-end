@@ -8,12 +8,14 @@ const Restrooms = (props) => {
         handleLogout={props.handleLogout}
       />
       <div>This is a list of restrooms dawg</div>
-      <p>
-        dlsangio;ufadbjknfovka
-      </p>
+      <div >
+        <button onClick={() => props.getLocation}>Get Location</button>
+        <p>Latitude: {console.log(props.lat)}</p>
+        <p>Longitude: {console.log(props.lng)}</p>
+      </div>
       <NavBarBot />
     </>
     );
 }
- 
+
 export default Restrooms;

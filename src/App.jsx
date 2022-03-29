@@ -22,15 +22,30 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [parkinglots, setParkinglots] = useState([])
   const [restrooms, setRestrooms] = useState([])
-  const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
   const [message, setMessage] = useState([''])
   const [restaurants, setRestaurants] = useState([])
+  const [lat, setLat] = useState(null)
+  const [lng, setLng] = useState(null)
   const [searchData, setSearchData] = useState({
     search: ''
   })
   
   const navigate = useNavigate()
+
+  const getLocation = async evt => {
+    evt.preventDefault()
+    try {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLat(position.coords.latitude)
+        setLng(position.coords.longitude)
+      })
+    }
+    catch(err) {
+      console.log(err);
+    }
+  }
+  
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -242,13 +257,16 @@ const App = () => {
         <Route
           path="/restrooms"
           element={user ? 
-            <Restrooms 
-              handleLogout={handleLogout}
-              user={user} 
-            /> 
-            : 
-            <Navigate to="/" />
-          }
+          <Restrooms
+            handleLogout={handleLogout}
+            user={user} 
+            getLocation={getLocation}
+            lat={lat}
+            lng={lng} 
+          /> 
+          : 
+          <Navigate to="/" />
+        }
         />
       </Routes>
     </>
