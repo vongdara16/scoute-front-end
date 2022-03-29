@@ -95,8 +95,11 @@ const App = () => {
   }
 
   const handleDeleteParking = id => {
+    console.log('delete')
+    console.log(id)
     parkingService.deleteOne(id)
-    .then(deletedParking => setParkinglots(parkinglots.filter(parking => parking._id !== deletedParking._id)))
+    .then(deletedParkinglot => setParkinglots(parkinglots.filter(parkinglot => parkinglot._id !== deletedParkinglot._id)))
+    navigate('/parkinglots')
   }
 
   // const handleUpdateParking = updatedParkingData => {
@@ -167,7 +170,6 @@ const App = () => {
           handleChangeParking={handleChange}
           handleSubmitParking={handleSubmitParking}
           parkinglots={parkinglots} 
-          handleDeleteParking={handleDeleteParking} 
           />
           : 
           <Navigate to="/" 
@@ -179,7 +181,9 @@ const App = () => {
         />
         <Route
         path="/parkinglots/:id"
-        element={user ? <ParkingDetails user={user} /> : <Navigate to="/" />}
+        element={user ? <ParkingDetails 
+          user={user}
+          handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
         />
         <Route
           path="/restrooms"

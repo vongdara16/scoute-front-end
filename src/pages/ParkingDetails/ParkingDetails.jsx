@@ -6,7 +6,7 @@ const ParkingDetails = (props) => {
   const [parkinglotData, setParkinglotData] = useState(location.state.parkinglots)
   console.log(parkinglotData)
   console.log(props.user.profile)
-  console.log(parkinglotData.author)
+  console.log(parkinglotData._id)
   return ( 
     <>
     <div>details</div>
@@ -16,7 +16,8 @@ const ParkingDetails = (props) => {
     }} */}
     <div>
       {props.user.profile === parkinglotData.author ?
-      <div>youre the owner</div>
+      <button className="btn btn-sm btn-danger m-left"
+      onClick={() => props.handleDeleteParking(parkinglotData._id)}>Delete parking</button>
       :
       <div>you are not the owner</div>
       }
