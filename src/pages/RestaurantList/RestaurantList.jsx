@@ -17,10 +17,10 @@ const Restaurants = (props) => {
       <h1 id='restaurant-header' >Restaurants</h1>
       <div>
         {!props.restaurants.length ?
-        <div id='no-rest'> 
-          <h2>No Restaurants, Please enter your location in the search bar above.</h2>
-          <small id='small-text'>Or allow access to your location</small>
-        </div>
+          <div id='no-rest'> 
+            <h2>No Restaurants, Please enter your location in the search bar above.</h2>
+            <small id='small-text'>Or allow access to your location</small>
+          </div>
         :
           <h2 id='all-cards'>
             {props.restaurants.map((restaurant, idx) => 

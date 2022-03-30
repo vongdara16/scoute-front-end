@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
-// import { getRestaurantReviews } from "../../services/reviewService";
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import * as reviewService from '../../services/reviewService'
@@ -17,15 +16,6 @@ const RestaurantDetails = (props) => {
     reviewService.getRestaurantReviews(restaurantId)
     .then(review => setReviewData(review) )
   }, [])
-  
-  // useEffect(() => {
-  //   const rId = (location.state.restaurant.id)
-  //   getRestaurantReviews(rId)
-  //   .then(reviewData => setRestaurantData(reviewData))
-  //   console.log(location.state.restaurant.id)
-  // },[])
-
-  // console.log(restaurantData)
 
   return (  
     <>
@@ -34,16 +24,24 @@ const RestaurantDetails = (props) => {
         handleLogout={props.handleLogout}
       />
       <h1 id="details-name" >{restaurantData.name}</h1>
-      <img src={restaurantData.image_url ? restaurantData.image_url : restaurantData.photo ? restaurantData.photo : 'https://picsum.photos/id/398/640/480' } alt="restaurant-img" style={{width : '100%'}}/>
+      <img 
+        alt="restaurant-img" style={{width : '100%'}}
+        src={
+          restaurantData.image_url ? restaurantData.image_url 
+          : 
+          restaurantData.photo ? restaurantData.photo 
+          : 
+          'https://picsum.photos/id/398/640/480' 
+        } 
+      />
       <div id="details-price-distance" >
         <span id="details-price" >{restaurantData.price} </span>
         <span id='distance' >{(restaurantData.distance/1609.34).toFixed(2)} mi</span>
       </div>
-      <br /> {/* this break can be deleted later */}
+      <br /> 
       <div id="details-location-phone" >
         <p>
           <i className="material-icons" >place</i>
-          {/* {restaurantData.location.address1 ? restaurantData.location.address1 : restaurantData.street} */}
           {restaurantData.street ? restaurantData.street : restaurantData.location.address1}
         </p>
         <p>

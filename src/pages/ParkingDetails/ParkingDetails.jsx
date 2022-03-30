@@ -26,5 +26,5 @@ const ParkingDetails = (props) => {
     </>
   );
 }
- 
+
 export default ParkingDetails;
