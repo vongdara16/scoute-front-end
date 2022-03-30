@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 import './NavBarBot.css'
 
 const NavBarBot = ({page}) => {
-  // console.log(page)
-
   return (
     <>
       <nav id='nav-bar-bottom' className="navbar fixed-bottom navbar-light bg-light">

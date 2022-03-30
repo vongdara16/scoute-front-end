@@ -11,7 +11,6 @@ const RestaurantDetails = (props) => {
   const [reviewData, setReviewData] = useState([])
 
   useEffect(() => {
-    console.log('r Id details', location.state.restaurant.id)
     const restaurantId = location.state.restaurant.id
     reviewService.getRestaurantReviews(restaurantId)
     .then(review => setReviewData(review) )

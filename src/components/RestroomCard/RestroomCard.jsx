@@ -21,7 +21,6 @@ const RestroomCard = ({restroom, lat, lng}) => {
   }
   
   const distance = getDistance(lat, lng, restroom.latitude, restroom.longitude)
-  console.log('this is distance',distance)
   return ( 
     <>
       <div className="card" id="home-card">

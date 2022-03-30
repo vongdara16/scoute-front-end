@@ -3,7 +3,6 @@ import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews/`
 
 async function getRestaurantReviews(restaurantId) {
-  console.log('restaur Id service', restaurantId)
   const finalURL = BASE_URL+restaurantId
   const result = await axios({
     url: finalURL,
@@ -13,7 +12,6 @@ async function getRestaurantReviews(restaurantId) {
     }
   })
   return result.data.reviews
-  // console.log(result);
 }
 
 export {

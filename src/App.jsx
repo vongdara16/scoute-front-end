@@ -115,8 +115,6 @@ const App = () => {
   }
 
   const handleDeleteParking = id => {
-    console.log('delete')
-    console.log(id)
     parkingService.deleteOne(id)
     .then(deletedParkinglot => setParkinglots(parkinglots.filter(parkinglot => parkinglot._id !== deletedParkinglot._id)))
     navigate('/parkinglots')
