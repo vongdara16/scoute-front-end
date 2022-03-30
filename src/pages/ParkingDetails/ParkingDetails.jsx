@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 const ParkingDetails = (props) => {
@@ -17,8 +17,14 @@ const ParkingDetails = (props) => {
     <div>lighting,free</div>
     <div>
       {props.user.profile === parkinglotData?.author ?
-      <button className="btn btn-sm btn-danger m-left"
-      onClick={() => props.handleDeleteParking(parkinglotData._id)}>Delete parking</button>
+      <div>
+        <button className="btn btn-sm btn-danger m-left"
+        onClick={() => props.handleDeleteParking(parkinglotData._id)}>Delete parking</button>
+        <Link
+        to={`/parkinglots/${parkinglotData._id}/edit`}
+        state={{parkinglotData}}
+        >Edit Parking lot</Link>
+      </div>
       :
       <div>you are not the owner</div>
       }

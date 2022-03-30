@@ -17,6 +17,7 @@ import Restrooms from './pages/RestroomList/RestroomList'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
 import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
+import EditParking from './pages/EditParking/EditParking'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -117,16 +118,14 @@ const App = () => {
     navigate('/parkinglots')
   }
 
-  // const handleUpdateParking = updatedParkingData => {
-  //   parkingService.update(updatedParkingData)
-  //   .then(updatedParking => {
-  //     const newParkingArray = parkinglots.map(parking => parking._id === updatedParking._id ? updatedParking : parking)
-  //     setParkinglots(newParkingArray)
-  //     navigate('/parkinglots')
-  //   })
-  // }
-// ^ if we want to be able to edit the parking lots
-
+  const handleUpdateParking = (updatedParkinglotData, parkingid) => {
+    parkingService.update(updatedParkinglotData, parkingid)
+    .then(updatedParkinglot => {
+      const newParkingArray = parkinglots.map(parkinglot => parkinglot._id === updatedParkinglot._id ? updatedParkinglot : parkinglot)
+      setParkinglots(newParkingArray)
+      navigate('/parkinglots')
+    })
+  }
 
   return (
     <>
@@ -253,6 +252,11 @@ const App = () => {
         element={user ? <ParkingDetails 
           user={user}
           handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
+        />
+        <Route
+        path='/parkinglots/:id/edit'
+        element={user ?
+          <EditParking handleUpdateParking={handleUpdateParking}/> : <Navigate to="/parkinglots" />}
         />
         <Route
           path="/restrooms"

@@ -2,7 +2,6 @@ import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import NavBarTopSearch from "../../components/NavBarTopSearch/NavBarTopSearch";
 import ParkingCard from "../../components/ParkingCard/ParkingCard";
 const Parkinglots = (props) => {
-  console.log(props.parkinglots)
   return (
     <>
       <NavBarTopSearch 
