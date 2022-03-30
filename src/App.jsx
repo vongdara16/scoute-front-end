@@ -10,6 +10,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as restaurantService from './services/restaurantService'
 import * as parkingService from './services/parkingService'
+import * as restroomService from './services/restroomService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
@@ -35,18 +36,20 @@ const App = () => {
   const navigate = useNavigate()
 
   const getLocation = async evt => {
-    evt.preventDefault()
     try {
-      navigator.geolocation.getCurrentPosition((position) => {
+      await navigator.geolocation.getCurrentPosition(async (position) => {
         setLat(position.coords.latitude)
         setLng(position.coords.longitude)
+        await restroomService.getAllRestrooms(position.coords.latitude, position.coords.longitude)
+        .then(restroom => {
+          setRestrooms(restroom)
+        })
       })
     }
     catch(err) {
       console.log(err);
     }
   }
-  
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -248,11 +251,15 @@ const App = () => {
           }
         />
         <Route
-        path="/parkinglots/:id"
-        element={user ? <ParkingDetails 
-          user={user}
-          handleLogout={handleLogout}
-          handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
+          path="/parkinglots/:id"
+          element={user ? 
+              <ParkingDetails 
+                user={user}
+                handleLogout={handleLogout}
+                handleDeleteParking={handleDeleteParking}/> 
+              : 
+              <Navigate to="/parkinglots"/>
+            }
         />
         <Route
         path='/parkinglots/:id/edit'
@@ -268,6 +275,8 @@ const App = () => {
             getLocation={getLocation}
             lat={lat}
             lng={lng} 
+            // handleRestrooms={handleRestrooms}
+            restrooms={restrooms}
           /> 
           : 
           <Navigate to="/" />
