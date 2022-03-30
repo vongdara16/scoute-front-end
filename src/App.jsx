@@ -251,6 +251,7 @@ const App = () => {
         path="/parkinglots/:id"
         element={user ? <ParkingDetails 
           user={user}
+          handleLogout={handleLogout}
           handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
         />
         <Route

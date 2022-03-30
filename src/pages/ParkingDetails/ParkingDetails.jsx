@@ -1,14 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
-
+import NavBarTop from "../../components/NavBarTop/NavBarTop";
+import NavBarBot from "../../components/NavBarBot/NavBarBot";
+import './ParkingDetails.css'
 const ParkingDetails = (props) => {
   const location = useLocation()
   const [parkinglotData, setParkinglotData] = useState(location.state.parkinglots)
-  console.log(parkinglotData)
-  console.log(props.user.profile)
-  console.log(parkinglotData._id)
   return ( 
     <>
+    <NavBarTop 
+      user={props.user} 
+      handleLogout={props.handleLogout}
+    />
     <div>details</div>
     <h2>{parkinglotData.city}</h2>
     <img src={parkinglotData.photo} alt="parkingpic" className="card-img-top" />
@@ -23,12 +26,15 @@ const ParkingDetails = (props) => {
         <Link
         to={`/parkinglots/${parkinglotData._id}/edit`}
         state={{parkinglotData}}
-        >Edit Parking lot</Link>
+        >
+          Edit Parking lot
+        </Link>
       </div>
       :
       <div>you are not the owner</div>
       }
     </div>
+    <NavBarBot />
     </>
   );
 }
