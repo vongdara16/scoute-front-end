@@ -7,8 +7,8 @@ const AddReviewForm = (props) => {
   const [formData, setFormData] = useState({
     text: '',
     rating: '',
-    yelprestaurant: props.restaurant.id
-    // restaurant: props.restaurant.id, 
+    yelprestaurant: props.restaurant.id ? props.restaurant.id : '',
+    restaurant: props.restaurant._id? props.restaurant._id : '', 
   })
 
   useEffect(()=> {
@@ -17,24 +17,9 @@ const AddReviewForm = (props) => {
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
-    // setFormData({restaurant: props.restaurant.id})
-    // console.log(formData) 
+ 
   }
 
-  // const handleSubmit = evt => {
-  //   evt.preventDefault()
-	// 	const reviewFormData = new FormData()
-	// 	reviewFormData.append('content', formData.content)
-  //   reviewFormData.append('rating', formData.rating)
-  //   // console.log(props.restaurant.id);
-  //   // setFormData({...formData, restaurant: props.restaurant.id})
-  //   reviewFormData.append('restaurant', formData.restaurant)
-  //   props.handleAddReview(reviewFormData)
-  //   // console.log(formData);
-  //   for(let val of reviewFormData) {
-  //     console.log(val)
-  //   }
-  // }
 
   const handleSubmit = evt => {
     evt.preventDefault()

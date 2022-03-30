@@ -1,9 +1,8 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import * as reviewService from '../../services/reviewService'
-import * as restaurantService from '../../services/restaurantService'
 import AddReviewForm from '../../components/AddReviewForm/AddReviewForm'
 import './RestaurantDetails.css'
 
@@ -15,25 +14,28 @@ const RestaurantDetails = (props) => {
 
   useEffect(() => {
     const restaurantId = location.state.restaurant.id
-    reviewService.getRestaurantReviews(restaurantId)
+    console.log(restaurantId)
+    console.log(location.state.restaurant)
+    reviewService.getRestaurantReviews(restaurantId ? restaurantId : location.state.restaurant._id)
     .then(review => setReviewData(review) )
-    // restaurantService.createCopy(restaurantData)
-    // reviewService.getAll()
-    // .then(allReviews => {
-    //   setReviewData([...reviewData, allReviews])
-    //   console.log(allReviews)
-    // }
-    // )
-    // console.log(reviewData)
   }, [])
 
   const handleAddReview = async newReviewData => {
     const newReview = await reviewService.create(newReviewData)
-    setReviewData([...reviewData, newReview])
-    // navigate('/restaurants/:id')
+    setReviewData([newReview, ...reviewData])
   }
 
   console.log(reviewData)
+  reviewData.forEach(review => {
+    if (!review.user) {
+      review.user = review.author
+    }
+  })
+
+  const handleDeleteReview = reviewId => {
+    reviewService.deleteOne(reviewId)
+    .then(deletedReview => setReviewData(reviewData.filter(review => review._id !==deletedReview._id)))
+  }
 
   return (  
     <>
@@ -69,13 +71,24 @@ const RestaurantDetails = (props) => {
       <div>
         {reviewData.map((review, idx) => 
           <div key={idx}>
-            <p>booty wallace</p>
-            {/* <p>{review.user.name ? review.user.name : 'booty wallace'}</p> */}
-            {/* <img 
+            {props.user.profile === review.user?._id ?
+              <div>
+                <button
+                  className="btn btn-sm btn-danger"
+                  onClick={()=> handleDeleteReview(review._id)}
+                >
+                  DELETE REVIEW
+                </button>
+              </div>
+            :
+              <h2>this no work</h2>
+            }
+            <p>{review.user.name ? review.user.name : 'booty wallace'}</p>
+            <img 
               src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
               alt="user-pic" 
               style={{ height: '50px' }}
-            /> */}
+            />
             <p>{review.rating}</p>
             <p>{review.text}</p>
           </div>
