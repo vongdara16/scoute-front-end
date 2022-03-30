@@ -15,6 +15,7 @@ import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
+import RestroomDetails from './pages/RestroomDetails/RestroomDetails'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
 import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
@@ -282,16 +283,16 @@ const App = () => {
           <Navigate to="/" />
         }
         />
-                <Route
-          path="/parkinglots/:id"
+        <Route
+          path="/restrooms/:id"
           element={user ? 
-              <ParkingDetails 
-                user={user}
-                handleLogout={handleLogout}
-                handleDeleteParking={handleDeleteParking}/> 
-              : 
-              <Navigate to="/parkinglots"/>
-            }
+            <RestroomDetails 
+              user={user}
+              handleLogout={handleLogout}
+            /> 
+            : 
+            <Navigate to="/restrooms"/>
+          }
         />
       </Routes>
     </>

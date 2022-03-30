@@ -25,7 +25,7 @@ const RestroomCard = ({restroom, lat, lng}) => {
   return ( 
     <>
       <div className="card" id="home-card">
-      <Link to={restroomId}>
+      <Link to={`/restrooms/${restroomId}`}>
           <img 
             src=
               {restroom.image_url ? restroom.image_url : restroom.photo ? restroom.photo : 'https://picsum.photos/id/398/640/480' } 
