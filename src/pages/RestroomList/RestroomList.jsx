@@ -7,11 +7,10 @@ const Restrooms = (props) => {
         user={props.user} 
         handleLogout={props.handleLogout}
       />
-      <div>This is a list of restrooms dawg</div>
       <div >
-        <button onClick={() => props.getLocation()}>Get Location</button>
-        <p>Latitude: {console.log(props.lat)}</p>
-        <p>Longitude: {console.log(props.lng)}</p>
+        <div>For optimal results, please allow us to use your location
+          <button onClick={() => props.getLocation()}>Get Location</button>
+        </div>
       </div>
       <NavBarBot />
     </>

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import useGeolocation from 'react-navigator-geolocation'
 import NavBar from './components/NavBarTop/NavBarTop'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -11,6 +10,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as restaurantService from './services/restaurantService'
 import * as parkingService from './services/parkingService'
+import * as restroomService from './services/restroomService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
@@ -35,18 +35,30 @@ const App = () => {
   const navigate = useNavigate()
 
   const getLocation = async evt => {
-    // evt.preventDefault()
     try {
-      navigator.geolocation.getCurrentPosition((position) => {
+      await navigator.geolocation.getCurrentPosition((position) => {
         setLat(position.coords.latitude)
         setLng(position.coords.longitude)
-      })
+      })  
     }
     catch(err) {
       console.log(err);
     }
   }
   
+  const handleRestrooms = async evt => {
+    evt.preventDefault()
+    try {
+      await getLocation()
+      .then(restaurantService.getAll(lat, lng))
+      .then(restroom => {
+        setRestrooms(restroom)
+      })
+    }
+    catch(err) {
+      console.log(err);
+    }
+  } 
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -250,10 +262,14 @@ const App = () => {
           }
         />
         <Route
-        path="/parkinglots/:id"
-        element={user ? <ParkingDetails 
-          user={user}
-          handleDeleteParking={handleDeleteParking}/> : <Navigate to="/parkinglots" />}
+          path="/parkinglots/:id"
+          element={user ? 
+              <ParkingDetails 
+                user={user}
+                handleDeleteParking={handleDeleteParking}/> 
+              : 
+              <Navigate to="/parkinglots"/>
+            }
         />
         <Route
           path="/restrooms"
@@ -264,6 +280,8 @@ const App = () => {
             getLocation={getLocation}
             lat={lat}
             lng={lng} 
+            handleRestrooms={handleRestrooms}
+            restrooms={restrooms}
           /> 
           : 
           <Navigate to="/" />
