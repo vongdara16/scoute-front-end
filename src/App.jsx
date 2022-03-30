@@ -49,21 +49,6 @@ const App = () => {
       console.log(err);
     }
   }
-  
-  // const handleRestrooms = async evt => {
-  //   evt.preventDefault()
-  //   try {
-  //     await getLocation
-  //     console.log('TEST RESTROOMS');
-  //   //   .then(restroomService.getAllRestrooms(lat, lng))
-  //   //   .then(restroom => {
-  //   //     setRestrooms(restroom)
-  //   //   })
-  //   }
-  //   catch(err) {
-  //     console.log(err);
-  //   }
-  // } 
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
