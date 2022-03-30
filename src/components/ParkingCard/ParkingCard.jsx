@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const ParkingCard = ({parkinglots}) => {
-  console.log(parkinglots)
   const parkinglotsid = parkinglots._id ? parkinglots._id : '' 
   return ( 
     <>
