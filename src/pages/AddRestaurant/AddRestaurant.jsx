@@ -160,7 +160,7 @@ const AddRestaurant = (props) => {
         <select
           className='form-control'
           aria-label='Sizing example input'
-          type="password"
+          type="text"
           // autoComplete="off"
           id="restaurant-price"
           value={formData.price}
@@ -183,7 +183,7 @@ const AddRestaurant = (props) => {
         <select
           className='form-control'
           aria-label='Sizing example input'
-          type="password"
+          type="text"
           // autoComplete="off"
           id="restaurant-rating"
           value={formData.rating}

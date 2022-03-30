@@ -8,6 +8,7 @@ import './RestaurantDetails.css'
 
 const RestaurantDetails = (props) => {
   const location = useLocation()
+  console.log(location.state)
   const [restaurantData, setRestaurantData] = useState(location.state.restaurant)
   const [reviewData, setReviewData] = useState([])
 
@@ -16,7 +17,7 @@ const RestaurantDetails = (props) => {
     reviewService.getRestaurantReviews(restaurantId)
     .then(review => setReviewData(review) )
   }, [])
-  
+
   return (  
     <>
       <NavBarTop 
