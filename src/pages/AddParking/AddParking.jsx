@@ -11,6 +11,7 @@ const AddParking = (props) => {
     state: '',
     isSafe: false,
     isFree: false,
+    isPaved: false,
     lightQuality: '',
     cleanliness: '',
     isCovered: false
@@ -37,6 +38,7 @@ const AddParking = (props) => {
     const parkingFormData = new FormData()
     parkingFormData.append('photo', formData.photo)
     parkingFormData.append('street', formData.street)
+    parkingFormData.append('isPaved', formData.isPaved)
     parkingFormData.append('city', formData.city)
     parkingFormData.append('state', formData.state)
     parkingFormData.append('isSafe', formData.isSafe)
@@ -135,6 +137,23 @@ const AddParking = (props) => {
           name="isSafe"
           value={formData.isSafe}
           checked={formData.isSafe}
+          onChange={handleToggle}
+          />
+        </div>
+        <div className="form-check form-switch">
+          <label 
+          htmlFor="isPaved-input"
+          className="form-check-label">
+            isSafe?
+          </label>
+          <input 
+          type="checkbox"
+          className="form-check-input"
+          role='switch'
+          id="isPaved-input"
+          name="isPaved"
+          value={formData.isPaved}
+          checked={formData.isPaved}
           onChange={handleToggle}
           />
         </div>
