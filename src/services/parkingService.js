@@ -23,7 +23,7 @@ function getAll(search) {
 }
 
 function deleteOne(id) {
-  return fetch(`${BASE_URL}/${id}`, {
+  return fetch(`${BASE_URL}${id}`, {
     method: 'DELETE',
     headers:{
       'Authorization': `Bearer ${tokenService.getToken()}`
@@ -32,8 +32,8 @@ function deleteOne(id) {
   .then(res => res.json())
 }
 
-function update(parking) {
-  return fetch(`${BASE_URL}/${parking.get('_id')}`, {
+function update(parking, parkingid) {
+  return fetch(`${BASE_URL}${parkingid}/edit`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
