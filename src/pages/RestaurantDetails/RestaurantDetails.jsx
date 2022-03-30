@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
 // import { getRestaurantReviews } from "../../services/reviewService";
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
@@ -16,12 +16,6 @@ const RestaurantDetails = (props) => {
     reviewService.getRestaurantReviews(restaurantId)
     .then(review => setReviewData(review) )
   }, [])
-
-  // console.log(reviewData[0])
-  // if (reviewData[0]) {
-  //   console.log(reviewData[1].user)
-  // }
-  
   
   return (  
     <>
@@ -49,11 +43,15 @@ const RestaurantDetails = (props) => {
       <hr id="solid" />
       <div>
         <h3>Reviews will be generated here!</h3>
-        {/* {reviewData.map(review => 
-          <p key={review.id}>{review.text}</p>  
-        )} */}
       </div>
-      {reviewData[0] ? 
+      <div>
+        <Link to='/restaurants/AddReview' state={{restaurantData}}>
+          <button>
+            Add Review
+          </button>
+        </Link>
+      </div>
+      {reviewData.length ? 
       <div>
         {reviewData.map(review => 
           <div key={review.id}>
@@ -67,17 +65,9 @@ const RestaurantDetails = (props) => {
             <p>{review.text}</p>
           </div>
         )}
-        {/* <p>{reviewData[0].user.name}</p>
-        <img 
-          src={reviewData[0].user.image_url ? `${reviewData[0].user.image_url}` : "https://picsum.photos/id/312/640/480" }
-          alt="user-pic" 
-          style={{ height: '50px' }}
-        />
-        <p>{reviewData[0].rating}</p>
-        <p>{reviewData[0].text}</p> */}
       </div>
       :
-        <h6>loading</h6>
+        <h6>No reviews yet</h6>
       }
       
       <NavBarBot />

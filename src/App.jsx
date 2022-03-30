@@ -16,6 +16,7 @@ import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
+import AddReview from './pages/AddReview/AddReview'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -200,6 +201,17 @@ const App = () => {
             /> 
             : 
             <Navigate to="/" />
+          }
+        />
+        <Route 
+          path='/restaurants/AddReview'
+          element={user ?
+            <AddReview 
+              handleLogout={handleLogout}
+              user={user}
+            />
+            :
+            <Navigate to='/' />
           }
         />
         <Route
