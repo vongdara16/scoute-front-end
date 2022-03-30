@@ -69,7 +69,7 @@ const App = () => {
     try {
       await parkingService.getAll(searchData.search)
       .then(search => {
-        setParkinglots([...parkinglots, search])
+        setParkinglots([...parkinglots, ...search])
       })
     }
     catch (err) {
