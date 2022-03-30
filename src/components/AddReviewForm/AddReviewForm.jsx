@@ -17,7 +17,6 @@ const AddReviewForm = (props) => {
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
- 
   }
 
 
