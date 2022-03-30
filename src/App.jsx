@@ -10,26 +10,46 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as restaurantService from './services/restaurantService'
 import * as parkingService from './services/parkingService'
+import * as restroomService from './services/restroomService'
 import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
+import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
+import EditParking from './pages/EditParking/EditParking'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [parkinglots, setParkinglots] = useState([])
   const [restrooms, setRestrooms] = useState([])
-  const [ipAddress, setIPAddress] = useState({})
   const [reviews, setReviews] = useState([])
   const [message, setMessage] = useState([''])
   const [restaurants, setRestaurants] = useState([])
+  const [lat, setLat] = useState(null)
+  const [lng, setLng] = useState(null)
   const [searchData, setSearchData] = useState({
     search: ''
   })
   
   const navigate = useNavigate()
+
+  const getLocation = async evt => {
+    try {
+      await navigator.geolocation.getCurrentPosition(async (position) => {
+        setLat(position.coords.latitude)
+        setLng(position.coords.longitude)
+        await restroomService.getAllRestrooms(position.coords.latitude, position.coords.longitude)
+        .then(restroom => {
+          setRestrooms(restroom)
+        })
+      })
+    }
+    catch(err) {
+      console.log(err);
+    }
+  }
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -97,20 +117,21 @@ const App = () => {
   }
 
   const handleDeleteParking = id => {
+    console.log('delete')
+    console.log(id)
     parkingService.deleteOne(id)
-    .then(deletedParking => setParkinglots(parkinglots.filter(parking => parking._id !== deletedParking._id)))
+    .then(deletedParkinglot => setParkinglots(parkinglots.filter(parkinglot => parkinglot._id !== deletedParkinglot._id)))
+    navigate('/parkinglots')
   }
 
-  // const handleUpdateParking = updatedParkingData => {
-  //   parkingService.update(updatedParkingData)
-  //   .then(updatedParking => {
-  //     const newParkingArray = parkinglots.map(parking => parking._id === updatedParking._id ? updatedParking : parking)
-  //     setParkinglots(newParkingArray)
-  //     navigate('/parkinglots')
-  //   })
-  // }
-// ^ if we want to be able to edit the parking lots
-
+  const handleUpdateParking = (updatedParkinglotData, parkingid) => {
+    parkingService.update(updatedParkinglotData, parkingid)
+    .then(updatedParkinglot => {
+      const newParkingArray = parkinglots.map(parkinglot => parkinglot._id === updatedParkinglot._id ? updatedParkinglot : parkinglot)
+      setParkinglots(newParkingArray)
+      navigate('/parkinglots')
+    })
+  }
 
   return (
     <>
@@ -213,7 +234,6 @@ const App = () => {
               handleChangeParking={handleChange}
               handleSubmitParking={handleSubmitParking}
               parkinglots={parkinglots} 
-              handleDeleteParking={handleDeleteParking} 
               handleLogout={handleLogout}
               user={user} 
             />
@@ -234,15 +254,36 @@ const App = () => {
           }
         />
         <Route
+          path="/parkinglots/:id"
+          element={user ? 
+              <ParkingDetails 
+                user={user}
+                handleLogout={handleLogout}
+                handleDeleteParking={handleDeleteParking}/> 
+              : 
+              <Navigate to="/parkinglots"/>
+            }
+        />
+        <Route
+        path='/parkinglots/:id/edit'
+        element={user ?
+          <EditParking handleUpdateParking={handleUpdateParking}/> : <Navigate to="/parkinglots" />}
+        />
+        <Route
           path="/restrooms"
           element={user ? 
-            <Restrooms 
-              handleLogout={handleLogout}
-              user={user} 
-            /> 
-            : 
-            <Navigate to="/" />
-          }
+          <Restrooms
+            handleLogout={handleLogout}
+            user={user} 
+            getLocation={getLocation}
+            lat={lat}
+            lng={lng} 
+            // handleRestrooms={handleRestrooms}
+            restrooms={restrooms}
+          /> 
+          : 
+          <Navigate to="/" />
+        }
         />
       </Routes>
     </>

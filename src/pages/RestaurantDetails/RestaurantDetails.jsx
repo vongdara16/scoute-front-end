@@ -44,12 +44,21 @@ const RestaurantDetails = (props) => {
         handleLogout={props.handleLogout}
       />
       <h1 id="details-name" >{restaurantData.name}</h1>
-      <img src={restaurantData.image_url ? restaurantData.image_url : restaurantData.photo ? restaurantData.photo : 'https://picsum.photos/id/398/640/480' } alt="restaurant-img" style={{width : '100%'}}/>
+      <img 
+        alt="restaurant-img" style={{width : '100%'}}
+        src={
+          restaurantData.image_url ? restaurantData.image_url 
+          : 
+          restaurantData.photo ? restaurantData.photo 
+          : 
+          'https://picsum.photos/id/398/640/480' 
+        } 
+      />
       <div id="details-price-distance" >
         <span id="details-price" >{restaurantData.price} </span>
         <span id='distance' >{(restaurantData.distance/1609.34).toFixed(2)} mi</span>
       </div>
-      <br /> {/* this break can be deleted later */}
+      <br /> 
       <div id="details-location-phone" >
         <p>
           <i className="material-icons" >place</i>
