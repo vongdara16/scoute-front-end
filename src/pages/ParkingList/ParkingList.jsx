@@ -13,13 +13,14 @@ const Parkinglots = (props) => {
         user={props.user} 
         handleLogout={props.handleLogout}
       />
+      <h1>Parking lots</h1>
       <h2 id='all-cards'>
         {/* {props.parkinglots[0]} */}
         {props.parkinglots.length ? 
-          <div>
+          <div id="all-cards" >
             {props.parkinglots.map((parkinglot, idx) => 
-                  <ParkingCard key={idx} parkinglots={parkinglot} />
-                )}
+              <ParkingCard key={idx} parkinglots={parkinglot} />
+            )}
           </div>
         :
           <div id='else-message' >Please search by city name</div>
