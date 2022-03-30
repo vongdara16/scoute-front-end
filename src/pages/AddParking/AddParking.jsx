@@ -12,8 +12,8 @@ const AddParking = (props) => {
     isSafe: false,
     isFree: false,
     isPaved: false,
-    lightQuality: '',
-    cleanliness: '',
+    lightQuality: '1',
+    cleanliness: '1',
     isCovered: false
   })
 
