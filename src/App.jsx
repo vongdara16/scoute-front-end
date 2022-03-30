@@ -36,29 +36,34 @@ const App = () => {
 
   const getLocation = async evt => {
     try {
-      await navigator.geolocation.getCurrentPosition((position) => {
+      await navigator.geolocation.getCurrentPosition(async (position) => {
         setLat(position.coords.latitude)
         setLng(position.coords.longitude)
-      })  
+        await restroomService.getAllRestrooms(position.coords.latitude, position.coords.longitude)
+        .then(restroom => {
+          setRestrooms(restroom)
+        })
+      })
     }
     catch(err) {
       console.log(err);
     }
   }
   
-  const handleRestrooms = async evt => {
-    evt.preventDefault()
-    try {
-      await getLocation()
-      .then(restaurantService.getAll(lat, lng))
-      .then(restroom => {
-        setRestrooms(restroom)
-      })
-    }
-    catch(err) {
-      console.log(err);
-    }
-  } 
+  // const handleRestrooms = async evt => {
+  //   evt.preventDefault()
+  //   try {
+  //     await getLocation
+  //     console.log('TEST RESTROOMS');
+  //   //   .then(restroomService.getAllRestrooms(lat, lng))
+  //   //   .then(restroom => {
+  //   //     setRestrooms(restroom)
+  //   //   })
+  //   }
+  //   catch(err) {
+  //     console.log(err);
+  //   }
+  // } 
 
   const handleChange = e => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value })
@@ -280,7 +285,7 @@ const App = () => {
             getLocation={getLocation}
             lat={lat}
             lng={lng} 
-            handleRestrooms={handleRestrooms}
+            // handleRestrooms={handleRestrooms}
             restrooms={restrooms}
           /> 
           : 
