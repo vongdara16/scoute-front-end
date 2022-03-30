@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import useGeolocation from 'react-navigator-geolocation'
 import NavBar from './components/NavBarTop/NavBarTop'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -34,7 +35,7 @@ const App = () => {
   const navigate = useNavigate()
 
   const getLocation = async evt => {
-    evt.preventDefault()
+    // evt.preventDefault()
     try {
       navigator.geolocation.getCurrentPosition((position) => {
         setLat(position.coords.latitude)
