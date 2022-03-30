@@ -15,6 +15,7 @@ import Restaurants from './pages/RestaurantList/RestaurantList'
 import RestaurantDetails from './pages/RestaurantDetails/RestaurantDetails'
 import AddRestaurant from './pages/AddRestaurant/AddRestaurant'
 import Restrooms from './pages/RestroomList/RestroomList'
+import RestroomDetails from './pages/RestroomDetails/RestroomDetails'
 import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
 import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
@@ -117,8 +118,6 @@ const App = () => {
   }
 
   const handleDeleteParking = id => {
-    console.log('delete')
-    console.log(id)
     parkingService.deleteOne(id)
     .then(deletedParkinglot => setParkinglots(parkinglots.filter(parkinglot => parkinglot._id !== deletedParkinglot._id)))
     navigate('/parkinglots')
@@ -284,6 +283,17 @@ const App = () => {
           : 
           <Navigate to="/" />
         }
+        />
+        <Route
+          path="/restrooms/:id"
+          element={user ? 
+            <RestroomDetails 
+              user={user}
+              handleLogout={handleLogout}
+            /> 
+            : 
+            <Navigate to="/restrooms"/>
+          }
         />
       </Routes>
     </>

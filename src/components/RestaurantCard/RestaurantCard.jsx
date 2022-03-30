@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const RestaurantCard = ({restaurant}) => {
   const restaurantId = restaurant.id ? restaurant.id : restaurant._id
-  // console.log(restaurant)
+  
   return (  
     <>
       <div className="card" id="home-card">
