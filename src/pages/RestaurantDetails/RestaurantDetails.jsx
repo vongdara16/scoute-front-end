@@ -12,21 +12,17 @@ const RestaurantDetails = (props) => {
   const [reviewData, setReviewData] = useState([])
 
   useEffect(() => {
-    console.log('r Id details', location.state.restaurant.id)
     const restaurantId = location.state.restaurant.id
     reviewService.getRestaurantReviews(restaurantId)
     .then(review => setReviewData(review) )
   }, [])
+
+  // console.log(reviewData[0])
+  // if (reviewData[0]) {
+  //   console.log(reviewData[1].user)
+  // }
   
-  // useEffect(() => {
-  //   const rId = (location.state.restaurant.id)
-  //   getRestaurantReviews(rId)
-  //   .then(reviewData => setRestaurantData(reviewData))
-  //   console.log(location.state.restaurant.id)
-  // },[])
-
-  // console.log(restaurantData)
-
+  
   return (  
     <>
       <NavBarTop 
@@ -43,7 +39,6 @@ const RestaurantDetails = (props) => {
       <div id="details-location-phone" >
         <p>
           <i className="material-icons" >place</i>
-          {/* {restaurantData.location.address1 ? restaurantData.location.address1 : restaurantData.street} */}
           {restaurantData.street ? restaurantData.street : restaurantData.location.address1}
         </p>
         <p>
@@ -54,10 +49,37 @@ const RestaurantDetails = (props) => {
       <hr id="solid" />
       <div>
         <h3>Reviews will be generated here!</h3>
-        {reviewData.map(review => 
+        {/* {reviewData.map(review => 
           <p key={review.id}>{review.text}</p>  
-        )}
+        )} */}
       </div>
+      {reviewData[0] ? 
+      <div>
+        {reviewData.map(review => 
+          <div key={review.id}>
+            <p>{review.user.name}</p>
+            <img 
+              src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
+              alt="user-pic" 
+              style={{ height: '50px' }}
+            />
+            <p>{review.rating}</p>
+            <p>{review.text}</p>
+          </div>
+        )}
+        {/* <p>{reviewData[0].user.name}</p>
+        <img 
+          src={reviewData[0].user.image_url ? `${reviewData[0].user.image_url}` : "https://picsum.photos/id/312/640/480" }
+          alt="user-pic" 
+          style={{ height: '50px' }}
+        />
+        <p>{reviewData[0].rating}</p>
+        <p>{reviewData[0].text}</p> */}
+      </div>
+      :
+        <h6>loading</h6>
+      }
+      
       <NavBarBot />
     </>
   );
