@@ -109,6 +109,9 @@ const App = () => {
 
   const handleAddParking = async newParkingData => {
     const newParking = await parkingService.create(newParkingData)
+    console.log(newParking)
+    
+    // const test = newParking.pop()
     setParkinglots([...parkinglots, newParking])
     navigate('/parkinglots')
   }

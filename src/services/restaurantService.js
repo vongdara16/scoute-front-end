@@ -51,6 +51,7 @@ function update(restaurant) {
 
 export {
   create,
+  // createCopy,
   getAll,
   deleteOne,
   update
