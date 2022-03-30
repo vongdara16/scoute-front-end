@@ -14,8 +14,6 @@ const RestaurantDetails = (props) => {
 
   useEffect(() => {
     const restaurantId = location.state.restaurant.id
-    console.log(restaurantId)
-    console.log(location.state.restaurant)
     reviewService.getRestaurantReviews(restaurantId ? restaurantId : location.state.restaurant._id)
     .then(review => setReviewData(review) )
   }, [])
@@ -24,8 +22,7 @@ const RestaurantDetails = (props) => {
     const newReview = await reviewService.create(newReviewData)
     setReviewData([newReview, ...reviewData])
   }
-
-  console.log(reviewData)
+  
   reviewData.forEach(review => {
     if (!review.user) {
       review.user = review.author
