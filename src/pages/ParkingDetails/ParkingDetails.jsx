@@ -12,10 +12,17 @@ const ParkingDetails = (props) => {
       user={props.user} 
       handleLogout={props.handleLogout}
     />
-    <div>details</div>
-    <h2>{parkinglotData.city}</h2>
-    <img src={parkinglotData.photo} alt="parkingpic" className="card-img-top" />
-    <div>
+    <div id="park-details">
+      <div>details</div>
+      <h2>{parkinglotData.city}</h2>
+      <img 
+        alt="restaurant-img" style={{width : '100%'}}
+      src={
+          parkinglotData.image ? parkinglotData.image 
+          : 
+          'https://picsum.photos/id/398/640/480' 
+        } 
+      />
       <div>
         <i className="material-icons">delete</i>
         {parkinglotData.cleanliness}
@@ -28,7 +35,7 @@ const ParkingDetails = (props) => {
         <p>Not Safe</p>
         }
       </div>
-    </div>
+    
     <div>
       <div>
         <i className="material-icons" >terrain</i>
@@ -74,6 +81,7 @@ const ParkingDetails = (props) => {
       :
       <div>you are not the owner</div>
       }
+    </div>
     </div>
     <NavBarBot />
     </>
