@@ -15,9 +15,50 @@ const ParkingDetails = (props) => {
     <div>details</div>
     <h2>{parkinglotData.city}</h2>
     <img src={parkinglotData.photo} alt="parkingpic" className="card-img-top" />
-    <div>clean,safe</div>
-    <div>paved,covered</div>
-    <div>lighting,free</div>
+    <div>
+      <div>
+        <i className="material-icons">delete</i>
+        {parkinglotData.cleanliness}
+      </div>
+      <div>
+        <i className="material-icons">local_police</i>
+        {parkinglotData.isSafe ?
+        <p>Safe</p>
+        :
+        <p>Not Safe</p>
+        }
+      </div>
+    </div>
+    <div>
+      <div>
+        <i className="material-icons" >terrain</i>
+        {parkinglotData.isPaved ? 
+        <p>is Paved</p>
+        :
+        <p>is not paved</p>
+        }
+        <i className="material-icons">garage</i>
+        {parkinglotData.isCovered ?
+        <p>Covered Parking</p>
+        :
+        <p>No Covered Parking</p>
+        }
+      </div>
+    </div>
+    <div>
+      <div>
+        <i className="material-icons">light</i>
+        {parkinglotData.lightQuality}
+        <i className="material-icons">attach_money</i>
+        <div>
+        {parkinglotData.isFree ?
+        <p>Free to park</p>
+        :
+        <p>Requires a fee</p>
+        }
+        </div>
+      </div>
+    </div>
     <div>
       {props.user.profile === parkinglotData?.author ?
       <div>
