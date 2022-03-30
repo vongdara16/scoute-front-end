@@ -17,7 +17,7 @@ const Parkinglots = (props) => {
         {/* {props.parkinglots[0]} */}
         {props.parkinglots.length ? 
           <div>
-            {props.parkinglots[0].map((parkinglot, idx) => 
+            {props.parkinglots.map((parkinglot, idx) => 
                   <ParkingCard key={idx} parkinglots={parkinglot} />
                 )}
           </div>

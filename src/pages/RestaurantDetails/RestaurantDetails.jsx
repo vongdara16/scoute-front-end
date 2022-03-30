@@ -1,14 +1,15 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
-// import { getRestaurantReviews } from "../../services/reviewService";
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import * as reviewService from '../../services/reviewService'
+import * as restaurantService from '../../services/restaurantService'
+import AddReviewForm from '../../components/AddReviewForm/AddReviewForm'
 import './RestaurantDetails.css'
 
 const RestaurantDetails = (props) => {
+  const navigate = useNavigate()
   const location = useLocation()
-  console.log(location.state)
   const [restaurantData, setRestaurantData] = useState(location.state.restaurant)
   const [reviewData, setReviewData] = useState([])
 
@@ -16,7 +17,23 @@ const RestaurantDetails = (props) => {
     const restaurantId = location.state.restaurant.id
     reviewService.getRestaurantReviews(restaurantId)
     .then(review => setReviewData(review) )
+    // restaurantService.createCopy(restaurantData)
+    // reviewService.getAll()
+    // .then(allReviews => {
+    //   setReviewData([...reviewData, allReviews])
+    //   console.log(allReviews)
+    // }
+    // )
+    // console.log(reviewData)
   }, [])
+
+  const handleAddReview = async newReviewData => {
+    const newReview = await reviewService.create(newReviewData)
+    setReviewData([...reviewData, newReview])
+    // navigate('/restaurants/:id')
+  }
+
+  console.log(reviewData)
 
   return (  
     <>
@@ -46,22 +63,19 @@ const RestaurantDetails = (props) => {
         <h3>Reviews will be generated here!</h3>
       </div>
       <div>
-        <Link to='/restaurants/AddReview' state={{restaurantData}}>
-          <button>
-            Add Review
-          </button>
-        </Link>
+        <AddReviewForm handleAddReview={handleAddReview} restaurant={restaurantData}/>
       </div>
       {reviewData.length ? 
       <div>
-        {reviewData.map(review => 
-          <div key={review.id}>
-            <p>{review.user.name}</p>
-            <img 
+        {reviewData.map((review, idx) => 
+          <div key={idx}>
+            <p>booty wallace</p>
+            {/* <p>{review.user.name ? review.user.name : 'booty wallace'}</p> */}
+            {/* <img 
               src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
               alt="user-pic" 
               style={{ height: '50px' }}
-            />
+            /> */}
             <p>{review.rating}</p>
             <p>{review.text}</p>
           </div>
@@ -71,7 +85,7 @@ const RestaurantDetails = (props) => {
         <h6>No reviews yet</h6>
       }
       
-      <NavBarBot />
+      <NavBarBot page='restaurants'/>
     </>
   );
 }

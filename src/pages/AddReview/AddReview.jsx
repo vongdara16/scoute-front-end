@@ -1,7 +1,7 @@
 import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import { Link, useLocation } from 'react-router-dom'
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 
 
@@ -10,6 +10,28 @@ const AddReview = (props) => {
   console.log(location.state.restaurantData)
   const restaurant = location.state.restaurantData
   const formElement = useRef()
+
+  const [validForm, setValidForm] = useState(false)
+  const [formData, setFormData] = useState({
+    content: '',
+    rating: '',
+  })
+
+  useEffect(()=> {
+    formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+  }, [formData])
+
+  const handleChange = evt => {
+    setFormData({...formData, [evt.target.name]: evt.target.value})
+  }
+
+  const handleSubmit = evt => {
+    evt.preventDefault()
+		const reviewFormData = new FormData()
+		reviewFormData.append('content', formData.content)
+    reviewFormData.append('rating', formData.rating)
+    props.handleAddReview(reviewFormData)   
+  }
 
 
   return (  
@@ -26,7 +48,7 @@ const AddReview = (props) => {
         </div>
         <form
           autoComplete="off"
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className='container'
           ref={formElement}
         >

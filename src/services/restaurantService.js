@@ -14,6 +14,19 @@ function create(restaurant) {
   .then(res => res.json())
 }
 
+// function createCopy(restaurant) {
+//   console.log('review', restaurant)
+//   return fetch(BASE_URL, {
+//     method: 'POST',
+//     headers: {
+//       'content-type': 'application/json',
+//       'Authorization': `Bearer ${tokenService.getToken()}`
+//     },
+//     body: JSON.stringify(restaurant)
+//   })
+//   .then(res => res.json())
+// }
+
 async function getAll(search) {
   const finalURL = BASE_URL+search
   const result = await axios({
@@ -51,6 +64,7 @@ function update(restaurant) {
 
 export {
   create,
+  // createCopy,
   getAll,
   deleteOne,
   update
