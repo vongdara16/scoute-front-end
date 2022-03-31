@@ -34,6 +34,12 @@ const RestaurantDetails = (props) => {
     .then(deletedReview => setReviewData(reviewData.filter(review => review._id !==deletedReview._id)))
   }
 
+  const handleReviewStars = star => {
+    if(props.review.rating === 1){
+      return <img src={"public/yelpstars/small_1.png"} alt='review'/>
+    }
+  }
+console.log(restaurantData)
   return (  
     <>
       <NavBarTop 
@@ -74,20 +80,22 @@ const RestaurantDetails = (props) => {
       <div id='review-form'>
         <AddReviewForm handleAddReview={handleAddReview} restaurant={restaurantData}/>
       </div>
+      <br></br>
       {reviewData.length ? 
       <div>
         {reviewData.map((review, idx) => 
           <div className='user-review' key={idx}>
-            <div id="name-pic">
+            <div id="name-pic-rating">
               <img id="user-pic"
                 src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
                 alt="user-pic" 
                 style={{ height: '50px' }}
                 />
-              <p id="review-rating">{review.rating}</p>
-              <p id="username">{review.user.name ? review.user.name : 'Scoute User'}</p>
+              <img src={`/yelpstars/small_${review.rating}.png`} alt="rating" />
+              <p>{review.user.name ? review.user.name : 'Scoute User'}</p>
             </div>
-            <p id ='review-text'>{review.text}</p>
+            <br></br>
+            <p id ='review'>{review.text}</p>
               {props.user.profile === review.user?._id ?
                 <div>
                   <button
@@ -103,7 +111,7 @@ const RestaurantDetails = (props) => {
           </div>
         )}
       </div>
-      :
+        :
         <h6>No reviews yet</h6>
       }
       
