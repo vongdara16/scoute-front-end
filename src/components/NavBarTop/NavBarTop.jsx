@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const NavBarTop = ({ user, handleLogout }) => {
+const NavBarTop = ({ user, handleLogout, getLocation }) => {
   return (
     <>
       <nav id='top-nav-no-search' className='navbar'>
@@ -14,12 +14,9 @@ const NavBarTop = ({ user, handleLogout }) => {
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
       </div>
-        {/* <ul>
-          <li>Welcome, {user.name}</li>
-          <li><Link to="/profiles">Profiles</Link></li>
-          <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-          <li><Link to="/changePassword">Change Password</Link></li>
-        </ul> */}
+      <button onClick={(e) => getLocation(e)}>
+        <i id='top-icon' className='material-icons'>place</i>
+      </button>
       </nav>
     </>
   )

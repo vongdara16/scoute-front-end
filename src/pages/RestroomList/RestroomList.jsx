@@ -1,19 +1,16 @@
 import NavBarBot from "../../components/NavBarBot/NavBarBot";
-import NavBarTopSearch from "../../components/NavBarTopSearch/NavBarTopSearch";
+import NavBarTop from "../../components/NavBarTop/NavBarTop";
 import RestroomCard from "../../components/RestroomCard/RestroomCard";
 
 const Restrooms = (props) => {
   return (
     <>
-      <NavBarTopSearch 
+      <NavBarTop 
         user={props.user} 
         handleLogout={props.handleLogout}
-        isFormInvalid={props.isFormInvalid}
       />
       <div >
-        <div>This feature is only avaiable by agreeing to let us use your location.
-          <button onClick={() => props.getLocation()}>Use Location</button>
-        </div>
+        <div>This feature is only avaiable by agreeing to let us use your location.</div>
       </div>
       <div>
       <h2 id='all-cards'>

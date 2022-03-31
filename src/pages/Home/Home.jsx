@@ -9,6 +9,7 @@ const Home = (props) => {
       <NavBarTop 
         user={props.user} 
         handleLogout={props.handleLogout}  
+        getLocation={props.getLocation}
       />
       <div className="card" id="home-card">
         <Link to="/restrooms">
