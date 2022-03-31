@@ -1,0 +1,20 @@
+p {
+  text-align: center;
+}
+
+#continue-button{
+  background-color: forestgreen;
+  display: block;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.key {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.newuser-header {
+  margin-top: 15px;
+}
