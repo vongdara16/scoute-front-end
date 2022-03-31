@@ -52,3 +52,12 @@ div#details-price-distance {
   margin: auto;
   display: block;
 }
+
+#delete-btn-restaurant {
+  display: flex;
+  justify-content: center;
+}
+
+#distance {
+  font-size: 1.2rem;
+}

@@ -5,6 +5,7 @@ import NavBarBot from "../../components/NavBarBot/NavBarBot";
 import * as reviewService from '../../services/reviewService'
 import AddReviewForm from '../../components/AddReviewForm/AddReviewForm'
 import './RestroomDetails.css'
+import '../RestaurantDetails/RestaurantDetails.css'
 
 const RestroomDetails = (props) => {
   const navigate = useNavigate()
@@ -93,7 +94,7 @@ const RestroomDetails = (props) => {
       </div>
       <br /> 
       <div id="details-location-phone" >
-        <p>
+        <p id="rr-street">
           <i className="material-icons" >place</i>
           {restroomData.street ? restroomData.street : restroomData.location.address1}
         </p>
@@ -107,18 +108,34 @@ const RestroomDetails = (props) => {
         </span>
       </div>
       <hr id="solid" />
-      <div>
-        <h3>Reviews will be generated here!</h3>
-      </div>
-      <div>
+      {reviewData.length ? 
+        <div>
+          <h4>Checkout These Awesome Reviews!</h4>
+        </div>
+      :
+        <></>
+      }
+      <div id="review-form">
         <AddReviewForm handleAddReview={handleAddReview} restroom={restroomData}/>
       </div>
       {reviewData.length ? 
       <div>
         {reviewData.map((review, idx) => 
-          <div key={idx}>
+          <div key={idx} className='user-review'>
+            <div id="name-pic-rating">
+              <img id='user-pic'
+                src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
+                alt="user-pic" 
+                style={{ height: '50px' }}
+                />
+              <p>
+                {review.rating}
+              </p>
+              <p>{review.user.name ? review.user.name : 'booty wallace'}</p>
+            </div>
+            <p>{review.text}</p>
             {props.user.profile === review.user?._id ?
-              <div>
+              <div id="delete-btn-restaurant">
                 <button
                   className="btn btn-sm btn-danger"
                   onClick={()=> handleDeleteReview(review._id)}
@@ -127,16 +144,8 @@ const RestroomDetails = (props) => {
                 </button>
               </div>
             :
-              <div></div>
+              <></>
             }
-            <p>{review.user.name ? review.user.name : 'booty wallace'}</p>
-            <img 
-              src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
-              alt="user-pic" 
-              style={{ height: '50px' }}
-            />
-            <p>{review.rating}</p>
-            <p>{review.text}</p>
           </div>
         )}
       </div>
@@ -150,11 +159,3 @@ const RestroomDetails = (props) => {
 }
 
 export default RestroomDetails;
-
-// const RestroomDetails = (props) => {
-//   return (
-//     <h2>Hi</h2>
-//   );
-// }
-
-// export default RestroomDetails;

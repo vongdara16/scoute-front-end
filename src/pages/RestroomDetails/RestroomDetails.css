@@ -20,9 +20,13 @@ hr.solid {
 }
 
 #no-reviews {
-  height: 15vh;
+  height: 22vh;
 }
 
 #uni-change-acc > i {
   font-size: 2.0rem;
+}
+
+#rr-street {
+  margin-top: 15px;
 }
