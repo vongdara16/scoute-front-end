@@ -15,8 +15,7 @@ const RestroomCard = ({restroom, lat, lng}) => {
           key={restroom.id} 
           state={{restroom}}>
           <img 
-            src=
-              {restroom.image_url ? restroom.image_url : restroom.photo ? restroom.photo : 'https://picsum.photos/id/398/640/480' } 
+            src='https://i.imgur.com/GBCWPXj.jpg' 
             alt="A happy puppy"
             className="card-img-top"
           />

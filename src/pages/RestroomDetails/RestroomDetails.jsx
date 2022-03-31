@@ -44,7 +44,7 @@ const RestroomDetails = (props) => {
       <img 
         alt="restroom-img" 
         style={{width : '100%'}}
-        src='https://picsum.photos/id/323/640/480' 
+        src='https://i.imgur.com/GBCWPXj.jpg' 
       />
       <div id="uni-change-acc">
         {restroomData.unisex ? 
