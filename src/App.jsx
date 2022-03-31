@@ -290,6 +290,7 @@ const App = () => {
               getLocation={getLocation}
               lat={lat}
               lng={lng} 
+              spinner={spinner}
               // handleRestrooms={handleRestrooms}
               restrooms={restrooms}
               isFormInvalid={isFormInvalid}

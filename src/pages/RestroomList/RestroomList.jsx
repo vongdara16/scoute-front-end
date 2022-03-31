@@ -11,6 +11,8 @@ const Restrooms = (props) => {
         handleLogout={props.handleLogout}
         getLocation={props.getLocation}
         page={props.page}
+        lat={props.lat}
+        spinner={props.spinner}
       />
         <div>
           {props.restrooms.data ? 
