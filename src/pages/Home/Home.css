@@ -16,6 +16,10 @@ img.card-img-top {
   background-color: #EEEEEE;
   height: 50vw;
   object-fit: cover;
+  border-radius: 16px;
+  background: #12121200;
+  box-shadow:  10px 10px 14px #0c0c0c46,
+  -10px -10px 14px #18181833;
 }
 
 .card {

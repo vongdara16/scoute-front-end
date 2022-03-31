@@ -20,6 +20,7 @@ import Parkinglots from './pages/ParkingList/ParkingList'
 import AddParking from './pages/AddParking/AddParking'
 import ParkingDetails from './pages/ParkingDetails/ParkingDetails'
 import EditParking from './pages/EditParking/EditParking'
+import NewUser from './pages/NewUser/NewUser'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -173,6 +174,12 @@ const App = () => {
               handleSignupOrLogin={handleSignupOrLogin} 
             />
           }
+        />
+        <Route
+        path="/newuser"
+        element={
+          <NewUser />
+        }
         />
         <Route
           path="/login"

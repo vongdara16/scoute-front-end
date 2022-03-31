@@ -25,6 +25,7 @@ const ParkingCard = ({parkinglots}) => {
       <div>{parkinglots.city}</div>
     </div>
     }
+    <hr id="solid" />
     </Link>
     </div>
 

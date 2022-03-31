@@ -1,3 +1,9 @@
 #else-message {
   height: 84vh;
+  text-align: center;
+}
+
+#parking-header {
+  text-align: center;
+  color: #1c658c;
 }

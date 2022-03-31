@@ -28,7 +28,7 @@ const AddReviewForm = (props) => {
 
   return (  
     <>
-        <label htmlFor="add-review-btn" style={{fontSize: '2.0rem'}}>
+        <label htmlFor="add-review-btn" style={{fontSize: '1.5rem'}}>
           Add Review
         </label>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id='add-review-btn'>

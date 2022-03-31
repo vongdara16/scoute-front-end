@@ -17,9 +17,14 @@
 }
 
 #rating {
-  color: black;
+  width: 30%;
+  height: 20%;
 }
 
 #no-price {
+  color: darkgray;
+}
+
+#solid {
   color: darkgray;
 }
