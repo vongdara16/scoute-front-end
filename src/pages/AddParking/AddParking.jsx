@@ -232,11 +232,12 @@ const AddParking = (props) => {
           onChange={handleChange}
           required
           />
-          <div className="d-grid">
+          <div id='add-parking-btn' className="d-grid">
             <button
             type="submit"
             className="btn btn-primary btn-fluid"
-            disabled={!validForm}>
+            disabled={!validForm}
+            >
               Add Parkinglot
             </button>
           </div>

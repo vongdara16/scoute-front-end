@@ -50,7 +50,9 @@ div#details-price-distance {
   height: 3.5vh;
   object-fit: cover;
   margin: auto;
+  margin-bottom: 60px;
   display: block;
+  /* padding-top: 100px; */
 }
 
 #delete-btn-restaurant {

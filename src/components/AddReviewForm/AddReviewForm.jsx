@@ -65,7 +65,7 @@ const AddReviewForm = (props) => {
             onChange={handleChange}
             required
           />
-          <div className='input-group mb-1'>
+          <div className='input-group mb-1' id='review-form-specific'>
             <label htmlFor="restaurant-review-rating" className='input-group-text' id='inputGroup-sizing-default'>
             <i className='material-icons'>star_half</i>
             </label>

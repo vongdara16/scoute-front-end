@@ -38,6 +38,7 @@ const Landing = (props) => {
         autoComplete="off"
         onSubmit={handleSubmit}
         className='container'
+        id='landing-form'
       >
       <div className='inputContainer input-group mb-3'>
         <label htmlFor="email" className='label landing-label input-group-text' id='inputGroup-sizing-default' >
@@ -71,13 +72,15 @@ const Landing = (props) => {
           placeholder='Password'
         />
       </div>
-      <div>
-        <button id='sign-in' className='btn btn-secondary btn-lg'>Sign In</button>
-      </div>
-      <div>
-        <Link to='/signup'>
-          <button id='sign-up' className='btn btn-outline-secondary btn-lg'>Sign Up</button>
-        </Link>
+      <div id='sign-btns'>
+        <div >
+          <button id='sign-in' className='btn btn-secondary btn-lg'>Sign In</button>
+        </div>
+        <div>
+          <Link to='/signup'>
+            <button id='sign-up' className='btn btn-outline-secondary btn-lg'>Sign Up</button>
+          </Link>
+        </div>
       </div>
     </form>
     </>

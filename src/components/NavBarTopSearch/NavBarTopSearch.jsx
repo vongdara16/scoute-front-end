@@ -10,7 +10,6 @@ const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFor
           <i id='top-icon' className='material-icons'>person</i>
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li><Link to='' className="dropdown-item">Edit Profile</Link></li>
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
       </div>

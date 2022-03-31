@@ -6,6 +6,8 @@ import './ParkingDetails.css'
 const ParkingDetails = (props) => {
   const location = useLocation()
   const [parkinglotData, setParkinglotData] = useState(location.state.parkinglots)
+  console.log(parkinglotData.author)
+  console.log(props.user)
   return ( 
     <>
     <NavBarTop 
@@ -24,7 +26,7 @@ const ParkingDetails = (props) => {
         src={
           parkinglotData.photo ? parkinglotData.photo 
           : 
-          'https://picsum.photos/id/398/640/480' 
+          'https://i.imgur.com/qHOcJde.png' 
         } 
       />
       <ul className="list-group list-group-flush">
@@ -113,9 +115,9 @@ const ParkingDetails = (props) => {
       </ul>
     <div>
       {props.user.profile === parkinglotData?.author ?
-      <div>
+      <div id="parking-btns">
         <button className="btn btn-sm btn-danger m-left"
-        onClick={() => props.handleDeleteParking(parkinglotData._id)}>Delete parking</button>
+        onClick={() => props.handleDeleteParking(parkinglotData._id)}>Delete parking</button> <br></br>
         <Link
         to={`/parkinglots/${parkinglotData._id}/edit`}
         state={{parkinglotData}}
@@ -124,7 +126,7 @@ const ParkingDetails = (props) => {
         </Link>
         </div>
         :
-        <div>you are not the owner</div>
+        <></>
       }
       </div>
     </div>
