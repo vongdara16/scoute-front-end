@@ -28,7 +28,8 @@ const RestaurantCard = ({restaurant}) => {
               :
               <i  id='no-price' className='material-icons' >money_off</i>
               }
-              <span id='rating' >{restaurant.rating}</span>
+              {/* <span id='rating' >{restaurant.rating}</span> */}
+              <img id='rating' src={`/yelpstars/small_${restaurant.rating}.png`} alt="rating" />
               <span id='distance' >{(restaurant.distance/1609.34).toFixed(2)} mi</span>
             </div>
             <div>
