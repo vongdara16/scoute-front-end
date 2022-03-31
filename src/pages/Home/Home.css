@@ -46,16 +46,20 @@ i#top-icon.material-icons{
 
 nav#top-nav-no-search.navbar {
   border-bottom: 1px solid black;
-  height: 60px;
+  height: 50px;
   margin-bottom: 5px;
   width: 100%;
 }
 
 button#dropdownMenu2.btn.btn-secondary.dropdown-toggle {
-  background-color: #EEEEEE;
+  /* background-color: #EEEEEE; */
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   margin: 0 auto;
   width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button#dropdownMenu2.btn.btn-secondary.dropdown-toggle:focus {
@@ -65,4 +69,17 @@ button#dropdownMenu2.btn.btn-secondary.dropdown-toggle:focus {
 
 button#dropdownMenu2.btn.btn-secondary.dropdown-toggle::after {
   color: #EEEEEE;
+}
+
+button#geo-btn {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  margin-right: 6px;
+}
+
+#spinner {
+  color: #1c658c;
 }

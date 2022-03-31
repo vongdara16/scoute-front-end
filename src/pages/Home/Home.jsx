@@ -11,6 +11,8 @@ const Home = (props) => {
         handleLogout={props.handleLogout}  
         getLocation={props.getLocation}
         page={props.page}
+        lat={props.lat}
+        spinner={props.spinner}
       />
       <div className="card" id="home-card">
         <Link to="/restrooms">

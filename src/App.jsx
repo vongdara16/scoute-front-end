@@ -34,11 +34,13 @@ const App = () => {
   const [searchData, setSearchData] = useState({
     search: ''
   })
+  const [spinner, setSpinner] = useState(null)
   
   const navigate = useNavigate()
 
   const getLocation = async evt => {
     try {
+      setSpinner(true)
       await navigator.geolocation.getCurrentPosition(async (position) => {
         setLat(position.coords.latitude)
         setLng(position.coords.longitude)
@@ -50,6 +52,7 @@ const App = () => {
         .then(restaurant => {
           setRestaurants(restaurant)
         })
+        setSpinner(false)
       })
     }
     catch(err) {
@@ -148,6 +151,8 @@ const App = () => {
               handleLogout={handleLogout}
               getLocation={getLocation}
               page='buttonEnabled'
+              lat={lat}
+              spinner={spinner}
             /> 
             : 
             <Navigate to="/" />
@@ -292,6 +297,7 @@ const App = () => {
               getLocation={getLocation}
               lat={lat}
               lng={lng} 
+              spinner={spinner}
               // handleRestrooms={handleRestrooms}
               restrooms={restrooms}
               isFormInvalid={isFormInvalid}

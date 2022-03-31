@@ -1,0 +1,17 @@
+div#uni-change-acc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#not-avail {
+  color: darkgray;
+}
+
+hr#solid {
+  color: #0d6efd;
+}
+
+#distance {
+  color: darkgray !important;
+}

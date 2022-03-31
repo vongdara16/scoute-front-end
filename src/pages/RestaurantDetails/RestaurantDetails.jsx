@@ -41,8 +41,11 @@ const RestaurantDetails = (props) => {
         handleLogout={props.handleLogout}
       />
       <h1 id="details-name" >{restaurantData.name}</h1>
-      <img id="rest-img"
-        alt="restaurant-img" style={{width : '100%'}}
+      <img 
+        alt="restaurant-img" 
+        style={{width : '100%'}}
+        id='rest-img'
+
         src={
           restaurantData.image_url ? restaurantData.image_url 
           : 

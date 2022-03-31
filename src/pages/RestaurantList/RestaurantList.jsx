@@ -14,7 +14,7 @@ const Restaurants = (props) => {
         user={props.user} 
         handleLogout={props.handleLogout}
       />
-      <h1 id='restaurant-header' >Restaurants</h1>
+      <h1 id='restaurant-header'>Restaurants</h1>
       <div>
         {!props.restaurants.length ?
           <div id='no-rest'> 

@@ -1,0 +1,14 @@
+h2#rr-header {
+  text-align: center;
+  color: #1c658c;
+}
+
+div#rr-welc-msg {
+  /* color: red; */
+  text-align: center;
+}
+
+p#no-rr {
+  height: 75vh;
+  text-align: center;
+}
