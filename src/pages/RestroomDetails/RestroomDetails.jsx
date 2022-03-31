@@ -14,8 +14,6 @@ const RestroomDetails = (props) => {
 
   useEffect(() => {
     const restroomId = location.state.restroom.id
-    console.log(restroomId)
-    console.log(location.state.restroom)
     reviewService.getRestroomReviews(restroomId ? restroomId : location.state.restroom._id)
     .then(review => setReviewData(review) )
   }, [])

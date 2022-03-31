@@ -146,6 +146,7 @@ const App = () => {
               user={user} 
               handleLogout={handleLogout}
               getLocation={getLocation}
+              page='buttonEnabled'
             /> 
             : 
             <Navigate to="/" />
@@ -287,6 +288,7 @@ const App = () => {
               // handleRestrooms={handleRestrooms}
               restrooms={restrooms}
               isFormInvalid={isFormInvalid}
+              page='buttonEnabled'
             /> 
           : 
             <Navigate to="/" />

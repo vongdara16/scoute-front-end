@@ -37,7 +37,6 @@ function deleteOne(id) {
 }
 
 async function getRestroomReviews(restroomId) {
-  console.log('restroom review service')
   const finalURL = `${BASE_URL}restrooms/${restroomId}`
   const result = await axios({
     url: finalURL,
