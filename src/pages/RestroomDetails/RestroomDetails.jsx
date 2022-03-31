@@ -46,9 +46,50 @@ const RestroomDetails = (props) => {
         style={{width : '100%'}}
         src='https://picsum.photos/id/323/640/480' 
       />
+      <div id="uni-change-acc">
+        {restroomData.unisex ? 
+          <i
+            id='rr-uni' 
+            className='material-icons'>
+              wc
+          </i>
+        :
+          <i
+            id='not-avail' 
+            className='material-icons'>
+            wc
+          </i>
+        }
+        {restroomData.changing_table ? 
+          <i
+            id='rr-baby' 
+            className='material-icons'>
+            baby_changing_station
+          </i>
+        :
+          <i
+            id='not-avail' 
+            className='material-icons'>
+            baby_changing_station
+          </i>
+        }
+        {restroomData.accessible ? 
+          <i
+            id='rr-acc' 
+            className='material-icons'>
+            accessible
+          </i>
+        :
+          <i
+            id='not-avail' 
+            className='material-icons'>
+            not_accessible
+          </i>
+        }
+      </div>
       <div id="details-price-distance" >
         <span id="details-price" >{restroomData.price} </span>
-        <span id='distance' >{(restroomData.distance/1609.34).toFixed(2)} mi</span>
+        
       </div>
       <br /> 
       <div id="details-location-phone" >
@@ -56,10 +97,14 @@ const RestroomDetails = (props) => {
           <i className="material-icons" >place</i>
           {restroomData.street ? restroomData.street : restroomData.location.address1}
         </p>
-        <p>
-          <i className="material-icons" >phone</i>
-          {restroomData.display_phone ? restroomData.display_phone : restroomData.phoneNumber}
-        </p>
+        <span id='rr-distance'>
+          <i
+            id='rr-miles' 
+            className='material-icons'>
+            directions_walk
+          </i>
+          {(restroomData.distance).toFixed(2)} mi
+        </span>
       </div>
       <hr id="solid" />
       <div>
@@ -82,7 +127,7 @@ const RestroomDetails = (props) => {
                 </button>
               </div>
             :
-              <h2>this no work</h2>
+              <div></div>
             }
             <p>{review.user.name ? review.user.name : 'booty wallace'}</p>
             <img 
@@ -96,7 +141,7 @@ const RestroomDetails = (props) => {
         )}
       </div>
       :
-        <h6>No reviews yet</h6>
+        <h6 id="no-reviews">No reviews yet</h6>
       }
       
       <NavBarBot page='restrooms'/>

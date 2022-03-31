@@ -42,7 +42,8 @@ const RestaurantDetails = (props) => {
       />
       <h1 id="details-name" >{restaurantData.name}</h1>
       <img 
-        alt="restaurant-img" style={{width : '100%'}}
+        alt="restaurant-img" 
+        style={{width : '100%'}}
         src={
           restaurantData.image_url ? restaurantData.image_url 
           : 
