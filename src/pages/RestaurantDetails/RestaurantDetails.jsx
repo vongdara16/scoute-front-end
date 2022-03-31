@@ -55,7 +55,11 @@ const RestaurantDetails = (props) => {
         } 
       />
       <div id="details-price-distance" >
-        <span id="details-price" >{restaurantData.price} </span>
+        {restaurantData.price ? 
+          <span id="details-price" >{restaurantData.price} </span>
+        :
+          <i  id='no-price' className='material-icons' >money_off</i>
+        }
         <span id='distance' >{(restaurantData.distance/1609.34).toFixed(2)} mi</span>
       </div>
       <br /> 
@@ -94,7 +98,7 @@ const RestaurantDetails = (props) => {
             <br></br>
             <p id ='review'>{review.text}</p>
               {props.user.profile === review.user?._id ?
-                <div>
+                <div id="delete-btn-restaurant">
                   <button
                     className="btn btn-sm btn-danger"
                     onClick={()=> handleDeleteReview(review._id)}
