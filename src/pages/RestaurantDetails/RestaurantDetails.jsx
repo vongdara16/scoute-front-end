@@ -34,12 +34,6 @@ const RestaurantDetails = (props) => {
     .then(deletedReview => setReviewData(reviewData.filter(review => review._id !==deletedReview._id)))
   }
 
-  const handleReviewStars = star => {
-    if(props.review.rating === 1){
-      return <img src={"public/yelpstars/small_1.png"} alt='review'/>
-    }
-  }
-
   return (  
     <>
       <NavBarTop 
