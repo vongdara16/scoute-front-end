@@ -18,8 +18,7 @@ const Restaurants = (props) => {
       <div>
         {!props.restaurants.length ?
           <div id='no-rest'> 
-            <h2>No Restaurants, Please enter your location in the search bar above.</h2>
-            <small id='small-text'>Or allow access to your location</small>
+            <h6>Please enter your location or allow us to use your location</h6>
           </div>
         :
           <h2 id='all-cards'>

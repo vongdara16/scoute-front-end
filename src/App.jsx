@@ -45,6 +45,10 @@ const App = () => {
         .then(restroom => {
           setRestrooms(restroom)
         })
+        await restaurantService.getAllByGeo(position.coords.latitude, position.coords.longitude)
+        .then(restaurant => {
+          setRestaurants(restaurant)
+        })
       })
     }
     catch(err) {
@@ -141,6 +145,7 @@ const App = () => {
             <Home 
               user={user} 
               handleLogout={handleLogout}
+              getLocation={getLocation}
             /> 
             : 
             <Navigate to="/" />
@@ -189,6 +194,7 @@ const App = () => {
           path="/restaurants"
           element={user ? 
             <Restaurants 
+              getLocation={getLocation}
               handleChangeRestaurant={handleChange}
               handleSubmitRestaurant={handleSubmit}
               isFormInvalid={isFormInvalid}

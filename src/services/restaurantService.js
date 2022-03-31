@@ -14,6 +14,18 @@ function create(restaurant) {
   .then(res => res.json())
 }
 
+async function getAllByGeo(lat, lng) {
+  const finalURL = `${BASE_URL}${lat}/${lng}`
+  const result = await axios({
+    url: finalURL,
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  return result.data.restaurants
+}
+
 async function getAll(search) {
   const finalURL = BASE_URL+search
   const result = await axios({
@@ -51,7 +63,7 @@ function update(restaurant) {
 
 export {
   create,
-  // createCopy,
+  getAllByGeo,
   getAll,
   deleteOne,
   update
