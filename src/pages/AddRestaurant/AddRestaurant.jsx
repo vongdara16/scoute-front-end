@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import NavBarTop from '../../components/NavBarTop/NavBarTop';
 import NavBarBot from '../../components/NavBarBot/NavBarBot';
 import { useState, useEffect, useRef } from 'react';
+import './AddRestaurant.css'
 
 
 const AddRestaurant = (props) => {
@@ -49,7 +50,7 @@ const AddRestaurant = (props) => {
         user={props.user} 
         handleLogout={props.handleLogout}
       />
-      <h1>add a restaurant!</h1>
+      <h1 id='parking-header'>New Restaurant</h1>
       <form
         autoComplete="off"
         onSubmit={handleSubmit}
@@ -200,7 +201,7 @@ const AddRestaurant = (props) => {
           <option value="5">☆☆☆☆☆</option>
         </select>
       </div>
-      <div id='sign-up-buttons'>
+      <div id='sign-up-btns-restaurant'>
         <button 
           type='submit'
           disabled={!validForm} 

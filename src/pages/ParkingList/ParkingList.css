@@ -1,9 +1,26 @@
 #else-message {
-  height: 84vh;
+  height: 79vh;
   text-align: center;
 }
 
 #parking-header {
   text-align: center;
   color: #1c658c;
+}
+
+#all-cards-parking {
+  height: 80vh;
+}
+
+#nav-bar-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+#all-cards-parking-lot:last-of-type {
+  padding-bottom: 50px;
+}
+
+#all-cards-parking-lot:first-of-type {
+  padding-top: 20px;
 }

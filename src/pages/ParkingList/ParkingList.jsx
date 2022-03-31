@@ -14,17 +14,20 @@ const Parkinglots = (props) => {
         handleLogout={props.handleLogout}
       />
       <h1 id="parking-header" >Parking lots</h1>
-      <h2 id='all-cards'>
-        {props.parkinglots.length ? 
-          <div id="all-cards" >
-            {props.parkinglots.map((parkinglot, idx) => 
-              <ParkingCard key={idx} parkinglots={parkinglot} />
-            )}
-          </div>
-        :
-          <div id='else-message' >Please search by city name</div>
-        }
-      </h2>
+      <div id='all-cards-parking'>
+        <h2>
+          {props.parkinglots.length ? 
+            <div id="all-cards-parking-lot" >
+              {props.parkinglots.map((parkinglot, idx) => 
+                <ParkingCard key={idx} parkinglots={parkinglot} />
+              )}
+            </div>
+          :
+            <div id='else-message' >Please search by city name</div>
+          }
+        </h2>
+
+      </div>
       <NavBarBot page='parkinglots'/>
     </>
   );

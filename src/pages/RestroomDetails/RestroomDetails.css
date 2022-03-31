@@ -30,3 +30,8 @@ hr.solid {
 #rr-street {
   margin-top: 15px;
 }
+
+#user-review-rr:last-of-type {
+  padding-bottom: 50px;
+  /* margin-bottom: 10px; */
+}

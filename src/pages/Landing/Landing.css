@@ -15,6 +15,16 @@
   color: #1c658c;
 }
 
+#sign-btns {
+  position: relative;
+  bottom: 40px;
+}
+
+#landing-form {
+  height: 0px;
+}
+
+
 #sign-up:hover, #sign-in:hover {
   transform: scale(1.1);
 }

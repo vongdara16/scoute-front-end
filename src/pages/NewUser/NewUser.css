@@ -18,3 +18,7 @@ p {
 .newuser-header {
   margin-top: 15px;
 }
+
+#new-user {
+  margin: 0 7px;
+}

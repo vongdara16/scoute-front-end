@@ -1,5 +1,5 @@
 #all-parking-details {
-  height: 100vh;
+  height: 90vh;
 }
 
 #park-details {
@@ -9,4 +9,8 @@
 
 li {
   margin: 8px;
+}
+
+#parking-btns {
+  padding-bottom: 70px;
 }

@@ -17,3 +17,7 @@ form.container {
   column-gap: 0;
   height: 75vh;
 }
+
+#add-parking-btn {
+  padding-bottom: 80px;
+}

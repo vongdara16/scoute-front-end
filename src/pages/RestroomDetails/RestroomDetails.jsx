@@ -119,9 +119,9 @@ const RestroomDetails = (props) => {
         <AddReviewForm handleAddReview={handleAddReview} restroom={restroomData}/>
       </div>
       {reviewData.length ? 
-      <div>
+      <div id="review-card-rr">
         {reviewData.map((review, idx) => 
-          <div key={idx} className='user-review'>
+          <div key={idx} className='user-review' id="user-review-rr">
             <div id="name-pic-rating">
               <img id='user-pic'
                 src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }

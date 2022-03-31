@@ -9,7 +9,7 @@ const ParkingCard = ({parkinglots}) => {
     <Link to={parkinglotsid} key={parkinglots._Id} state={{parkinglots}}>
     <img 
       src=
-        {parkinglots.photo ? (parkinglots.photo) : 'https://picsum.photos/id/398/640/480' } 
+        {parkinglots.photo ? (parkinglots.photo) : 'https://i.imgur.com/qHOcJde.png' } 
       alt="parkinglotPhoto"
       className="card-img-top"
     />

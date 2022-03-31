@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBarTop/NavBarTop'
 import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import Home from './pages/Home/Home'
@@ -82,7 +80,7 @@ const App = () => {
     try {
       await parkingService.getAll(searchData.search)
       .then(search => {
-        setParkinglots([...parkinglots, ...search])
+        setParkinglots([ ...search, ...parkinglots])
       })
     }
     catch (err) {
@@ -180,14 +178,6 @@ const App = () => {
         element={
           <NewUser />
         }
-        />
-        <Route
-          path="/login"
-          element={
-            <Login 
-              handleSignupOrLogin={handleSignupOrLogin} 
-            />
-          }
         />
         <Route
           path="/profiles"
