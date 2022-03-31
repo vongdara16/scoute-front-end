@@ -41,7 +41,7 @@ const RestaurantDetails = (props) => {
         handleLogout={props.handleLogout}
       />
       <h1 id="details-name" >{restaurantData.name}</h1>
-      <img 
+      <img id="rest-img"
         alt="restaurant-img" style={{width : '100%'}}
         src={
           restaurantData.image_url ? restaurantData.image_url 
@@ -70,33 +70,36 @@ const RestaurantDetails = (props) => {
       <div>
         <h4>Checkout These Awesome Reviews!</h4>
       </div>
-      <div>
+      <br></br>
+      <div id='review-form'>
         <AddReviewForm handleAddReview={handleAddReview} restaurant={restaurantData}/>
       </div>
       {reviewData.length ? 
       <div>
         {reviewData.map((review, idx) => 
-          <div key={idx}>
-            {props.user.profile === review.user?._id ?
-              <div>
-                <button
-                  className="btn btn-sm btn-danger"
-                  onClick={()=> handleDeleteReview(review._id)}
-                >
-                  DELETE REVIEW
-                </button>
-              </div>
-            :
-              <></>
-            }
-            <p>{review.user.name ? review.user.name : 'Scoute User'}</p>
-            <img 
-              src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
-              alt="user-pic" 
-              style={{ height: '50px' }}
-            />
-            <p>{review.rating}</p>
-            <p>{review.text}</p>
+          <div className='user-review' key={idx}>
+            <div id="name-pic">
+              <img id="user-pic"
+                src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
+                alt="user-pic" 
+                style={{ height: '50px' }}
+                />
+              <p id="review-rating">{review.rating}</p>
+              <p id="username">{review.user.name ? review.user.name : 'Scoute User'}</p>
+            </div>
+            <p id ='review-text'>{review.text}</p>
+              {props.user.profile === review.user?._id ?
+                <div>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={()=> handleDeleteReview(review._id)}
+                  >
+                    DELETE REVIEW
+                  </button>
+                </div>
+              :
+                <></>
+              }
           </div>
         )}
       </div>

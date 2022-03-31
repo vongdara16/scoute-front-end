@@ -1,3 +1,14 @@
+.user-review {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+hr.solid {
+  border-top: 2px solid black;
+}
+
 div#details-price-distance {
   width: 98%;
   display: flex;
@@ -14,12 +25,20 @@ div#details-price-distance {
   font-size: 20px;
 }
 
-hr.solid {
-  border-top: 2px solid black;
+#rest-img {
+  border-radius: 7px;
+  height: 50vw;
+  object-fit: cover;
+  margin: auto;
 }
 
 #details-name {
   text-align: center;
   color: #1c658c;
   font-family: 'Signika Negative', sans-serif;
+}
+
+#name-pic{
+  display: flex;
+  justify-content: space-between;
 }
