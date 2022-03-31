@@ -1,3 +1,8 @@
 #whole-details {
   height: 86vh;
 }
+
+#park-details {
+  height: 90vh;
+  display: block;
+}
