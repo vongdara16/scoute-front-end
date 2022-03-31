@@ -15,7 +15,7 @@ const Home = (props) => {
       <div className="card" id="home-card">
         <Link to="/restrooms">
           <img 
-            src="https://picsum.photos/id/398/640/480" 
+            src="https://i.imgur.com/pVyxL5P.jpg" 
             className="card-img-top"
             id="restroom-picture"
             alt="..." 
@@ -28,7 +28,7 @@ const Home = (props) => {
       <div className="card" id="home-card" >
         <Link to="/restaurants">
           <img 
-            src="https://picsum.photos/id/676/640/480" 
+            src="https://i.imgur.com/ElZeUe9.jpg" 
             className="card-img-top" 
             alt="..." 
           />
@@ -40,7 +40,7 @@ const Home = (props) => {
       <div className="card" id="home-card" >
         <Link to="/parkinglots">
           <img 
-            src="https://picsum.photos/id/648/640/480" 
+            src="https://i.imgur.com/81nAX8w.jpg" 
             className="card-img-top" 
             alt="..." 
           />

@@ -47,17 +47,6 @@ const SignupForm = props => {
       onSubmit={handleSubmit}
       className='container'
     >
-      <div className="form-group mb-1">
-				<label htmlFor="photo-upload" className="form-label" id='inputGroup-sizing-default'>
-				</label>
-					<input
-						type="file"
-						className="form-control"
-						id="photo-upload"
-						name="photo"
-						onChange={handleChangePhoto}
-					/>
-				</div>
       <div className='input-group mb-1'>
         <label htmlFor="name" className='input-group-text' id='inputGroup-sizing-default' >
           <i className='material-icons'>create</i>
