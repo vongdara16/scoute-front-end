@@ -12,48 +12,103 @@ const ParkingDetails = (props) => {
       user={props.user} 
       handleLogout={props.handleLogout}
     />
-    <div id="park-details">
-      <div>details</div>
-      <h2>{parkinglotData.city}</h2>
+      <h1 className="display-1">{parkinglotData.city}</h1>
       <img 
         alt="restaurant-img" style={{width : '100%'}}
-      src={
-          parkinglotData.image ? parkinglotData.image 
+        src={
+          parkinglotData.photo ? parkinglotData.photo 
           : 
           'https://picsum.photos/id/398/640/480' 
         } 
       />
-      <div>
-        <i className="material-icons">delete</i>
-        {parkinglotData.cleanliness}
-      </div>
-      <div>
-        <i className="material-icons">local_police</i>
-        {parkinglotData.isSafe ?
-        <p>Safe</p>
-        :
-        <p>Not Safe</p>
-        }
-      </div>
-    
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">
+          <i className="material-icons">
+            delete
+          </i>
+          <span>
+            Cleanliness: {parkinglotData.cleanliness}
+          </span>  
+        </li>
+        <li className="list-group-item">
+          {parkinglotData.isSafe ?
+          <div>
+            <i className="material-icons">
+              local_police
+            </i>
+            <span> This Parkinglot is Safe</span>
+          </div>
+          :
+          <div>
+            <i className="material-icons">
+              local_police
+            </i>
+            <span> Not Safe</span>
+          </div>
+          }
+        </li>
+          <li className="list-group-item">
+            {parkinglotData.isPaved ?
+            <div>
+              <i className="material-icons">
+                terrain
+              </i>
+              <span> This Parkinglot is Paved</span>
+            </div>
+            :
+            <div>
+              <i className="material-icons">
+                terrain
+              </i>
+              <span>This Parkinglot is Not Paved</span>
+            </div>
+            }
+          </li>
+          <li className="list-group-item">
+            {parkinglotData.isCovered ?
+            <div>
+              <i className="material-icons">
+                garage
+              </i>
+              <span>This Parkinglot is Paved</span>
+            </div>
+            :
+            <div>
+              <i className="material-icons">
+                garage
+              </i>
+              <span> This Parkinglot is Not Paved</span>
+            </div>
+            }
+          </li>
+          <li className="list-group-item">
+            <i className="material-icons">
+              light
+            </i>
+            <span> LightQuality: {parkinglotData.lightQuality}</span>
+          </li>
+          <li className="list-group-item">
+            {parkinglotData.isFree ?
+            <div>
+              <i className="material-icons">
+                attach_money
+              </i>
+              <span> This Parkinglot is Free</span>
+            </div>
+            :
+            <div>
+              <i className="material-icons">
+                attach_money
+              </i>
+              <span> This Parkinglot Requires a Fee</span>
+            </div>
+            }
+          </li>
+      </ul>
+
+    {/* </div>
     <div>
-      <div>
-        <i className="material-icons" >terrain</i>
-        {parkinglotData.isPaved ? 
-        <p>is Paved</p>
-        :
-        <p>is not paved</p>
-        }
-        <i className="material-icons">garage</i>
-        {parkinglotData.isCovered ?
-        <p>Covered Parking</p>
-        :
-        <p>No Covered Parking</p>
-        }
-      </div>
-    </div>
-    <div>
-      <div>
+      <li className="list-group-item">
         <i className="material-icons">light</i>
         {parkinglotData.lightQuality}
         <i className="material-icons">attach_money</i>
@@ -64,8 +119,9 @@ const ParkingDetails = (props) => {
         <p>Requires a fee</p>
         }
         </div>
-      </div>
+      </li>
     </div>
+    </ul> */}
     <div>
       {props.user.profile === parkinglotData?.author ?
       <div>
@@ -82,7 +138,7 @@ const ParkingDetails = (props) => {
       <div>you are not the owner</div>
       }
     </div>
-    </div>
+    {/* </div> */}
     <NavBarBot />
     </>
   );
