@@ -1,8 +1,12 @@
-#whole-details {
-  height: 86vh;
+#all-parking-details {
+  height: 100vh;
 }
 
 #park-details {
   height: 90vh;
   display: block;
+}
+
+li {
+  margin: 8px;
 }

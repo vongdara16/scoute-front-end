@@ -13,9 +13,8 @@ const Parkinglots = (props) => {
         user={props.user} 
         handleLogout={props.handleLogout}
       />
-      <h1>Parking lots</h1>
+      <h1 id="parking-header" >Parking lots</h1>
       <h2 id='all-cards'>
-        {/* {props.parkinglots[0]} */}
         {props.parkinglots.length ? 
           <div id="all-cards" >
             {props.parkinglots.map((parkinglot, idx) => 
