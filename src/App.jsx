@@ -140,7 +140,7 @@ const App = () => {
           element={user ? 
             <Home 
               user={user} 
-              handleLogout={handleLogout} 
+              handleLogout={handleLogout}
             /> 
             : 
             <Navigate to="/" />
@@ -217,7 +217,6 @@ const App = () => {
           element={user ? 
             <AddRestaurant 
               handleAddRestaurant={handleAddRestaurant} 
-              isFormInvalid={isFormInvalid}
               handleLogout={handleLogout}
               user={user} 
             /> 
@@ -235,6 +234,7 @@ const App = () => {
               parkinglots={parkinglots} 
               handleLogout={handleLogout}
               user={user} 
+              isFormInvalid={isFormInvalid}
             />
             : 
             <Navigate to="/" />
@@ -258,7 +258,8 @@ const App = () => {
               <ParkingDetails 
                 user={user}
                 handleLogout={handleLogout}
-                handleDeleteParking={handleDeleteParking}/> 
+                handleDeleteParking={handleDeleteParking}
+              /> 
               : 
               <Navigate to="/parkinglots"/>
             }
@@ -271,17 +272,18 @@ const App = () => {
         <Route
           path="/restrooms"
           element={user ? 
-          <Restrooms
-            handleLogout={handleLogout}
-            user={user} 
-            getLocation={getLocation}
-            lat={lat}
-            lng={lng} 
-            // handleRestrooms={handleRestrooms}
-            restrooms={restrooms}
-          /> 
+            <Restrooms
+              handleLogout={handleLogout}
+              user={user} 
+              getLocation={getLocation}
+              lat={lat}
+              lng={lng} 
+              // handleRestrooms={handleRestrooms}
+              restrooms={restrooms}
+              isFormInvalid={isFormInvalid}
+            /> 
           : 
-          <Navigate to="/" />
+            <Navigate to="/" />
         }
         />
         <Route

@@ -7,8 +7,9 @@ const AddReviewForm = (props) => {
   const [formData, setFormData] = useState({
     text: '',
     rating: '',
-    yelprestaurant: props.restaurant.id ? props.restaurant.id : '',
-    restaurant: props.restaurant._id? props.restaurant._id : '', 
+    yelprestaurant: props.restaurant ? (props.restaurant.id ? props.restaurant.id : '') : '',
+    restaurant: props.restaurant ? (props.restaurant._id ? props.restaurant._id : '') : '',
+    restroomId: props.restroom ? (props.restroom.id ? props.restroom.id : '') : '', 
   })
 
   useEffect(()=> {

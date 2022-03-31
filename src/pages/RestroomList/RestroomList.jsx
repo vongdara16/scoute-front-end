@@ -8,6 +8,7 @@ const Restrooms = (props) => {
       <NavBarTopSearch 
         user={props.user} 
         handleLogout={props.handleLogout}
+        isFormInvalid={props.isFormInvalid}
       />
       <div >
         <div>This feature is only avaiable by agreeing to let us use your location.

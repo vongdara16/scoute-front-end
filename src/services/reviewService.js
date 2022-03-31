@@ -36,8 +36,22 @@ function deleteOne(id) {
   .then(res => res.json())
 }
 
+async function getRestroomReviews(restroomId) {
+  console.log('restroom review service')
+  const finalURL = `${BASE_URL}restrooms/${restroomId}`
+  const result = await axios({
+    url: finalURL,
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  return result.data.reviews
+}
+
 export {
   getRestaurantReviews,
   create,
   deleteOne,
+  getRestroomReviews
 }

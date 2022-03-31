@@ -22,7 +22,7 @@ const RestaurantDetails = (props) => {
     const newReview = await reviewService.create(newReviewData)
     setReviewData([newReview, ...reviewData])
   }
-
+  
   reviewData.forEach(review => {
     if (!review.user) {
       review.user = review.author
