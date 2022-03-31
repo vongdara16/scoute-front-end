@@ -12,9 +12,15 @@ const ParkingDetails = (props) => {
       user={props.user} 
       handleLogout={props.handleLogout}
     />
-      <h1 className="display-1">{parkinglotData.city}</h1>
+    <div id="all-parking-details" >
+      <h1 id="parking-header" 
+      className="display-2">
+        {parkinglotData.city}
+      </h1>
       <img 
-        alt="restaurant-img" style={{width : '100%'}}
+      className="card parking-card"
+        alt="restaurant-img" 
+        style={{width : '100%'}}
         src={
           parkinglotData.photo ? parkinglotData.photo 
           : 
@@ -70,14 +76,14 @@ const ParkingDetails = (props) => {
               <i className="material-icons">
                 garage
               </i>
-              <span>This Parkinglot is Paved</span>
+              <span>This Parkinglot is Covered</span>
             </div>
             :
             <div>
               <i className="material-icons">
                 garage
               </i>
-              <span> This Parkinglot is Not Paved</span>
+              <span> This Parkinglot is Not Covered</span>
             </div>
             }
           </li>
@@ -105,23 +111,6 @@ const ParkingDetails = (props) => {
             }
           </li>
       </ul>
-
-    {/* </div>
-    <div>
-      <li className="list-group-item">
-        <i className="material-icons">light</i>
-        {parkinglotData.lightQuality}
-        <i className="material-icons">attach_money</i>
-        <div>
-        {parkinglotData.isFree ?
-        <p>Free to park</p>
-        :
-        <p>Requires a fee</p>
-        }
-        </div>
-      </li>
-    </div>
-    </ul> */}
     <div>
       {props.user.profile === parkinglotData?.author ?
       <div>
@@ -133,12 +122,12 @@ const ParkingDetails = (props) => {
         >
           Edit Parking lot
         </Link>
-      </div>
-      :
-      <div>you are not the owner</div>
+        </div>
+        :
+        <div>you are not the owner</div>
       }
+      </div>
     </div>
-    {/* </div> */}
     <NavBarBot />
     </>
   );

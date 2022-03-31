@@ -128,7 +128,7 @@ const AddParking = (props) => {
             <label 
             htmlFor="isSafe-input"
             className="form-check-label">
-              isSafe?
+              Safe?
             </label>
             <input 
             type="checkbox"
@@ -145,7 +145,7 @@ const AddParking = (props) => {
             <label 
             htmlFor="isPaved-input"
             className="form-check-label">
-              isSafe?
+              Paved?
             </label>
             <input 
             type="checkbox"
@@ -162,7 +162,7 @@ const AddParking = (props) => {
             <label 
             htmlFor="flexSwitchCheckDefault"
             className="form-check-label">
-              isFree?
+              Free?
             </label>
             <input
             name="isFree" 
@@ -179,7 +179,7 @@ const AddParking = (props) => {
             <label 
             htmlFor="isCovered-input"
             className="form-check-label">
-              isCovered?
+              Covered?
             </label>
             <input 
             name="isCovered"
