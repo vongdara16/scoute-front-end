@@ -68,7 +68,7 @@ const RestaurantDetails = (props) => {
       </div>
       <hr id="solid" />
       <div>
-        <h3>Reviews will be generated here!</h3>
+        <h4>Checkout These Awesome Reviews!</h4>
       </div>
       <div>
         <AddReviewForm handleAddReview={handleAddReview} restaurant={restaurantData}/>
@@ -87,9 +87,9 @@ const RestaurantDetails = (props) => {
                 </button>
               </div>
             :
-              <h2>this no work</h2>
+              <></>
             }
-            <p>{review.user.name ? review.user.name : 'booty wallace'}</p>
+            <p>{review.user.name ? review.user.name : 'Scoute User'}</p>
             <img 
               src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
               alt="user-pic" 
