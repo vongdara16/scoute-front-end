@@ -1,0 +1,14 @@
+.input-group {
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+#review-form label {
+  position: relative;
+  bottom: 8px;
+}
+
+#review-form .input-group-text {
+  position: relative;
+  bottom: 0;
+} 
