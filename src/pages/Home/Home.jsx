@@ -6,7 +6,10 @@ const Home = (props) => {
 
   return (  
     <>
-      <NavBarTop user={props.user} handleLogout={props.handleLogout} />
+      <NavBarTop 
+        user={props.user} 
+        handleLogout={props.handleLogout}  
+      />
       <div className="card" id="home-card">
         <Link to="/restrooms">
           <img 

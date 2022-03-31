@@ -10,7 +10,6 @@ const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFor
           <i id='top-icon' className='material-icons'>person</i>
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-          {/* <li><Link to='' className="dropdown-item">{user.name}</Link></li> */}
           <li><Link to='' className="dropdown-item">Edit Profile</Link></li>
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
@@ -33,18 +32,12 @@ const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFor
             <button 
               className="btn btn-outline-success" 
               type="submit"
-              // disabled={isFormInvalid()}
+              disabled={isFormInvalid()}
             >
               Search
             </button>
           </form>
         </div>
-        {/* <ul>
-          <li>Welcome, {user.name}</li>
-          <li><Link to="/profiles">Profiles</Link></li>
-          <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-          <li><Link to="/changePassword">Change Password</Link></li>
-        </ul> */}
       </nav>
     </>
   )
