@@ -39,7 +39,7 @@ const RestaurantDetails = (props) => {
       return <img src={"public/yelpstars/small_1.png"} alt='review'/>
     }
   }
-console.log(restaurantData)
+
   return (  
     <>
       <NavBarTop 
@@ -110,6 +110,9 @@ console.log(restaurantData)
               }
           </div>
         )}
+        <a href={restaurantData.url} target='_blank' rel="noreferrer">
+          <img id='yelp-logo' src="/yelplogo/yelp_logo.png" alt="yelp-logo" />
+        </ a>
       </div>
         :
         <h6>No reviews yet</h6>

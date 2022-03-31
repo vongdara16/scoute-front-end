@@ -44,3 +44,10 @@ div#details-price-distance {
   justify-content: space-between;
   align-items: center;
 }
+
+#yelp-logo {
+  height: 3.5vh;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+}
