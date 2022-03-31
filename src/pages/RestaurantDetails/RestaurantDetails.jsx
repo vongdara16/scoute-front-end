@@ -14,8 +14,6 @@ const RestaurantDetails = (props) => {
 
   useEffect(() => {
     const restaurantId = location.state.restaurant.id
-    console.log(restaurantId)
-    console.log(location.state.restaurant)
     reviewService.getRestaurantReviews(restaurantId ? restaurantId : location.state.restaurant._id)
     .then(review => setReviewData(review) )
   }, [])
@@ -25,7 +23,6 @@ const RestaurantDetails = (props) => {
     setReviewData([newReview, ...reviewData])
   }
 
-  console.log(reviewData)
   reviewData.forEach(review => {
     if (!review.user) {
       review.user = review.author
@@ -71,7 +68,7 @@ const RestaurantDetails = (props) => {
       </div>
       <hr id="solid" />
       <div>
-        <h3>Reviews will be generated here!</h3>
+        <h4>Checkout These Awesome Reviews!</h4>
       </div>
       <div>
         <AddReviewForm handleAddReview={handleAddReview} restaurant={restaurantData}/>
@@ -90,9 +87,9 @@ const RestaurantDetails = (props) => {
                 </button>
               </div>
             :
-              <h2>this no work</h2>
+              <></>
             }
-            <p>{review.user.name ? review.user.name : 'booty wallace'}</p>
+            <p>{review.user.name ? review.user.name : 'Scoute User'}</p>
             <img 
               src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
               alt="user-pic" 
