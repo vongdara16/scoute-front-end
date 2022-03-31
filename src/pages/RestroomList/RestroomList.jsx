@@ -8,6 +8,8 @@ const Restrooms = (props) => {
       <NavBarTop 
         user={props.user} 
         handleLogout={props.handleLogout}
+        getLocation={props.getLocation}
+        page={props.page}
       />
       <div >
         <div>This feature is only avaiable by agreeing to let us use your location.</div>

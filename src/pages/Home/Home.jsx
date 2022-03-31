@@ -10,6 +10,7 @@ const Home = (props) => {
         user={props.user} 
         handleLogout={props.handleLogout}  
         getLocation={props.getLocation}
+        page={props.page}
       />
       <div className="card" id="home-card">
         <Link to="/restrooms">
