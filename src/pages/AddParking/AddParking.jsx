@@ -55,13 +55,17 @@ const AddParking = (props) => {
         handleLogout={props.handleLogout}
       />
       <div id="whole-form" >
-        <div>add parking</div>
+      <h1 id="parking-header" 
+      className="display-2">
+        Add a Parkinglot
+      </h1>
         <form 
           autoComplete="off" 
           ref={formElement} 
           onSubmit={handleSubmit}
+          className='container flex-sm-column'
         >
-        <div className="form-group mb-3">
+        <div className="input-group input-group-sm mb-1">
           <label        
             htmlFor="photo-upload" 
             className="form-label" 
@@ -76,49 +80,49 @@ const AddParking = (props) => {
               onChange={handleChangePhoto}
             />
         </div>
-          <div className="form-group mb-3" >
-            <label 
-            htmlFor="street-input" 
-            className="form-label">
-              Street
-            </label>
+        <div className='input-group input-group-sm mb-1'>
+        <label htmlFor="street-input" className='input-group-text' id='inputGroup-sizing-default'>
+        <i className='material-icons'>signpost</i>
+        </label>
             <input 
             type="text"
+            aria-label='Sizing example input'
             className="form-control"
             id="street-input"
             name="street"
+            placeholder="Street"
             value={formData.street}
             onChange={handleChange}
             required
           />
           </div>
-          <div className="form-group mb-3">
-            <label 
-            htmlFor="city-input" 
-            className="form-label">
-              City
-            </label>
+          <div className='input-group input-group-sm mb-1'>
+        <label htmlFor="city-input" className='input-group-text' id='inputGroup-sizing-default'>
+        <i className='material-icons'>location_city</i>
+        </label>
             <input
             type="text"
+            aria-label='Sizing example input'
             className="form-control"
             id="city-input"
             name="city"
+            placeholder="City"
             value={formData.city}
             onChange={handleChange}
             required
             />
           </div>
-          <div className="form-group mb-3">
-            <label 
-            htmlFor="state-input"
-            className="form-label">
-              State
-            </label>
+          <div className='input-group input-group-sm mb-1'>
+        <label htmlFor="state-input" className='input-group-text' id='inputGroup-sizing-default'>
+        <i className='material-icons'>place</i>
+        </label>
             <input 
             type="text"
             className="form-control"
+            aria-label='Sizing example input'
             id="state-input"
             name="state"
+            placeholder="State"
             value={formData.state}
             onChange={handleChange}
             required
@@ -175,7 +179,7 @@ const AddParking = (props) => {
             onChange={handleToggle}
             />
           </div>
-          <div className="form-check form-switch">
+          <div className="form-check form-switch" id="isCovered">
             <label 
             htmlFor="isCovered-input"
             className="form-check-label">
@@ -192,10 +196,11 @@ const AddParking = (props) => {
             onChange={handleToggle}
             />
           </div>
+          <hr id="solid" />
           <label 
           htmlFor="lighQuality-input"
           className="form-label">
-            Light Quality
+            Light Quality (1-5)
           </label>
           <input
           type="range"
@@ -209,10 +214,11 @@ const AddParking = (props) => {
           onChange={handleChange}
           required
           />
+          <hr id="solid" />
           <label 
           htmlFor="cleanliness-input"
           className="form-label">
-            Cleanliness
+            Cleanliness (1-5)
           </label>
           <input
           type="range"
