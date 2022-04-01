@@ -15,6 +15,7 @@ const NavBarTop = ({ user, handleLogout, getLocation, page, lat, spinner }) => {
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
       </div>
+      <img id='scoute-nav-title' src="https://i.imgur.com/6VzsVyU.png" alt="SCOUTE" />
       {page === 'buttonEnabled' ? 
         <button id='geo-btn' onClick={(e) => getLocation(e)}>
           {!spinner ? 
