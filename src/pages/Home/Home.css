@@ -83,3 +83,9 @@ button#geo-btn {
 #spinner {
   color: #1c658c;
 }
+
+#scoute-nav-title {
+  height: 30px;
+  position: fixed;
+  right: 35%;
+}

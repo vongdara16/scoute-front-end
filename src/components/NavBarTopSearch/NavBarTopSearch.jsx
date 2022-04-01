@@ -13,30 +13,31 @@ const NavBarTopSearch = ({ user, handleLogout, handleChange, handleSubmit, isFor
           <li><Link to='' onClick={handleLogout} className="dropdown-item">Logout</Link></li>
         </ul>
       </div>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i className='material-icons top-search-icon '>search</i>
-        </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex" onSubmit={handleSubmit}>
-            <input 
-              className="form-control me-2" 
-              type="search" 
-              aria-label="Search"
-              placeholder="Enter Location" 
-              id='search'
-              value={search}
-              name='search'
-              onChange={handleChange}
-            />
-            <button 
-              className="btn btn-outline-success" 
-              type="submit"
-              disabled={isFormInvalid()}
-            >
-              Search
-            </button>
-          </form>
-        </div>
+      <img id='scoute-nav-title' src="https://i.imgur.com/6VzsVyU.png" alt="SCOUTE" />
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i className='material-icons top-search-icon '>search</i>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <form className="d-flex" onSubmit={handleSubmit}>
+          <input 
+            className="form-control me-2" 
+            type="search" 
+            aria-label="Search"
+            placeholder="Enter Location" 
+            id='search'
+            value={search}
+            name='search'
+            onChange={handleChange}
+          />
+          <button 
+            className="btn btn-outline-success" 
+            type="submit"
+            disabled={isFormInvalid()}
+          >
+            Search
+          </button>
+        </form>
+      </div>
       </nav>
     </>
   )
