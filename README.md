@@ -1,6 +1,6 @@
 # Scoute
 In this tourism application you will be able to find amazing restaurants, clean restrooms, and safe parking no matter where you are! Scoute aims to make traveling a safer and more enjoyable experience.
->Parking lots is a user input only feature, so the longer scoute is active the more parking lots will be available.
+>Parking lots is a user-input only feature at this time, so the more scoute users add to our app, the more parking lots will be available, providing a better user experience for all.
 
 ## Click this [link](https://scoute.herokuapp.com/) to get started!
 ---
