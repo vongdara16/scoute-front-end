@@ -3,7 +3,6 @@ import './RestroomCard.css'
 
 const RestroomCard = ({restroom, lat, lng}) => {
   const restroomId = restroom.id
-  console.log(restroom)
   
   return ( 
     <>

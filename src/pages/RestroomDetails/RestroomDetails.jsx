@@ -124,7 +124,7 @@ const RestroomDetails = (props) => {
           <div key={idx} className='user-review' id="user-review-rr">
             <div id="name-pic-rating">
               <img id='user-pic'
-                src={review.user.image_url ? `${review.user.image_url}` : "https://picsum.photos/id/312/640/480" }
+                src={review.user.image_url ? `${review.user.image_url}` : "https://i.imgur.com/ax6TLTe.png" }
                 alt="user-pic" 
                 style={{ height: '50px' }}
                 />
