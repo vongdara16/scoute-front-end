@@ -17,7 +17,7 @@ In this tourism application you will be able to find amazing restaurants, clean 
 <img src="https://i.imgur.com/5zSYxiC.jpg" height="200px">
 
 ### Fabian Silva
-- [![github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/vongdara16)
+- [![github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/silvafabian)
 - API Manager
 - Database Administrator
 - Fullstack Engineer
@@ -25,7 +25,7 @@ In this tourism application you will be able to find amazing restaurants, clean 
 <img src="https://i.imgur.com/fmF5J3u.jpg" height="200px"> 
 
 ### Justin Vongdara
-- [![github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/silvafabian)
+- [![github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/vongdara16)
 - Github manager/Version controller
 - SCRUM Director
 - Fullstack Engineer
