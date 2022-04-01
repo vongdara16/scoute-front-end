@@ -6,8 +6,7 @@ import './ParkingDetails.css'
 const ParkingDetails = (props) => {
   const location = useLocation()
   const [parkinglotData, setParkinglotData] = useState(location.state.parkinglots)
-  console.log(parkinglotData.author)
-  console.log(props.user)
+  
   return ( 
     <>
     <NavBarTop 
